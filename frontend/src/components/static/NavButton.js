@@ -7,7 +7,7 @@ class NavButton extends Component{
     }
     render(){
         return(
-            <button className="{this.name}">{this.name}</button>
+            <button className="{this.name} nav-button">{this.name}</button>
         )
     }
 }
