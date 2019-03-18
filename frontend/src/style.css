@@ -14,6 +14,10 @@ footer p {
   text-align: center;
 }
 
+nav select::-ms-expand {
+  display: none;
+}
+
 #main {
   border: 1px solid blue;
   display: -ms-grid;
