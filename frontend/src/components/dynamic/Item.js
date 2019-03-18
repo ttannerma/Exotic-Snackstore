@@ -15,9 +15,9 @@ class Item extends Component {
       let item =
         <div className="item">
           <img src="https://fpoimg.com/300x300?text=Advertisement" alt="Product"/>
-          <h3>Item name</h3>
+          <h2>Item name</h2>
           <p>This is product info</p>
-          <h5>9,95€</h5>
+          <h2>9,95€</h2>
         </div>
         items.push(item)
     }
