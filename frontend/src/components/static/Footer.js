@@ -4,7 +4,7 @@ class Footer extends Component{
     render(){
         return(
             <footer>
-                <p><i class="fas fa-copyright"></i> Hienonen & Tannerma, 2019</p>
+                <p><i className="fas fa-copyright"></i> Hienonen & Tannerma, 2019</p>
             </footer>
         )
     }
