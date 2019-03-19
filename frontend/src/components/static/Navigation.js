@@ -12,7 +12,7 @@ class Navigation extends Component{
   }
   OpenDropDown(e){
     console.log(e.target.innerHTML);
-    //document.querySelector('.dropdown-content').style.visibility = 'visible';
+    // document.querySelector('.dropdown-content').style.visibility = 'visible';
   }
   render(){
     return(

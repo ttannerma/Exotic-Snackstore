@@ -1,5 +1,6 @@
 $itemInfoPadding: 10px;
 $itemImgWidth: 300px;
+$itemInfoMargin: 10px;
 .container{
     margin: 0 auto;
     border: 1px solid red;
@@ -36,14 +37,17 @@ footer{
     font-family: 'Montserrat';
     .item {
         // border: 1px solid gray;
-        padding: 5px;
+        padding: $itemInfoPadding;
         display: flex;
         flex-direction: column;
         img {
             max-width: $itemImgWidth;
         }
-        p, h2{
-            margin-left: $itemInfoPadding;
+        p, h2 {
+            margin: $itemInfoMargin;
+            span {
+                float:right;
+            }
         }
     }
 }
