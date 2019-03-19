@@ -9,12 +9,30 @@ header h1 {
   font-family: 'Concert One', sans-serif;
 }
 
+nav {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+nav .nav-item {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
 nav .dropdown .dropbutton {
   text-transform: capitalize;
 }
 
-nav .dropdown .dropdown-content {
-  visibility: hidden;
+nav .dropdown .hidden {
+  display: none;
+}
+
+nav .dropdown .nonHidden {
+  visibility: visible;
 }
 
 footer p {

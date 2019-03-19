@@ -13,12 +13,25 @@ header{
     }
 }
 nav{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    .nav-item{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
     .dropdown{
         .dropbutton{
             text-transform: capitalize;
         }
-        .dropdown-content{
-            visibility: hidden;
+        .hidden{
+            display: none;
+        }
+        .nonHidden{
+            visibility: visible; 
         }
     }
 }
