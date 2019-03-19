@@ -17,7 +17,7 @@ class Item extends Component {
           <img src="https://fpoimg.com/300x300?text=Advertisement" alt="Product"/>
           <h2>Item name</h2>
           <p>This is product info</p>
-          <h2>9,95€</h2>
+          <h2>9,95€ <span>Ratings</span></h2>
         </div>
         items.push(item)
     }

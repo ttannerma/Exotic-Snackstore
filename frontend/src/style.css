@@ -33,7 +33,7 @@ footer p {
 }
 
 #main .item {
-  padding: 5px;
+  padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -48,6 +48,10 @@ footer p {
 }
 
 #main .item p, #main .item h2 {
-  margin-left: 10px;
+  margin: 10px;
+}
+
+#main .item p span, #main .item h2 span {
+  float: right;
 }
 /*# sourceMappingURL=style.css.map */
