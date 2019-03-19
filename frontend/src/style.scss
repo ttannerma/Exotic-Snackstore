@@ -11,7 +11,16 @@ header{
         font-family: 'Concert One', sans-serif;
     }
 }
-
+nav{
+    .dropdown{
+        .dropbutton{
+            text-transform: capitalize;
+        }
+        .dropdown-content{
+            visibility: hidden;
+        }
+    }
+}
 footer{
     p{
         font-size: 1.5rem;

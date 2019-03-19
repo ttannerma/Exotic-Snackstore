@@ -10,8 +10,9 @@ class DropDownMenu extends Component{
     this.CreateDropDown = this.CreateDropDown.bind(this);
   }
   CreateDropDown(){
+    let index = 0;
     let renderItems = this.state.items.map((x) =>
-    <a key={x.toString()}>
+    <a href={x.toLowerCase()} key={index += 1}>
       {x}
     </a>
   );
@@ -20,8 +21,8 @@ class DropDownMenu extends Component{
   render(){
     return (
       <div className="dropdown">
-          <button click="myFunction()" className="dropbtn">Dropdown</button>
-          <div id="myDropdown" className="dropdown-content">
+          <button onClick={this.props.function} className="dropbutton">{this.state.name}</button>
+          <div className="dropdown-content" id={this.state.name}>
             <this.CreateDropDown/>
           </div>
         </div>

@@ -10,13 +10,17 @@ class Navigation extends Component{
     let categories = ['Salty', 'Sweet', 'Drinks', 'Other']; 
     this.state = {countries, categories};
   }
-  myFunction(){
-    document.getElementById("myDropdown").classList.toggle("show"); 
+  OpenDropDown(e){
+    console.log(e.target.innerHTML);
+    //document.querySelector('.dropdown-content').style.visibility = 'visible';
   }
   render(){
     return(
       <nav>
-        <DropDownMenu name="countries" items={this.state.countries}/>
+        <DropDownMenu name="countries" className="countries" 
+        items={this.state.countries} function={this.OpenDropDown}/>
+        <DropDownMenu name="categories" className="categories" 
+        items={this.state.categories} function={this.OpenDropDown}/>
         <div className="search">
           <SearchBar/>
           <NavButton name="Search"/>
