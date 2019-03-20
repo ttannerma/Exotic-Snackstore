@@ -10,29 +10,61 @@ header h1 {
 }
 
 nav {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+  font-family: 'Montserrat';
+}
+
+nav .dropdown :hover {
+  background-color: grey;
 }
 
 nav .nav-item {
+  position: relative;
+  display: inline-block;
+}
+
+nav .nav-item .dropdown-content {
+  position: absolute;
+  z-index: 1;
+}
+
+nav .nav-item .dropdown-content :hover {
+  background-color: grey;
+}
+
+nav .nav-item .dropdown-content a {
+  padding: 0.5rem 1rem;
   display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
+  background: white;
   text-decoration: none;
 }
 
-nav .dropdown .dropbutton {
+nav .nav-item .dropbutton {
+  outline: inherit;
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
+  background: white;
+  border: 1.5px solid grey;
+  padding: 0.5rem 1rem;
   text-transform: capitalize;
 }
 
-nav .dropdown .hidden {
+nav .nav-item .dropbutton :hover {
+  background-color: grey;
+}
+
+nav .nav-item .hidden {
   display: none;
 }
 
-nav .dropdown .nonHidden {
+nav .nav-item .nonHidden {
   visibility: visible;
+}
+
+nav .search .nav-button, nav .search input {
+  outline: inherit;
+  padding: 0.5rem 1rem;
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
 }
 
 footer p {
