@@ -6,6 +6,7 @@ class DropDownMenu extends Component{
     this.state = {
       name: this.props.name
       , items: this.props.items
+      , class: this.props.className
     }
     this.CreateDropDown = this.CreateDropDown.bind(this);
   }
@@ -20,9 +21,9 @@ class DropDownMenu extends Component{
   }
   render(){
     return (
-      <div className="dropdown">
+      <div className="dropdown nav-item">
           <button onClick={this.props.function} className="dropbutton">{this.state.name}</button>
-          <div className="dropdown-content" id={this.state.name}>
+          <div className={"dropdown-content"+" hidden "+this.state.class} id={this.state.name}>
             <this.CreateDropDown/>
           </div>
         </div>
