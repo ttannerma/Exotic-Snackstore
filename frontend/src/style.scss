@@ -13,25 +13,54 @@ header{
     }
 }
 nav{
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    .nav-item{
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
+    font-family: 'Montserrat';
     .dropdown{
+        :hover{
+            background-color: grey;
+        }
+    }
+    .nav-item{
+        position: relative;
+        display: inline-block;
+        .dropdown-content{
+            position: absolute;
+            z-index: 1;
+            :hover{
+                background-color: grey;
+            }
+            a{
+                padding: 0.5rem 1rem;
+                display: block;
+                background: white;
+                text-decoration: none;
+            }
+        }
         .dropbutton{
+            outline: inherit;
+            font-family: 'Montserrat';
+            font-size: 1.5rem;
+            background: white;
+            border: 1.5px solid grey;
+            padding: 0.5rem 1rem;
             text-transform: capitalize;
+            
+            :hover{
+                background-color: grey;
+            }
         }
         .hidden{
             display: none;
         }
         .nonHidden{
             visibility: visible; 
+        }
+    }
+    .search{
+        .nav-button, input{
+            outline: inherit;
+            padding: 0.5rem 1rem;
+            font-family: 'Montserrat';
+            font-size: 1.5rem;
         }
     }
 }

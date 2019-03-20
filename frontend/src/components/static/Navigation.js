@@ -10,6 +10,20 @@ class Navigation extends Component{
     let categories = ['Salty', 'Sweet', 'Drinks', 'Other']; 
     this.state = {countries, categories};
   }
+  componentDidMount(){
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbutton')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains(!'hidden')) {
+            openDropdown.classList.add('hidden');
+          }
+        }
+      }
+    }
+  }
   OpenDropDown(e){
     let target = e.target.innerHTML;
     let toggleTarget;
