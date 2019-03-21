@@ -10,18 +10,38 @@ class Navigation extends Component{
     let categories = ['Salty', 'Sweet', 'Drinks', 'Other']; 
     this.state = {countries, categories};
   }
+  componentDidMount(){
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbutton')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains(!'hidden')) {
+            openDropdown.classList.add('hidden');
+          }
+        }
+      }
+    }
+  }
   OpenDropDown(e){
-    console.log(e.target.innerHTML);
-    // document.querySelector('.dropdown-content').style.visibility = 'visible';
+    let target = e.target.innerHTML;
+    let toggleTarget;
+    if(target === 'countries'){
+      toggleTarget = document.querySelector('.countriesDD');
+    }else if(target === 'categories'){
+      toggleTarget = document.querySelector('.categoriesDD');
+    }
+    toggleTarget.classList.toggle('hidden');
   }
   render(){
     return(
       <nav>
-        <DropDownMenu name="countries" className="countries" 
+        <DropDownMenu name="countries" className="countriesDD" 
         items={this.state.countries} function={this.OpenDropDown}/>
-        <DropDownMenu name="categories" className="categories" 
+        <DropDownMenu name="categories" className="categoriesDD" 
         items={this.state.categories} function={this.OpenDropDown}/>
-        <div className="search">
+        <div className="search nav-item">
           <SearchBar/>
           <NavButton name="Search"/>
         </div>
