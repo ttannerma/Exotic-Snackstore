@@ -9,6 +9,7 @@ const server = app.listen(8080, () => {
 });
 
 app.get('/products', function (req, res) {
+    res.header('Access-Control-Allow-Origin', '*');
     crudrepo.getProducts((results) => {
         res.send(results);
     });
