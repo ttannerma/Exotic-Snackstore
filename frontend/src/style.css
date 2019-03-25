@@ -108,4 +108,14 @@ footer p {
 #main .item p span, #main .item h2 span {
   float: right;
 }
+
+#main .item .itemAddForm {
+  float: right;
+}
+
+#main .item .itemAddForm input[type=number]::-webkit-inner-spin-button,
+#main .item .itemAddForm input[type=number]::-webkit-outer-spin-button {
+  font-size: 14px;
+  height: auto;
+}
 /*# sourceMappingURL=style.css.map */
