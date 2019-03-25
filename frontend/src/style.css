@@ -17,6 +17,10 @@ nav .dropdown :hover {
   background-color: grey;
 }
 
+nav .active {
+  background: grey;
+}
+
 nav .nav-item {
   position: relative;
   display: inline-block;
