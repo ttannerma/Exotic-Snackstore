@@ -95,12 +95,11 @@ footer{
             }
         }
         .itemAddForm {
-            float: right;
+            margin-left: auto;
             // Forces the arrows to show on inputs with number type.
             input[type=number]::-webkit-inner-spin-button, 
             input[type=number]::-webkit-outer-spin-button { 
                 font-size: 14px;
-                height:auto;
             }
         }
     }

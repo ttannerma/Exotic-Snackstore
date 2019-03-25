@@ -110,12 +110,11 @@ footer p {
 }
 
 #main .item .itemAddForm {
-  float: right;
+  margin-left: auto;
 }
 
 #main .item .itemAddForm input[type=number]::-webkit-inner-spin-button,
 #main .item .itemAddForm input[type=number]::-webkit-outer-spin-button {
   font-size: 14px;
-  height: auto;
 }
 /*# sourceMappingURL=style.css.map */
