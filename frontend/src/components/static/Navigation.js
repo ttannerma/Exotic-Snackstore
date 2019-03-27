@@ -32,6 +32,7 @@ class Navigation extends Component{
     }else if(target === 'categories'){
       toggleTarget = document.querySelector('.categoriesDD');
     }
+    e.target.classList.toggle('active');
     toggleTarget.classList.toggle('hidden');
   }
   render(){

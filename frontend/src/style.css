@@ -17,6 +17,10 @@ nav .dropdown :hover {
   background-color: grey;
 }
 
+nav .active {
+  background: grey;
+}
+
 nav .nav-item {
   position: relative;
   display: inline-block;
@@ -103,5 +107,14 @@ footer p {
 
 #main .item p span, #main .item h2 span {
   float: right;
+}
+
+#main .item .itemAddForm {
+  margin-left: auto;
+}
+
+#main .item .itemAddForm input[type=number]::-webkit-inner-spin-button,
+#main .item .itemAddForm input[type=number]::-webkit-outer-spin-button {
+  font-size: 14px;
 }
 /*# sourceMappingURL=style.css.map */
