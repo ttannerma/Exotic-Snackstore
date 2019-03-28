@@ -5,6 +5,7 @@ class Header extends Component{
     return(
       <header>
         <h1>Exotic Snackstore</h1>
+        <img src="assets/candy2.jpg" alt=""/>
       </header>
     )
   }
