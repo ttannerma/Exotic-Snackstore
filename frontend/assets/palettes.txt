@@ -1,0 +1,6 @@
+vit: FCF8EE
+hel orange: F8D26C
+mörkt orange: E1A438
+pink: FF0F80
+turqouise: 4CCDAE
+gul: E1A438
