@@ -7,8 +7,15 @@ class CrudRepository {
         this.connection.connect();
     }
     getProducts(callback) {
-        this.connection.query('SELECT * FROM products;', (err, results) => {
-            if (err) throw err;
+        this.connection.query('SELECT * FROM products;', (error, results) => {
+            if (error) throw error;
+            callback(results);
+        });
+    }
+    getProductsBySearchValue(value, callback) {
+        let sql = 'SELECT * FROM products WHERE name LIKE ' + this.connection.escape(value) + ';';
+        this.connection.query(sql, (error, results) => {
+            if (error) throw error;
             callback(results);
         });
     }
