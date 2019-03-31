@@ -8,9 +8,8 @@ class DropDownMenu extends Component{
       , items: this.props.items
       , class: this.props.className
     }
-    this.CreateDropDown = this.CreateDropDown.bind(this);
   }
-  CreateDropDown(){
+  CreateDropDown = () => {
     let index = 0;
     let renderItems = this.state.items.map((x) =>
     <a href={x.toLowerCase()} key={index += 1}>
@@ -23,7 +22,7 @@ class DropDownMenu extends Component{
     return (
       <div className="dropdown nav-item">
           <button onClick={this.props.function} className="dropbutton">{this.state.name}</button>
-          <div className={"dropdown-content" + " hidden "+this.state.class} id={this.state.name}>
+          <div className={"dropdown-content hidden "+this.state.class} id={this.state.name}>
             <this.CreateDropDown/>
           </div>
         </div>

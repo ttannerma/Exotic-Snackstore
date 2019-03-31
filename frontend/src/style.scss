@@ -7,9 +7,15 @@ $itemInfoMargin: 10px;
     width: 90%;
 }
 header{
+    * {
+        display: inline-block;
+    }
     h1{
         font-size: 6rem;
         font-family: 'Concert One', sans-serif;
+    }
+    img {
+        width: 150px;
     }
 }
 nav{

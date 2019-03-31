@@ -10,14 +10,14 @@ class Navigation extends Component{
     let categories = ['Salty', 'Sweet', 'Drinks', 'Other']; 
     this.state = {countries, categories};
   }
-  componentDidMount(){
+  componentDidMount = () => {
     window.onclick = function(event) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
       if (!event.target.matches('.dropbutton')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
         for (i = 0; i < dropdowns.length; i++) {
           var openDropdown = dropdowns[i];
-          if (openDropdown.classList.contains(!'hidden')) {
+          if (!openDropdown.classList.contains('hidden')) {
             openDropdown.classList.add('hidden');
           }
         }
