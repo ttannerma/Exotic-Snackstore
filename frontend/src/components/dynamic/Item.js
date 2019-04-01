@@ -5,11 +5,7 @@ class Item extends Component {
 
   constructor() {
     super()
-    this.createItem = this.createItem.bind(this)
     this.state = {products: []}
-    this.setProductData = this.setProductData.bind(this)
-    this.saveItem = this.saveItem.bind(this)
-    this.handleChange = this.handleChange.bind(this)
   }
 
   // Use fetch API to get data on products.
@@ -17,11 +13,11 @@ class Item extends Component {
     fetch('http://localhost:8080/products/').then(r => r.json()).then(this.setProductData)
   }
   // Assign data value to this.state
-  setProductData(results) {
+  setProductData = (results) => {
     this.setState({products: results})
   }
   // Creates item elements. Assigns them with values gathered from database.
-  createItem() {
+  createItem = () => {
     let items = []
 
     // Fetch items from database and create elements for them.
@@ -59,13 +55,13 @@ class Item extends Component {
   }
 
   // Handles the event when incrementing product quantity within item container.
-  handleChange(event) {
+  handleChange = (event) => {
     this.setState({
         value: Number(event.target.value)
     })
   }
   // Contains item data which are passed to shopping cart.
-  saveItem(productId){
+  saveItem = (productId) => {
       console.log('product id: ' + productId,'amount to add or decrease: '+  this.state.value)
   }
 
