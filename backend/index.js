@@ -24,6 +24,26 @@ app.get('/products/:value', (req, res) => {
         res.send(results);
     });
 });
+
+//get-function to fetch all products by a country
+app.get('/products/country/:value', (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  const value = req.params.value;
+  console.log(`Getting /products/country/${value}`);
+  crudrepo.getProductsByCountry(value, (results) => {
+    res.send(results);
+  })
+})
+
+//get-function to fetch all products by a category
+app.get('/products/category/:value', (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  const value = req.params.value;
+  console.log(`Getting /products/category/${value}`);
+  crudrepo.getProductsByCategory(value, (results) => {
+    res.send(results);
+  })
+})
 /*
 app.get('/products/:id([0-9]+)', (req, res) => {
   crudrepo.findById(req.params.id, (results) => {
