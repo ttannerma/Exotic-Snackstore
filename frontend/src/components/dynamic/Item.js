@@ -10,7 +10,8 @@ class Item extends Component {
 
   // Use fetch API to get data on products.
   componentDidMount() {
-    fetch('http://localhost:8080/products/').then(r => r.json()).then(this.setProductData)
+    //Nippe was here
+    //.then(this.setProductData)
   }
   // Assign data value to this.state
   setProductData = (results) => {
