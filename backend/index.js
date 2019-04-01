@@ -8,9 +8,19 @@ const server = app.listen(8080, () => {
     console.log(`Listening on port ${server.address().port}`);
 });
 
-app.get('/products', function (req, res) {
+app.get('/products', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
+    console.log('Getting /products')
     crudrepo.getProducts((results) => {
+        res.send(results);
+    });
+});
+
+app.get('/products/:value', (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    let value = req.params.value;
+    console.log(`Getting /products/${value}`);
+    crudrepo.getProductsBySearchValue(req.params.value, (results) => {
         res.send(results);
     });
 });

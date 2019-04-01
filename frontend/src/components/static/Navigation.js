@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import NavButton from './NavButton';
 import SearchBar from './SearchBar';
 import DropDownMenu from './DropDownMenu';
 
@@ -44,7 +43,6 @@ class Navigation extends Component{
         items={this.state.categories} function={this.OpenDropDown}/>
         <div className="search nav-item">
           <SearchBar/>
-          <NavButton name="Search"/>
         </div>
       </nav>
     )
