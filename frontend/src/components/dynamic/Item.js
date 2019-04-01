@@ -10,8 +10,8 @@ class Item extends Component {
 
   // Use fetch API to get data on products.
   componentDidMount() {
-    //Nippe was here
-    //.then(this.setProductData)
+    fetch('http://localhost:8080/products/').then(r => r.json())
+    .then(this.setProductData);
   }
   // Assign data value to this.state
   setProductData = (results) => {
@@ -24,12 +24,7 @@ class Item extends Component {
     // Fetch items from database and create elements for them.
     for (let i = 0; i < this.state.products.length; i++) {
       
-      const ratings = this.state.products[i].ratings
-      let id = this.state.products[i].id
-      let name = this.state.products[i].name
-      let description = this.state.products[i].description
-      let price = this.state.products[i].price
-
+      let { ratings, id, name, description, price } = this.state.products[i];
       // Create item elements
       let item =
         <div className="item">
