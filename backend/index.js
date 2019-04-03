@@ -37,6 +37,7 @@ app.get('/products/country/:value', (req, res) => {
 
 //get-function to fetch all products by a category
 app.get('/products/category/:value', (req, res) => {
+    // curl http://localhost:8080/products/category/salty
   res.header('Access-Control-Allow-Origin', '*');
   const value = req.params.value;
   console.log(`Getting /products/category/${value}`);
@@ -44,6 +45,7 @@ app.get('/products/category/:value', (req, res) => {
     res.send(results);
   })
 })
+
 /*
 app.get('/products/:id([0-9]+)', (req, res) => {
   crudrepo.findById(req.params.id, (results) => {
