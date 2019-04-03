@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
+import { Consumer } from '../../context';
 
 class SearchBar extends Component{
     constructor() {
-        super()
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.logData = this.logData.bind(this)
+        super();
         this.state = {
             searchValue: ''
         }
     }
-    handleChange(event) {
+    handleChange = (event) => {
         this.setState({searchValue: event.target.value})
     }
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         let searchVal = this.state.searchValue
         console.log(searchVal)
         event.preventDefault()
@@ -25,7 +23,7 @@ class SearchBar extends Component{
                 console.log('no products found.')
             })
     }
-    logData(results) {
+    logData = (results) => {
         console.log(results)
     }
   render(){
