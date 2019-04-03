@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class DropDownMenu extends Component{
   constructor(props){
@@ -12,9 +13,9 @@ class DropDownMenu extends Component{
   CreateDropDown = () => {
     let index = 0;
     let renderItems = this.state.items.map((x) =>
-    <a href={x.toLowerCase()} key={index += 1}>
+    <Link to={x.toLowerCase()} key={index += 1}>
       {x}
-    </a>
+    </Link>
   );
     return renderItems;
   }
