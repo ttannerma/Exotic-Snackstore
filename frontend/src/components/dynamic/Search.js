@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
 export default class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.value = this.props.value;
+  }
   /*
   onInit = () => {
     
@@ -14,7 +18,7 @@ export default class Search extends Component {
   render() {
     return (
       <div>
-        <h1>Search Results: </h1>
+        <h1>Search Results with {this.value} </h1>
       </div>
     )
   }

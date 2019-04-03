@@ -5,14 +5,19 @@ const Context = React.createContext();
 export class Provider extends Component {
   constructor() {
     super();
-  }
-  fetch = () => {
-    //
-    console.log('Fetch');
+    this.state = {
+      searchValue: ''
+      , toggleSearchValue: this.toggleSearchValue
+      }
+    }
+  
+  toggleSearchValue = (value) => {
+    console.log(this.state.searchValue);
+    this.setState({searchValue: value});
   }
   render() {
     return (
-      <Context.Provider value={this.fetch}>
+      <Context.Provider value={this.state}>
         {this.props.children}
       </Context.Provider>
     )
