@@ -79,6 +79,25 @@ nav .search .nav-button, nav .search input {
   font-size: 1.5rem;
 }
 
+nav .search input {
+  border: 1.5px solid grey;
+}
+
+.navbutton {
+  outline: inherit;
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
+  background: white;
+  border: 1.5px solid grey;
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.navbutton :hover {
+  background-color: grey;
+}
+
 footer p {
   font-size: 1.5rem;
   text-align: center;

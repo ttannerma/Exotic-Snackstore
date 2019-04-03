@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class NavButton extends Component{
   constructor(props){
@@ -7,7 +8,9 @@ class NavButton extends Component{
   }
   render(){
     return(
-      <button className="{this.name} nav-button">{this.name}</button>
+      <Link to={this.name.toLowerCase()} className="navbutton nav-item">
+      {this.name}
+    </Link>
     )
   }
 }

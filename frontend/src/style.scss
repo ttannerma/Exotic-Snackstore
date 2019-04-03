@@ -44,7 +44,7 @@ nav{
                 text-decoration: none;
             }
         }
-        .dropbutton{
+        .dropbutton {
             outline: inherit;
             font-family: 'Montserrat';
             font-size: 1.5rem;
@@ -71,6 +71,23 @@ nav{
             font-family: 'Montserrat';
             font-size: 1.5rem;
         }
+        input {
+            border: 1.5px solid grey;
+        }
+    }
+}
+.navbutton{
+    outline: inherit;
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+    background: white;
+    border: 1.5px solid grey;
+    padding: 0.5rem 1rem;
+    text-transform: capitalize;
+    text-decoration: none;
+    
+    :hover{
+        background-color: grey;
     }
 }
 footer{
