@@ -1,24 +1,23 @@
 import React, { Component } from 'react'
+import Body from './Body'
+import { Provider } from '../../context';
 
 export default class Search extends Component {
   constructor(props) {
     super(props);
-    this.value = this.props.value;
+    this.searchVal = this.props.value;
+    // props.location.pathname gets url path.
+    // props.match.params.someId gets params from url.
   }
-  /*
-  onInit = () => {
-    
-    fetch(`http://localhost:8080/products/${}`)
-            .then(r => r.json())
-            .then(this.logData)
-            .catch(() => {
-                console.log('no products found.')
-        })
-  }*/
+
   render() {
+    this.searchVal = this.props.match.params.searchVal
     return (
       <div>
-        <h1>Search Results with {this.value} </h1>
+        <h1>Search Results with {this.searchVal} </h1>
+        <Provider value={this.searchVal}>
+            <Body />
+        </Provider>
       </div>
     )
   }

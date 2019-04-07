@@ -7,8 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import About from './components/static/About';
 import Contact from './components/static/Contact';
 import Search from './components/dynamic/Search';
-import { Provider } from './context';
-import { Consumer } from './context';
+import { Provider, Consumer } from './context';
 
 class Main extends Component {
   render() {
@@ -26,7 +25,7 @@ class Main extends Component {
                 <Consumer>
                   {value => {
                     return (
-                      <Route exact path="/search" value={value} component={Search}></Route>
+                      <Route exact path="/search/:searchVal" component={Search} value={value} ></Route>
                     )
                   }}
                 </Consumer>

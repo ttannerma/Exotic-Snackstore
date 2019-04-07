@@ -11,15 +11,12 @@ class SearchBar extends Component{
   handleChange = (event) => {
       this.props.toggleSearchValue(event.target.value);
   }
-  logData = (results) => {
-      console.log(results)
-  }
   render(){
     return (
       <div>
         <input type="text" onChange={this.handleChange} placeholder="Search..."></input>
         <Link name="Search" className="navbutton" 
-        to={'/search/'+this.props.searchValue}>Search</Link>
+        to={`/search/${this.props.searchValue}`}>Search</Link>
       </div>
     )
   }
