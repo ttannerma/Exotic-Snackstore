@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import About from './components/static/About';
 import Contact from './components/static/Contact';
 import Search from './components/dynamic/Search';
+import  NotFound  from './components/dynamic/NotFound';
 import { Provider } from './context';
 import { Consumer } from './context';
 
@@ -20,7 +21,7 @@ class Main extends Component {
             <Navigation/>
             <div className="content-shell">
               <Switch>
-                <Route exact path ="/" component={Body}></Route>
+                <Route exact path ="/home" component={Body}></Route>
                 <Route exact path="/about" component={About}></Route>
                 <Route exact path="/contact" component={Contact}></Route>
                 <Consumer>
@@ -30,6 +31,7 @@ class Main extends Component {
                     )
                   }}
                 </Consumer>
+                <Route path='*' exact={true} component={NotFound}/>
               </Switch>
             </div>
             <Footer/>

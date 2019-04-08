@@ -39,6 +39,7 @@ class Navigation extends Component{
   render(){
     return(
       <nav>
+        <NavButton name="Home"/>
         <DropDownMenu name="countries" className="countriesDD" 
         items={this.state.countries} function={this.OpenDropDown}/>
         <DropDownMenu name="categories" className="categoriesDD" 
