@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Consumer } from '../../context';
 
 class Items extends Component {
 
@@ -62,7 +63,15 @@ class Items extends Component {
 
   render() {
     return (
-      this.createItem()
+        // this.createItem()
+            <Consumer>
+                {context => {
+                    console.log('Context in items', context.searchValue)
+                    return (
+                        <p>{context.searchValue}</p>
+                    )
+                }}
+            </Consumer>
     )
   }
 }

@@ -7,11 +7,14 @@ $itemInfoMargin: 10px;
     width: 90%;
 }
 header{
+    padding: 2rem;
     * {
         display: inline-block;
     }
-    h1{
-        font-size: 6rem;
+    .headerH1 {
+        font-size: 8rem;
+        color: black;
+        text-decoration: none;
         font-family: 'Concert One', sans-serif;
     }
     img {
@@ -31,6 +34,7 @@ nav{
     .nav-item{
         position: relative;
         display: inline-block;
+        color: black;
         .dropdown-content{
             position: absolute;
             z-index: 1;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import DropDownMenu from './DropDownMenu';
 import NavButton from './NavButton';
+import { Consumer } from '../../context';
 
 class Navigation extends Component{
   constructor(props){
@@ -45,7 +46,13 @@ class Navigation extends Component{
         <NavButton name="About" />
         <NavButton name="Contact"/>
         <div className="search nav-item">
-          <SearchBar/>
+        <Consumer>
+          {({searchValue, toggleSearchValue}) => {
+            return(
+            <SearchBar searchValue={searchValue} toggleSearchValue={toggleSearchValue}/>
+            )
+          }}
+          </Consumer>
         </div>
       </nav>
     )

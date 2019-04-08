@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-//import { Consumer } from '../../context';
 
 class SearchBar extends Component{
-    constructor() {
-        super();
-        this.state = {
-            searchValue: ''
-        }
-    }
-    handleChange = (event) => {
-        this.setState({searchValue: event.target.value})
-    }
-    logData = (results) => {
-        console.log(results)
-    }
+  constructor(props) {
+      super(props);
+      this.state = {
+          searchValue: this.props.searchValue
+      }
+  }
+  handleChange = (event) => {
+      this.props.toggleSearchValue(event.target.value);
+  }
   render(){
-    return(
+    return (
       <div>
         <input type="text" onChange={this.handleChange} placeholder="Search..."></input>
-        <Link name="Search" className="navbutton" type="submit" to={/search/+this.state.searchValue}>Search</Link>
+        <Link name="Search" className="navbutton" 
+        to={`/search/${this.props.searchValue}`}>Search</Link>
       </div>
     )
   }
