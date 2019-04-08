@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class NavButton extends Component{
   constructor(props){
@@ -8,9 +8,9 @@ class NavButton extends Component{
   }
   render(){
     return(
-      <Link to={this.name.toLowerCase()} className="navbutton nav-item">
+      <NavLink to={'/'+this.name.toLowerCase()} activeClassName='active' className="navbutton nav-item">
       {this.name}
-    </Link>
+    </NavLink>
     )
   }
 }

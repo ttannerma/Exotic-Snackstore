@@ -1,9 +1,11 @@
 $itemInfoPadding: 10px;
 $itemImgWidth: 300px;
 $itemInfoMargin: 10px;
+$orange: rgba(255, 165, 0, 1);
+
 .container{
     margin: 0 auto;
-    border: 1px solid red;
+    border: 1px solid green;
     width: 90%;
 }
 header{
@@ -23,42 +25,42 @@ header{
 }
 nav{
     font-family: 'Montserrat';
-    .dropdown{
-        :hover{
-            background-color: grey;
-        }
-    }
     .active{
-        background: grey;
+        background: aqua;
+        color: white;
     }
     .nav-item{
         position: relative;
         display: inline-block;
-        color: black;
+        color: white;
+        background: $orange;
         .dropdown-content{
+            text-decoration: none;
             position: absolute;
             z-index: 1;
+            color: $orange;
             :hover{
-                background-color: grey;
+                background-color: $orange;
+                color: white;
             }
             a{
-                padding: 0.5rem 1rem;
+                padding: 1rem 1.5rem;
                 display: block;
                 background: white;
                 text-decoration: none;
             }
         }
         .dropbutton {
+            background: $orange;
+            color: white;
             outline: inherit;
             font-family: 'Montserrat';
             font-size: 1.5rem;
-            background: white;
             border: 1.5px solid grey;
             padding: 0.5rem 1rem;
             text-transform: capitalize;
-            
-            :hover{
-                background-color: grey;
+            :hover {
+                background: lighten($orange, 35%);
             }
         }
         .hidden{
@@ -69,7 +71,14 @@ nav{
         }
     }
     .search{
-        .nav-button, input{
+        .navbutton {
+            color: white;
+            background: $orange;
+            :hover {
+                background: lighten($orange, 35%);
+            }
+        }
+        .navbutton, input{
             outline: inherit;
             padding: 0.5rem 1rem;
             font-family: 'Montserrat';
@@ -78,6 +87,13 @@ nav{
         input {
             border: 1.5px solid grey;
         }
+    }
+    :hover {
+        background: lighten($orange, 35%)
+    }
+    .active{
+        background: white;
+        color: $orange;
     }
 }
 .navbutton{
@@ -90,9 +106,6 @@ nav{
     text-transform: capitalize;
     text-decoration: none;
     
-    :hover{
-        background-color: grey;
-    }
 }
 footer{
     p{
