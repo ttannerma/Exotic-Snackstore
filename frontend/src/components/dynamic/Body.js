@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Item from './Item'
 
-const Body = () => {
+const Body = (props) => {
+    console.log('body props: ', props)
     return (
         <div id="main">
-        <Item />
+        <Item category={props.category}/>
         </div>
     )
 }

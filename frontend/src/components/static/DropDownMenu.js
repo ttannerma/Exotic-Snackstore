@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class DropDownMenu extends Component{
   constructor(props){
@@ -13,9 +13,9 @@ class DropDownMenu extends Component{
   CreateDropDown = () => {
     let index = 0;
     let renderItems = this.state.items.map((x) =>
-    <Link to={x.toLowerCase()} key={index += 1}>
+    <NavLink to={x.toLowerCase()} key={index += 1} activeClassName='active'>
       {x}
-    </Link>
+    </NavLink>
   );
     return renderItems;
   }

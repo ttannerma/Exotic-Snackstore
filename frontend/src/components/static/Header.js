@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Header extends Component{
   render(){
     return(
       <header>
-        <Link to="/"className="headerH1">Exotic Snackstore</Link>
+        <NavLink to="/"className="headerH1">Exotic Snackstore</NavLink>
         <img src="assets/candy2.jpg" alt=""/>
       </header>
     )
