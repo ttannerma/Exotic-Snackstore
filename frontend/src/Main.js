@@ -7,12 +7,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import About from './components/static/About';
 import Contact from './components/static/Contact';
 import Search from './components/dynamic/Search';
-import { Provider, Consumer } from './context';
 
 class Main extends Component {
   render() {
     return(
-      <Provider>
         <Router>
           <div className="container">
             <Header/>
@@ -22,19 +20,12 @@ class Main extends Component {
                 <Route exact path ="/" component={Body}></Route>
                 <Route exact path="/about" component={About}></Route>
                 <Route exact path="/contact" component={Contact}></Route>
-                <Consumer>
-                  {value => {
-                    return (
-                      <Route exact path="/search/:searchVal" component={Search} value={value} ></Route>
-                    )
-                  }}
-                </Consumer>
+                <Route exact path="/search/:searchVal" component={Search}></Route>
               </Switch>
             </div>
             <Footer/>
           </div>
         </Router>
-      </Provider>
     )
   }
 }

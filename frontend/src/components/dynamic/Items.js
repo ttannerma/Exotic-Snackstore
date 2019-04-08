@@ -63,15 +63,7 @@ class Items extends Component {
 
   render() {
     return (
-        // this.createItem()
-            <Consumer>
-                {context => {
-                    console.log('Context in items', context.searchValue)
-                    return (
-                        <p>{context.searchValue}</p>
-                    )
-                }}
-            </Consumer>
+        this.createItem()
     )
   }
 }

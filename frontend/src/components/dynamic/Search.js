@@ -14,10 +14,8 @@ export default class Search extends Component {
     this.searchVal = this.props.match.params.searchVal
     return (
       <div>
-        <h1>Search Results with {this.searchVal} </h1>
-        <Provider value={this.searchVal}>
+        <h1>Search Results with </h1>
             <Body />
-        </Provider>
       </div>
     )
   }
