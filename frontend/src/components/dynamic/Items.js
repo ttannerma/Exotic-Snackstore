@@ -5,27 +5,60 @@ class Items extends Component {
 
     constructor(props) {
         super(props)
-        this.state = {products: []}
+        this.state = {
+            products: [],
+            value: 0,
+            category: props.category
+        }
+    }
+    // Called when searched a second time. Compares old and new props.
+    componentWillReceiveProps(nextProps) {
+        if(this.props.category !== nextProps.category) {
+            console.log('new props: ', nextProps.category)
+            this.setState({
+                category: nextProps.category
+            })
+            this.fetchNewProducts(nextProps.category)
+        }
+    }
+
+    fetchNewProducts(category) {
+        fetch(`http://localhost:8080/search/${category}`).then(r => r.json())
+        .then(this.setProductData)
     }
 
   // Use fetch API to get data on products.
   componentDidMount() {
-    fetch('http://localhost:8080/products/').then(r => r.json())
-    .then(this.setProductData);
+    // Check if products need to be searched by category. If not, then fetch all products.
+    if(this.state.category === '' || this.state.category === undefined) {
+        fetch(`http://localhost:8080/products/`).then(r => r.json())
+        .then(this.setProductData)
+    } else {
+        // Fetch products by category.
+        fetch(`http://localhost:8080/search/${this.state.category}`).then(r => r.json())
+        .then(this.setProductData)
+    }
   }
-  // Assign data value to this.state
+
+  // Assign all product data to this.state
   setProductData = (results) => {
     this.setState({products: results})
   }
-  // Creates item elements. Assigns them with values gathered from database.
-  createItem = () => {
-    let items = []
 
-    // Fetch items from database and create elements for them.
+  // Creates item elements.
+  createItem = () => {
+
+    // If there are no items return message.
+    if (this.state.products.length === 0) {
+        return <h1> No products found! </h1>
+    }
+
+    let items = []
+    // Iterate all products in current state.
     for (let i = 0; i < this.state.products.length; i++) {
-      
       let { ratings, id, name, description, price } = this.state.products[i];
-      // Create item elements
+
+      // Create item elements.
       let item =
         <div className="item">
           <img src="https://fpoimg.com/300x300?text=Advertisement" alt="Product"/>
@@ -39,11 +72,6 @@ class Items extends Component {
           <h2>{price} €<span>{ratings ? ratings : 'No ratings'}</span></h2>
         </div>
         items.push(item)
-    }
-
-    // If there are no items return message.
-    if (items.length === 0) {
-        return <h1> No products found! </h1>
     }
 
     // Return array containing elements.
