@@ -24,11 +24,8 @@ header{
     }
 }
 nav{
+    width: 100%;
     font-family: 'Montserrat';
-    .active{
-        background: aqua;
-        color: white;
-    }
     .nav-item{
         position: relative;
         display: inline-block;
@@ -39,6 +36,7 @@ nav{
             position: absolute;
             z-index: 1;
             color: $orange;
+            border: 1px solid grey;
             :hover{
                 background-color: $orange;
                 color: white;
@@ -48,6 +46,8 @@ nav{
                 display: block;
                 background: white;
                 text-decoration: none;
+                color: black;
+                border-bottom: 1px solid grey;
             }
         }
         .dropbutton {
@@ -71,7 +71,8 @@ nav{
         }
     }
     .search{
-        .navbutton {
+        a.navbutton {
+            float: right;
             color: white;
             background: $orange;
             :hover {
@@ -85,6 +86,7 @@ nav{
             font-size: 1.5rem;
         }
         input {
+            width: max;
             border: 1.5px solid grey;
         }
     }
@@ -108,6 +110,8 @@ nav{
     
 }
 footer{
+    background-color: $orange;
+    padding: 0.5rem 0;
     p{
         font-size: 1.5rem;
         text-align: center;

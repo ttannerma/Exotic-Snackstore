@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Body from './Body'
-import { Provider } from '../../context';
+//import { Provider } from '../../context';
 
 export default class Search extends Component {
   constructor(props) {
