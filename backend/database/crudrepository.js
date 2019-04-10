@@ -29,7 +29,7 @@ class CrudRepository {
         });
     }
     getProductsBySearchValue(value, callback) {
-        let sql = 'SELECT * FROM products WHERE name LIKE ' + this.connection.escape('%' + value + '%') + ';';
+        let sql = 'SELECT * FROM products WHERE (name LIKE ' + this.connection.escape('%' + value + '%') + ') OR (country LIKE ' + this.connection.escape('%' + value + '%') + ');';
         this.connection.query(sql, (error, results) => {
             if (error) throw error;
             callback(results);
