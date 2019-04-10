@@ -24,9 +24,12 @@ header{
     }
 }
 nav{
-    width: 100%;
     font-family: 'Montserrat';
     .nav-item{
+        .active{
+            background: white;
+            color: $orange;
+        }
         position: relative;
         display: inline-block;
         color: white;
@@ -50,7 +53,7 @@ nav{
                 border-bottom: 1px solid grey;
             }
         }
-        .dropbutton {
+        button.dropbutton {
             background: $orange;
             color: white;
             outline: inherit;
@@ -62,12 +65,20 @@ nav{
             :hover {
                 background: lighten($orange, 35%);
             }
+            .active{
+                background: white;
+                color: $orange;
+            }
         }
         .hidden{
             display: none;
         }
         .nonHidden{
             visibility: visible; 
+        }
+        .active{
+            background: white;
+            color: $orange;
         }
     }
     .search{
@@ -84,6 +95,9 @@ nav{
             padding: 0.5rem 1rem;
             font-family: 'Montserrat';
             font-size: 1.5rem;
+            :hover {
+                background: lighten($orange, 35%);
+            }
         }
         input {
             width: max;
@@ -107,7 +121,6 @@ nav{
     padding: 0.5rem 1rem;
     text-transform: capitalize;
     text-decoration: none;
-    
 }
 footer{
     background-color: $orange;
@@ -117,7 +130,19 @@ footer{
         text-align: center;
     }
 }
-
+.about {
+    font-family: 'Montserrat';
+    margin:  3rem;
+    width: 90%;
+}
+.contact {
+    font-family: 'Montserrat';
+    margin:  3rem;
+    width: 90%;
+    .contact-card {
+        display: inline-block;
+    }
+}
 #main {
     border: 1px solid blue;
     display: grid;
