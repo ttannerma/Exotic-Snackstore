@@ -47,13 +47,7 @@ class Navigation extends Component{
         <NavButton name="About" />
         <NavButton name="Contact"/>
         <div className="search nav-item">
-        <Consumer>
-          {({searchValue, toggleSearchValue}) => {
-            return(
-            <SearchBar searchValue={searchValue} toggleSearchValue={toggleSearchValue}/>
-            )
-          }}
-          </Consumer>
+        <SearchBar />
         </div>
       </nav>
     )

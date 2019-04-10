@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
 import Item from './Item'
 
-// Container for item elements
-class Body extends Component {
-    
-  render() {
-    return(
-      <div id="main">
-      <Item/>
-      </div>
+const Body = (props) => {
+    return (
+        <div id="main">
+        <Item category={props.category}/>
+        </div>
     )
-  }
 }
-
 export default Body;
