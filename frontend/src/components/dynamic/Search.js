@@ -5,17 +5,30 @@ import { Provider } from '../../context';
 export default class Search extends Component {
   constructor(props) {
     super(props);
-    this.searchVal = this.props.value;
+    this.state = {
+        searchValue: this.props.match.params.searchVal
+    }
     // props.location.pathname gets url path.
     // props.match.params.someId gets params from url.
   }
 
+  componentDidUpdate() {
+      if(this.props.match.params.searchVal !== this.state.searchValue) {
+          this.setState({
+              searchValue: this.props.match.params.searchVal
+          })
+      }
+  }
+
+  getSearchValue = () => {
+      return this.state.searchValue
+  }
+
   render() {
-    this.searchVal = this.props.match.params.searchVal
     return (
       <div>
-        <h1>Search Results with </h1>
-            <Body />
+        <h1>Search Results with {this.state.searchValue} </h1>
+            <Body category={this.getSearchValue()}/>
       </div>
     )
   }

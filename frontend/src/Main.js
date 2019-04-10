@@ -17,6 +17,7 @@ class Main extends Component {
             <Navigation/>
             <div className="content-shell">
               <Switch>
+                <Route exact path ="/" component={Body}></Route>
                 <Route exact path ="/home" component={Body}></Route>
                 <Route exact path="/about" component={About}></Route>
                 <Route exact path="/contact" component={Contact}></Route>

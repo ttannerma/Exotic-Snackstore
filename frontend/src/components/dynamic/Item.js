@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import Items from './Items';
 
 // Creates item elements into array and returns it
-class Item extends Component {
-
-
-  render() {
-      return (
-        <Items />
-      )
-  }
+const Item = (props) => {
+    return (
+        <Items category={props.category} />
+    )
 }
+
 export default Item;
