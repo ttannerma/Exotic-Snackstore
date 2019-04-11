@@ -29,14 +29,16 @@ class Items extends Component {
 
   // Use fetch API to get data on products.
   componentDidMount() {
-    // Check if products need to be searched by category. If not, then fetch all products.
+    // Check if products need to be searched by category, if not then fetch all products.
     if(this.state.category === '' || this.state.category === undefined) {
         fetch(`http://localhost:8080/products/`).then(r => r.json())
         .then(this.setProductData)
+        .catch(this.displayError)
     } else {
         // Fetch products by category.
         fetch(`http://localhost:8080/search/${this.state.category}`).then(r => r.json())
         .then(this.setProductData)
+        .catch(this.displayError)
     }
   }
 
@@ -45,14 +47,16 @@ class Items extends Component {
     this.setState({products: results})
   }
 
-  // Creates item elements.
-  createItem = () => {
-
+  displayError = () => {
     // If there are no items return message.
     if (this.state.products.length === 0) {
         return <h1> No products found! </h1>
     }
 
+  }
+
+  // Creates item elements.
+  createItem = () => {
     let items = []
     // Iterate all products in current state.
     for (let i = 0; i < this.state.products.length; i++) {
@@ -60,7 +64,7 @@ class Items extends Component {
 
       // Create item elements.
       let item =
-        <div className="item">
+        <div className="item" key={name}>
           <img src="https://fpoimg.com/300x300?text=Advertisement" alt="Product"/>
           <h2>{name}</h2>
           <p>{description}</p>

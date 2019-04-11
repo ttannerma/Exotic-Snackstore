@@ -27,7 +27,7 @@ export default class Search extends Component {
   render() {
     return (
       <div>
-        <h1>Search Results with {this.state.searchValue} </h1>
+        <h1 className="result-msg">Results with {this.state.searchValue} </h1>
             <Body category={this.getSearchValue()}/>
       </div>
     )

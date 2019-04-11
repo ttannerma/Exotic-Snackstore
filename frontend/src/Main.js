@@ -22,6 +22,8 @@ class Main extends Component {
                 <Route exact path="/about" component={About}></Route>
                 <Route exact path="/contact" component={Contact}></Route>
                 <Route exact path="/search/:searchVal" component={Search}></Route>
+                <Route exact path="/categories/:searchVal" component={Search}></Route>
+                <Route exact path="/countries/:searchVal" component={Search}></Route>
               </Switch>
             </div>
             <Footer/>
