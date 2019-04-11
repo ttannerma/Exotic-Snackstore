@@ -30,8 +30,10 @@ class Navigation extends Component{
     let toggleTarget;
     if(target === 'countries'){
       toggleTarget = document.querySelector('.countriesDD');
+      document.querySelector('.categoriesDD').classList.add('hidden');
     }else if(target === 'categories'){
       toggleTarget = document.querySelector('.categoriesDD');
+      document.querySelector('.countriesDD').classList.add('hidden');
     }
     e.target.classList.toggle('active');
     toggleTarget.classList.toggle('hidden');
