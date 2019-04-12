@@ -1,24 +1,34 @@
 import React, { Component } from 'react'
+import Body from './Body'
+//import { Provider } from '../../context';
 
 export default class Search extends Component {
   constructor(props) {
     super(props);
-    this.value = this.props.value;
+    this.state = {
+        searchValue: this.props.match.params.searchVal
+    }
+    // props.location.pathname gets url path.
+    // props.match.params.someId gets params from url.
   }
-  /*
-  onInit = () => {
-    
-    fetch(`http://localhost:8080/products/${}`)
-            .then(r => r.json())
-            .then(this.logData)
-            .catch(() => {
-                console.log('no products found.')
-        })
-  }*/
+
+  componentDidUpdate() {
+      if(this.props.match.params.searchVal !== this.state.searchValue) {
+          this.setState({
+              searchValue: this.props.match.params.searchVal
+          })
+      }
+  }
+
+  getSearchValue = () => {
+      return this.state.searchValue
+  }
+
   render() {
     return (
       <div>
-        <h1>Search Results with {this.value} </h1>
+        <h1>Search Results with {this.state.searchValue} </h1>
+            <Body category={this.getSearchValue()}/>
       </div>
     )
   }

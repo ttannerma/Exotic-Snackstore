@@ -25,11 +25,11 @@ header{
 }
 nav{
     font-family: 'Montserrat';
-    .active{
-        background: aqua;
-        color: white;
-    }
     .nav-item{
+        .active{
+            background: white;
+            color: $orange;
+        }
         position: relative;
         display: inline-block;
         color: white;
@@ -39,6 +39,7 @@ nav{
             position: absolute;
             z-index: 1;
             color: $orange;
+            border: 1px solid grey;
             :hover{
                 background-color: $orange;
                 color: white;
@@ -48,9 +49,11 @@ nav{
                 display: block;
                 background: white;
                 text-decoration: none;
+                color: black;
+                border-bottom: 1px solid grey;
             }
         }
-        .dropbutton {
+        button.dropbutton {
             background: $orange;
             color: white;
             outline: inherit;
@@ -62,6 +65,10 @@ nav{
             :hover {
                 background: lighten($orange, 35%);
             }
+            .active{
+                background: white;
+                color: $orange;
+            }
         }
         .hidden{
             display: none;
@@ -69,9 +76,14 @@ nav{
         .nonHidden{
             visibility: visible; 
         }
+        .active{
+            background: white;
+            color: $orange;
+        }
     }
     .search{
-        .navbutton {
+        a.navbutton {
+            float: right;
             color: white;
             background: $orange;
             :hover {
@@ -83,8 +95,12 @@ nav{
             padding: 0.5rem 1rem;
             font-family: 'Montserrat';
             font-size: 1.5rem;
+            :hover {
+                background: lighten($orange, 35%);
+            }
         }
         input {
+            width: max;
             border: 1.5px solid grey;
         }
     }
@@ -105,15 +121,28 @@ nav{
     padding: 0.5rem 1rem;
     text-transform: capitalize;
     text-decoration: none;
-    
 }
 footer{
+    background-color: $orange;
+    padding: 0.5rem 0;
     p{
         font-size: 1.5rem;
         text-align: center;
     }
 }
-
+.about {
+    font-family: 'Montserrat';
+    margin:  3rem;
+    width: 90%;
+}
+.contact {
+    font-family: 'Montserrat';
+    margin:  3rem;
+    width: 90%;
+    .contact-card {
+        display: inline-block;
+    }
+}
 #main {
     border: 1px solid blue;
     display: grid;

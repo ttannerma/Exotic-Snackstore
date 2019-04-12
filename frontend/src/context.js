@@ -10,11 +10,12 @@ export class Provider extends Component {
       , toggleSearchValue: this.toggleSearchValue
       }
     }
-  
+
   toggleSearchValue = (value) => {
-    console.log(this.state.searchValue);
     this.setState({searchValue: value});
+    console.log('Context searchValue',this.state.searchValue);
   }
+
   render() {
     return (
       <Context.Provider value={this.state}>
