@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Consumer } from '../../context';
-
+import ItemPage from './ItemPage';
+import { Link } from 'react-router-dom';
 class Items extends Component {
 
     constructor(props) {
@@ -61,11 +62,23 @@ class Items extends Component {
     // Iterate all products in current state.
     for (let i = 0; i < this.state.products.length; i++) {
       let { ratings, id, name, description, price } = this.state.products[i];
+      let link = `/products/${name}`
 
       // Create item elements.
       let item =
         <div className="item" key={name}>
-          <img src="https://fpoimg.com/300x300?text=Advertisement" alt="Product"/>
+          <Link to={{
+              pathname: link,
+              state: {
+                  ratings: ratings,
+                  id: id,
+                  name: name,
+                  description: description,
+                  price: price
+              }
+          }}>
+            <img src="https://fpoimg.com/300x300?text=Advertisement" alt="Product"/>
+          </Link>
           <h2>{name}</h2>
           <p>{description}</p>
           <form className="itemAddForm">
