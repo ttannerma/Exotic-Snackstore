@@ -12,8 +12,9 @@ class DropDownMenu extends Component{
   }
   CreateDropDown = () => {
     let index = 0;
+    console.log(this.state);
     let renderItems = this.state.items.map((x) =>
-    <NavLink to={x.toLowerCase()} key={index += 1} activeClassName='active'>
+    <NavLink to={this.state.name+'/'+x.toLowerCase()} key={index += 1} activeClassName='active'>
       {x}
     </NavLink>
   );
