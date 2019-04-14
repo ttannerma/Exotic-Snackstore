@@ -18,7 +18,7 @@ class SearchBar extends Component{
       <div>
         <input type="text" onChange={this.handleChange} placeholder="Search..."></input>
         <Link name="Search" className="navbutton" 
-        to={`/search/${this.state.searchValue}`}>Search</Link>
+        to={`/search/${this.state.searchValue}`} disabled={!this.state.searchValue}>Search</Link>
       </div>
     )
   }
