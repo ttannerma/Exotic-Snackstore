@@ -8,15 +8,14 @@ body {
    margin:0;
    padding:0;
    height:100%;
+   display: flex;
+   flex-direction: column;
 }
 
 .container{
-
     margin-left: 20rem;
-
     border: 1px solid green;
     width: 65%;
-    min-height: 100%;
     position: relative;
     padding-bottom: 60px;
     padding-bottom: 2.5rem;
@@ -145,9 +144,8 @@ nav{
     text-decoration: none;
 }
 footer{
-    position: absolute;
-  bottom: 0;
-  width: 100%;
+    margin: auto auto 0 auto;
+    width: 100%;
     font-size: 1.5rem;
     font-weight: bold;
     background-color: $orange;
@@ -189,6 +187,11 @@ footer{
             span {
                 float:right;
             }
+        }
+        p {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .itemAddForm {
             margin-left: auto;
