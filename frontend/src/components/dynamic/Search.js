@@ -20,6 +20,13 @@ export default class Search extends Component {
       }
   }
 
+  // Display search message if user is using searchbar.
+  displaySearchMessage = () => {
+      if(this.props.location.pathname.includes('search')) {
+        return <h1 className="result-msg">Results with {this.state.searchValue} </h1>
+      }
+  }
+
   getSearchValue = () => {
       return this.state.searchValue
   }
@@ -27,7 +34,7 @@ export default class Search extends Component {
   render() {
     return (
       <div>
-        <h1>Search Results with {this.state.searchValue} </h1>
+        {this.displaySearchMessage()}
             <Body category={this.getSearchValue()}/>
       </div>
     )

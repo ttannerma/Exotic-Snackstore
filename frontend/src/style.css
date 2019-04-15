@@ -24,7 +24,6 @@ header img {
 }
 
 nav {
-  width: 100%;
   font-family: 'Montserrat';
 }
 
@@ -33,6 +32,11 @@ nav .nav-item {
   display: inline-block;
   color: white;
   background: orange;
+}
+
+nav .nav-item .active {
+  background: white;
+  color: orange;
 }
 
 nav .nav-item .dropdown-content {
@@ -57,7 +61,7 @@ nav .nav-item .dropdown-content a {
   border-bottom: 1px solid grey;
 }
 
-nav .nav-item .dropbutton {
+nav .nav-item button.dropbutton {
   background: orange;
   color: white;
   outline: inherit;
@@ -68,8 +72,13 @@ nav .nav-item .dropbutton {
   text-transform: capitalize;
 }
 
-nav .nav-item .dropbutton :hover {
+nav .nav-item button.dropbutton :hover {
   background: #ffe4b3;
+}
+
+nav .nav-item button.dropbutton .active {
+  background: white;
+  color: orange;
 }
 
 nav .nav-item .hidden {
@@ -78,6 +87,11 @@ nav .nav-item .hidden {
 
 nav .nav-item .nonHidden {
   visibility: visible;
+}
+
+nav .nav-item .active {
+  background: white;
+  color: orange;
 }
 
 nav .search a.navbutton {
@@ -95,6 +109,10 @@ nav .search .navbutton, nav .search input {
   padding: 0.5rem 1rem;
   font-family: 'Montserrat';
   font-size: 1.5rem;
+}
+
+nav .search .navbutton :hover, nav .search input :hover {
+  background: #ffe4b3;
 }
 
 nav .search input {
@@ -130,6 +148,22 @@ footer {
 footer p {
   font-size: 1.5rem;
   text-align: center;
+}
+
+.about {
+  font-family: 'Montserrat';
+  margin: 3rem;
+  width: 90%;
+}
+
+.contact {
+  font-family: 'Montserrat';
+  margin: 3rem;
+  width: 90%;
+}
+
+.contact .contact-card {
+  display: inline-block;
 }
 
 #main {
