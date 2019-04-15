@@ -12,10 +12,12 @@ import ItemPage from './components/dynamic/ItemPage';
 class Main extends Component {
   render() {
     return(
-        <Router>
-          <div className="container">
+        <Router onUpdate={() => window.scrollTo(0, 0)}>
+          <div className="head">
             <Header/>
             <Navigation/>
+          </div>
+          <div className="container">
             <div className="content-shell">
               <Switch>
                 <Route exact path ="/" component={Body}></Route>
@@ -28,8 +30,9 @@ class Main extends Component {
                 <Route exact path="/products/:productName" component={ItemPage}></Route>
               </Switch>
             </div>
-            <Footer/>
+            
           </div>
+          <Footer/>
         </Router>
     )
   }
