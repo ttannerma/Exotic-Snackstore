@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/static/Header';
 import Footer from './components/static/Footer';
-import Navigation from './components/static/Navigation';
+import Navigation from './components/static/navigation-bar/Navigation';
 import Body from './components/dynamic/Body';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import About from './components/static/About';
@@ -30,7 +30,6 @@ class Main extends Component {
                 <Route exact path="/products/:productName" component={ItemPage}></Route>
               </Switch>
             </div>
-            
           </div>
           <Footer/>
         </Router>
