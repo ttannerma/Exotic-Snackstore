@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import Search from '../dynamic/Search'
+import Search from '../../dynamic/Search';
 
 class DropDownMenu extends Component{
   constructor(props){

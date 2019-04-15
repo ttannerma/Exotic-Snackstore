@@ -3,31 +3,30 @@ $itemImgWidth: 300px;
 $itemInfoMargin: 10px;
 $orange: rgba(255, 165, 0, 1);
 
-html, body {
-    min-height: 100%;
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
 }
 
 .container{
-    margin: 300px 0 100px; /* bottom = footer height */
+
     margin-left: 20rem;
 
     border: 1px solid green;
     width: 65%;
-
-    .content-shell {
-
-        .itemPageContainer {
-
-        }
-    }
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 60px;
+    padding-bottom: 2.5rem;
 }
 .head {
-    position: fixed;
     top: 0;
-    z-index: 2;
     background: lighten($orange, 10%);
     width: 100%;
     padding-left: 20rem;
+    min-height: 70px;
 }
 header{
     
@@ -84,6 +83,7 @@ nav{
             border: 1.5px solid grey;
             padding: 0.5rem 1rem;
             text-transform: capitalize;
+            
             :hover {
                 background: lighten($orange, 35%);
             }
@@ -146,15 +146,14 @@ nav{
 }
 footer{
     position: absolute;
-  left: 0;
   bottom: 0;
-  margin-bottom: -30rem;
   width: 100%;
-  font-size: 1.5rem;
-  background-color: $orange;
-  color: white;
-  text-align: center;
-  padding: 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: $orange;
+    color: black;
+    text-align: center;
+    padding: 2.5rem 0;
 }
 .about {
     font-family: 'Montserrat';

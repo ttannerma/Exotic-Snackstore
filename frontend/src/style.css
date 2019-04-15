@@ -1,22 +1,26 @@
-html, body {
-  min-height: 100%;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 .container {
-  margin: 300px 0 100px;
-  /* bottom = footer height */
   margin-left: 20rem;
   border: 1px solid green;
   width: 65%;
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 60px;
+  padding-bottom: 2.5rem;
 }
 
 .head {
-  position: fixed;
   top: 0;
-  z-index: 2;
   background: #ffb733;
   width: 100%;
   padding-left: 20rem;
+  min-height: 70px;
 }
 
 header {
@@ -157,15 +161,14 @@ nav .active {
 
 footer {
   position: absolute;
-  left: 0;
   bottom: 0;
-  margin-bottom: -30rem;
   width: 100%;
   font-size: 1.5rem;
+  font-weight: bold;
   background-color: orange;
-  color: white;
+  color: black;
   text-align: center;
-  padding: 3rem;
+  padding: 2.5rem 0;
 }
 
 .about {
