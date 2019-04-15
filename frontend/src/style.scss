@@ -191,6 +191,11 @@ footer{
                 float:right;
             }
         }
+        p {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
         .itemAddForm {
             margin-left: auto;
             // Forces the arrows to show on inputs with number type.

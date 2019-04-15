@@ -219,6 +219,12 @@ footer {
   float: right;
 }
 
+#main .item p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 #main .item .itemAddForm {
   margin-left: auto;
 }
