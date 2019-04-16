@@ -8,6 +8,7 @@ import About from './components/static/About';
 import Contact from './components/static/Contact';
 import Search from './components/dynamic/Search';
 import ItemPage from './components/dynamic/ItemPage';
+import Login from './components/static/Login/Login';
 
 class Main extends Component {
   render() {
@@ -22,6 +23,7 @@ class Main extends Component {
               <Switch>
                 <Route exact path ="/" component={Body}></Route>
                 <Route exact path ="/home" component={Body}></Route>
+                <Route exact path ="/login" component={Login}></Route>
                 <Route exact path="/about" component={About}></Route>
                 <Route exact path="/contact" component={Contact}></Route>
                 <Route exact path="/search/:searchVal" component={Search}></Route>

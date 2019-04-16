@@ -44,7 +44,7 @@ header{
 nav{
     font-family: 'Montserrat';
     .nav-item{
-        .active{
+        .active:not(.login){
             background: white;
             color: $orange;
         }

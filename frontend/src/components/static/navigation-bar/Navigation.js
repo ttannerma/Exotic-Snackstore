@@ -51,6 +51,7 @@ class Navigation extends Component{
         <div className="search nav-item">
         <SearchBar />
         </div>
+        <NavButton icon="fas fa-sign-in-alt" name="Login"/>
       </nav>
     )
   }
