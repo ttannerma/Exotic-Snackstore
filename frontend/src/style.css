@@ -28,6 +28,37 @@ body {
   min-height: 70px;
 }
 
+.shoppingCart {
+  border: 1px solid blue;
+  height: 50px;
+  max-height: 50px;
+  max-width: 100px;
+  float: right;
+}
+
+.shoppingCart .fa-shopping-cart {
+  color: #4CCDAE;
+  font-size: 40px;
+  float: right;
+}
+
+.shoppingCart .productCount {
+  background-color: pink;
+  border-radius: 100%;
+  height: 2em;
+  width: 2em;
+  text-align: center;
+  float: right;
+}
+
+.shoppingCart .productCount p {
+  margin-top: 0.10em;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: black;
+}
+
 header {
   padding-top: 2rem;
 }
