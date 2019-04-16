@@ -50,14 +50,14 @@ class Items extends Component {
 
   displayError = () => {
     // If there are no items return message.
-    if (this.state.products.length === 0) {
         return <h1> No products found! </h1>
-    }
-
   }
 
   // Creates item elements.
   createItem = () => {
+    // If products are not found, display error message.
+    if (this.state.products.length === 0) return this.displayError()
+    
     let items = []
     // Iterate all products in current state.
     for (let i = 0; i < this.state.products.length; i++) {
@@ -82,7 +82,7 @@ class Items extends Component {
           <h2>{name}</h2>
           <p>{description}</p>
           <form className="itemAddForm">
-                    <input type="number" onChange={this.handleChange} name="quantity" min="-10" max="999" step="1" />
+                    <input type="number" onChange={this.handleChange} name="quantity" min="0" max="30" step="1" />
                     <button type="button"
                         onClick={() => { this.saveItem(id, this.input) }}>Buy</button>
           </form>
@@ -90,7 +90,6 @@ class Items extends Component {
         </div>
         items.push(item)
     }
-
     // Return array containing elements.
     return items
   }
