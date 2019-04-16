@@ -9,6 +9,7 @@ import Contact from './components/static/Contact';
 import Search from './components/dynamic/Search';
 import ItemPage from './components/dynamic/ItemPage';
 import Login from './components/static/Login/Login';
+import ShoppingCartLogo from './components/dynamic/ShoppingCartLogo'
 
 class Main extends Component {
   render() {
@@ -17,6 +18,7 @@ class Main extends Component {
           <div className="head">
             <Header/>
             <Navigation/>
+            <ShoppingCartLogo />
           </div>
           <div className="container">
             <div className="content-shell">
