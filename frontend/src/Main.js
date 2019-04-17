@@ -8,7 +8,8 @@ import About from './components/static/About';
 import Contact from './components/static/Contact';
 import Search from './components/dynamic/Search';
 import ItemPage from './components/dynamic/ItemPage';
-import Login from './components/static/Login/Login';
+import Login from './components/static/login/Login';
+import Signup from './components/static/signup/Signup';
 import ShoppingCartLogo from './components/dynamic/ShoppingCartLogo'
 
 class Main extends Component {
@@ -26,6 +27,7 @@ class Main extends Component {
                 <Route exact path ="/" component={Body}></Route>
                 <Route exact path ="/home" component={Body}></Route>
                 <Route exact path ="/login" component={Login}></Route>
+                <Route exact path ="/signup" component ={Signup}></Route>
                 <Route exact path="/about" component={About}></Route>
                 <Route exact path="/contact" component={Contact}></Route>
                 <Route exact path="/search/:searchVal" component={Search}></Route>
