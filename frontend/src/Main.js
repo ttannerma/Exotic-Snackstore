@@ -8,9 +8,11 @@ import About from './components/static/About';
 import Contact from './components/static/Contact';
 import Search from './components/dynamic/Search';
 import ItemPage from './components/dynamic/ItemPage';
-import Login from './components/static/login/Login';
+import Login from './components/static/Login/Login';
 import Signup from './components/static/signup/Signup';
 import ShoppingCartLogo from './components/dynamic/ShoppingCartLogo'
+
+import { UserProvider, UserContext} from './user-context'; 
 
 class Main extends Component {
   render() {
@@ -19,24 +21,33 @@ class Main extends Component {
           <div className="head">
             <Header/>
             <Navigation/>
-            <ShoppingCartLogo />
           </div>
-          <div className="container">
-            <div className="content-shell">
-              <Switch>
-                <Route exact path ="/" component={Body}></Route>
-                <Route exact path ="/home" component={Body}></Route>
-                <Route exact path ="/login" component={Login}></Route>
-                <Route exact path ="/signup" component ={Signup}></Route>
-                <Route exact path="/about" component={About}></Route>
-                <Route exact path="/contact" component={Contact}></Route>
-                <Route exact path="/search/:searchVal" component={Search}></Route>
-                <Route exact path="/categories/:searchVal" component={Search}></Route>
-                <Route exact path="/countries/:searchVal" component={Search}></Route>
-                <Route exact path="/products/:productName" component={ItemPage}></Route>
-              </Switch>
-            </div>
-          </div>
+          <UserProvider>
+            <UserContext.Consumer>{
+              ({...state}) =>
+              <div className="container">
+                <div className="content-shell">
+                <ShoppingCartLogo />
+                  <Switch>
+                    <Route exact path ="/" component={Body}></Route>
+                    <Route exact path ="/home" component={Body}></Route>
+                    <UserContext.Consumer>{(value)=>
+                      <Route exact path ="/login" component={Login}></Route>
+                    }
+                    </UserContext.Consumer>
+                    <Route exact path ="/signup" component ={Signup}></Route>
+                    <Route exact path="/about" component={About}></Route>
+                    <Route exact path="/contact" component={Contact}></Route>
+                    <Route exact path="/search/:searchVal" component={Search}></Route>
+                    <Route exact path="/categories/:searchVal" component={Search}></Route>
+                    <Route exact path="/countries/:searchVal" component={Search}></Route>
+                    <Route exact path="/products/:productName" component={ItemPage}></Route>
+                  </Switch>
+                </div>
+              </div>
+           }
+           </UserContext.Consumer>
+         </UserProvider>
           <Footer/>
         </Router>
     )

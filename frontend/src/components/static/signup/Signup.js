@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import SignupForm from './SignupForm';
-import Login from '../login/Login';
 
 class Signup extends Component {
   render() {
