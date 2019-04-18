@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import Search from '../../dynamic/Search';
 
 class DropDownMenu extends Component{
   constructor(props){
@@ -22,7 +23,7 @@ class DropDownMenu extends Component{
   render(){
     return (
       <div className="dropdown nav-item">
-          <button onClick={this.props.function} className="dropbutton">{this.state.name}</button>
+          <button onClick={this.props.function} className="dropbutton" >{this.state.name}</button>
           <div className={"dropdown-content hidden "+this.state.class} id={this.state.name}>
             <this.CreateDropDown/>
           </div>

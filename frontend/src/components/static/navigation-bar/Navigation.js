@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import DropDownMenu from './DropDownMenu';
 import NavButton from './NavButton';
-import { Consumer } from '../../context';
+//import { Consumer } from '../../../context';
 
 class Navigation extends Component{
   constructor(props){
@@ -51,6 +51,7 @@ class Navigation extends Component{
         <div className="search nav-item">
         <SearchBar />
         </div>
+        <NavButton icon="fas fa-sign-in-alt" name="Login"/>
       </nav>
     )
   }

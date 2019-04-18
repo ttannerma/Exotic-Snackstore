@@ -7,6 +7,13 @@ class NavButton extends Component{
     this.name = props.name;
   }
   render(){
+    if(this.props.icon) {
+      return(
+        <NavLink to={'/'+this.name.toLowerCase()} activeClassName='active' className="navbutton nav-item">
+        {this.name} <i className={this.props.icon}></i>
+      </NavLink>
+      )
+    }
     return(
       <NavLink to={'/'+this.name.toLowerCase()} activeClassName='active' className="navbutton nav-item">
       {this.name}
