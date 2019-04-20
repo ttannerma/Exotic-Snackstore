@@ -12,7 +12,7 @@ import Login from './components/static/Login/Login';
 import Signup from './components/static/signup/Signup';
 import ShoppingCartLogo from './components/dynamic/ShoppingCartLogo'
 
-import { UserProvider, UserContext} from './user-context'; 
+import { UserProvider } from './user-context'; 
 
 class Main extends Component {
   render() {
@@ -23,18 +23,13 @@ class Main extends Component {
             <Navigation/>
           </div>
           <UserProvider>
-            <UserContext.Consumer>{
-              ({...state}) =>
               <div className="container">
                 <div className="content-shell">
                 <ShoppingCartLogo />
                   <Switch>
                     <Route exact path ="/" component={Body}></Route>
                     <Route exact path ="/home" component={Body}></Route>
-                    <UserContext.Consumer>{(value)=>
-                      <Route exact path ="/login" component={Login}></Route>
-                    }
-                    </UserContext.Consumer>
+                    <Route exact path ="/login" component={Login}></Route>
                     <Route exact path ="/signup" component ={Signup}></Route>
                     <Route exact path="/about" component={About}></Route>
                     <Route exact path="/contact" component={Contact}></Route>
@@ -45,8 +40,7 @@ class Main extends Component {
                   </Switch>
                 </div>
               </div>
-           }
-           </UserContext.Consumer>
+
          </UserProvider>
           <Footer/>
         </Router>

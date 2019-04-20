@@ -4,7 +4,8 @@ class SignupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: ''
+      userType: 'user'
+      , username: ''
       , email: ''
       , password: ''
     }
@@ -14,7 +15,7 @@ class SignupForm extends Component {
   }
   onSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    console.log(this.props.addNewUser(this.state));
   }
   render() {
     return (
@@ -24,23 +25,29 @@ class SignupForm extends Component {
         <div className="form-group">
           <label className="control-label">Username</label>
           <input onChange={this.onChange} value={this.state.username} 
-          type="text" name="username" className="form-control"/>
+          type="text" name="username" className="form-control"
+          required
+          />
         </div>
 
         <div className="form-group">
           <label className="control-label">Email</label>
           <input onChange={this.onChange} value={this.state.email} 
-          type="email" name="email" className="form-control"/>
+          type="email" name="email" className="form-control"
+          required
+          />
         </div>
 
         <div className="form-group">
           <label className="control-label">Password</label>
           <input onChange={this.onChange} value={this.state.password} 
-          type="password" name="password" className="form-control"/>
+          type="password" name="password" className="form-control"
+          required
+          />
         </div>
 
         <div className="form-group">
-          <button className="signup-button button">Sign up</button>
+          <button className="signup-button button" >Sign up</button>
         </div>
       </form>
     );
