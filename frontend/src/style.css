@@ -18,6 +18,7 @@ body {
   position: relative;
   padding-bottom: 60px;
   padding-bottom: 2.5rem;
+  font-family: 'Montserrat', Arial;
 }
 
 .head {
@@ -89,7 +90,7 @@ nav .nav-item {
   background: orange;
 }
 
-nav .nav-item .active {
+nav .nav-item .active:not(.login) {
   background: white;
   color: orange;
 }
@@ -206,19 +207,13 @@ footer {
   padding: 2.5rem 0;
 }
 
-.about {
+.generic-container {
   font-family: 'Montserrat';
   margin: 3rem;
   width: 90%;
 }
 
-.contact {
-  font-family: 'Montserrat';
-  margin: 3rem;
-  width: 90%;
-}
-
-.contact .contact-card {
+.generic-container .contact-card {
   display: inline-block;
 }
 

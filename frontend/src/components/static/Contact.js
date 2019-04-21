@@ -2,7 +2,7 @@ import React from 'react'
 
 export default () => {
   return (
-    <div className="contact">
+    <div className="generic-container">
       <h1>Contact Us!</h1>
       <div className="contacts">
         <div className="contact-card">Email: info@ess.com</div>

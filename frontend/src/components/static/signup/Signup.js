@@ -7,7 +7,7 @@ import { Consumer} from '../../../user-context';
 class Signup extends Component {
   render() {
     return (
-      <React.Fragment>
+      <div className="generic-container">
         <Consumer>
           {value => {
             const { addNewUser } = value;
@@ -17,7 +17,7 @@ class Signup extends Component {
           }}
         </Consumer>
         <Link to="/login">Login</Link>
-      </React.Fragment>
+      </div>
     );
   }
 }

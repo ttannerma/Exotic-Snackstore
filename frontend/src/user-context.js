@@ -9,7 +9,7 @@ export class UserProvider extends Component {
       users: [
         {
         id: 0
-        , userType: 'Admin'
+        , userType: 'admin'
         , name: 'Admin'
         , email: 'admin@ess.com'
         , password: 'admin'
@@ -23,7 +23,8 @@ export class UserProvider extends Component {
         }
       ]
       , activeUser: {
-          userType: ''
+        id: undefined
+        , userType: ''
         , name: ''
         , email: ''
         , password: ''
@@ -31,13 +32,28 @@ export class UserProvider extends Component {
     }
   }
 
-  toggleUser = () => {
-    console.log('Logged In');
-    let newUser = this.state.users[0]
-    this.setState(() => ({
-      activeUser: newUser
+  toggleUser = (newUser) => {
+    try {
+      
+    }
+    catch(error) {
+      return error;
+    }
+    /*this.setState(() => ({
+      activeUser: this.state.users[0]
     }));
     console.log(this.state.activeUser)
+    */
+  }
+  checkAttribute = (newUser, attribute) => {
+    // FIx the attribute-variable!!
+    this.state.users.forEach(user => {
+      if(user.attribute === newUser.attribute) {
+        return user;
+      } else {
+        throw new Error ('User not found.');
+      }
+    });
   }
   addNewUser = (newUser) => {
     this.state.users.push(newUser);

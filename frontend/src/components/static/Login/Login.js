@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Consumer} from '../../../user-context'; 
-
+import LoginForm from './LoginForm';
 
 class Login extends Component {
   render() {
     return (
-      <React.Fragment>
-        <h1>Login</h1>
+      <div className="generic-container">
         <Consumer>
           {value => {
             const { toggleUser } = value;
             return(
-              <button onClick={toggleUser}>Log In</button>
+              <LoginForm toggleUser={toggleUser}/>
             )
           }}
         </Consumer>
         <Link to="/signup">Signup</Link>
-        </React.Fragment>
+        </div>
     );
   }
 }
