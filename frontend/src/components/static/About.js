@@ -2,7 +2,7 @@ import React from 'react'
 
 export default () => {
   return (
-    <div className="about">
+    <div className="generic-container">
       <h1>About Exotic Snackstore</h1>
       <p>
         Our mission is to bring foreign and exotic snacks and drinks to your home quick and easy.

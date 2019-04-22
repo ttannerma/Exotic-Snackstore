@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Consumer } from '../../context';
+import { Consumer } from '../../user-context';
 import ItemPage from './ItemPage';
 import { Link } from 'react-router-dom';
 class Items extends Component {
