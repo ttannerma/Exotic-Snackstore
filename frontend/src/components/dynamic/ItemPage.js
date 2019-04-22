@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
+import { ShoppingCartContext } from '../../shoppingcart-context'
 
 class ItemPage extends Component {
     constructor(props) {
         super(props)
         this.state = props.location.state
-        console.log(this.state)
     }
 
     // Contains item data which are passed to shopping cart.
@@ -19,20 +19,23 @@ class ItemPage extends Component {
     }
     createItemPage() {
         let item = 
-        <div className="item">
-            <img className="item-image" src="../../assets/download.jpg" alt="Candy"></img>
-            <h3>Ratings: {this.state.ratings ? this.state.ratings : 'No ratings yet.'}</h3>
-            <form className="itemAddForm">
-                <input type="number" onChange={this.handleChange} name="quantity" min="0" max="30" step="1" />
-                <button type="button"
-                    onClick={() => { this.saveItem(this.state.id, this.input) }}>Buy</button>
-            </form>
-            <h2>{this.state.name}</h2>
-            <p>{this.state.description}</p>
-            <h1>{this.state.price}</h1>
-        </div>
-
-
+        <ShoppingCartContext.Consumer>
+        {({ setProductId }) => (
+            <div className="item">
+                <img className="item-image" src="../../assets/download.jpg" alt="Candy"></img>
+                <h3>Ratings: {this.state.ratings ? this.state.ratings : 'No ratings yet.'}</h3>
+                <form className="itemAddForm">
+                    <input type="number" onChange={this.handleChange} name="quantity" min="0" max="30" step="1" />
+                    <button type="button"
+                        //onClick={() => { this.saveItem(this.state.id) }}
+                        onClick={() => setProductId(this.state.id, this.state.value)}>Buy</button>
+                </form>
+                <h2>{this.state.name}</h2>
+                <p>{this.state.description}</p>
+                <h1>{this.state.price}</h1>
+            </div>
+        )}
+        </ShoppingCartContext.Consumer>
         return item
     }
 

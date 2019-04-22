@@ -10,9 +10,10 @@ import Search from './components/dynamic/Search';
 import ItemPage from './components/dynamic/ItemPage';
 import Login from './components/static/Login/Login';
 import Signup from './components/static/signup/Signup';
-import ShoppingCartLogo from './components/dynamic/ShoppingCartLogo'
+import ShoppingCartLogo from './components/dynamic/ShoppingCartLogo';
 
 import { UserProvider } from './user-context'; 
+import { ShoppingCartProvider } from './shoppingcart-context';
 
 class Main extends Component {
   render() {
@@ -23,6 +24,7 @@ class Main extends Component {
             <Navigation/>
           </div>
           <UserProvider>
+          <ShoppingCartProvider>
               <div className="container">
                 <div className="content-shell">
                 <ShoppingCartLogo />
@@ -40,8 +42,8 @@ class Main extends Component {
                   </Switch>
                 </div>
               </div>
-
-         </UserProvider>
+          </ShoppingCartProvider>
+          </UserProvider>
           <Footer/>
         </Router>
     )

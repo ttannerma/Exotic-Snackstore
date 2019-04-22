@@ -96,9 +96,16 @@ class Items extends Component {
 
   // Handles the event when incrementing product quantity within item container.
   handleChange = (event) => {
-    this.setState({
-        value: Number(event.target.value)
-    })
+      try {
+        this.setState({
+            value: Number(event.target.value)
+        })
+      } catch {
+        this.setState({
+            value: 0
+        })
+      }
+
   }
   // Contains item data which are passed to shopping cart.
   saveItem = (productId) => {
