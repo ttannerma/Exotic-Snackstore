@@ -10,7 +10,7 @@ class ShoppingCartLogo extends Component {
                 {({ count }) => (
                     <div className="shoppingCart">
                         <Link to={`/cart`}><i className="fas fa-shopping-cart"></i></Link>
-                        <div className="productCount"><p>{}</p></div>
+                        <div className="productCount"><p>{ count >= 99 ? "99+" : count}</p></div>
                     </div>
                 )}
             </ShoppingCartContext.Consumer>

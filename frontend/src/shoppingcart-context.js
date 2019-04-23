@@ -11,12 +11,19 @@ export class ShoppingCartProvider extends Component {
 
     setProductId = (id, amount) => {
         let allProducts = this.state.products
-        let newProduct = {[id]: amount}
+        let newProduct = {id: id, stock: amount}
         let productCount = 0;
         allProducts.push(newProduct)
         this.setState({
             products: allProducts
         })
+        console.log(allProducts)
+
+        for(let i = 0; i < allProducts.length; i++) {
+            productCount += allProducts[i].stock
+        }
+        this.setState({ count: productCount})
+        console.log(productCount)
     }
 
     render() {
