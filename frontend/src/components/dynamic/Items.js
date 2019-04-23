@@ -87,7 +87,7 @@ class Items extends Component {
           <form className="itemAddForm">
                     <input type="number" onChange={this.handleChange} name="quantity" min="0" max="30" step="1" />
                     <button type="button"
-                        onClick={() => setProductId(this.state.id, this.state.value)}>Buy</button>
+                        onClick={() => setProductId(this.state.products[i].id, this.state.value)}>Buy</button>
           </form>
           <h2>{price} €<span>{ratings ? ratings : 'No ratings'}</span></h2>
         </div>

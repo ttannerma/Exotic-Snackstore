@@ -11,7 +11,7 @@ import ItemPage from './components/dynamic/ItemPage';
 import Login from './components/static/Login/Login';
 import Signup from './components/static/signup/Signup';
 import ShoppingCartLogo from './components/dynamic/ShoppingCartLogo';
-
+import ShoppingCartPage from './components/dynamic/ShoppingCartPage';
 import { UserProvider } from './user-context'; 
 import { ShoppingCartProvider } from './shoppingcart-context';
 
@@ -35,6 +35,7 @@ class Main extends Component {
                     <Route exact path ="/signup" component ={Signup}></Route>
                     <Route exact path="/about" component={About}></Route>
                     <Route exact path="/contact" component={Contact}></Route>
+                    <Route exact path="/cart" component={ShoppingCartPage}></Route>
                     <Route exact path="/search/:searchVal" component={Search}></Route>
                     <Route exact path="/categories/:searchVal" component={Search}></Route>
                     <Route exact path="/countries/:searchVal" component={Search}></Route>
