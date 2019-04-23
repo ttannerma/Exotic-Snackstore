@@ -2,15 +2,30 @@
 const express = require('express');
 const crudrepo = require('./database/crudrepository.js');
 const app = express();
+var cors = require('cors');
+
+app.use(cors());
 app.use(express.json());
 
 const server = app.listen(8080, () => {
     console.log(`Listening on port ${server.address().port}`);
 });
 
+// Fetch all users
+app.post('/users', (req, res) => {
+    const user = req.body;
+    console.log(user);
+    crudrepo.getUsers(user, (results) => {
+        if(results) {
+            res.status(200).send(results);
+        } else {
+            res.status(404);
+        }
+    });
+});
+
 // Fetch all products
 app.get('/products', (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
     console.log('Getting /products');
     crudrepo.getProducts((results) => {
         res.send(results);

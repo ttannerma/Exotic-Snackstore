@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 const UserContext = React.createContext();
 
@@ -6,44 +7,22 @@ export class UserProvider extends Component {
   constructor() {
     super();
     this.state = {
-      users: [
-        {
-        id: 0
-        , userType: 'admin'
-        , name: 'Admin'
-        , email: 'admin@ess.com'
-        , password: 'admin'
-        }
-        ,{
-          id: 1
-          , userType: 'user'
-          , name: 'User'
-          , email: 'user@ess.com'
-          , password: 'user'
-        }
-      ]
-      , activeUser: {
-        id: undefined
-        , userType: ''
-        , name: ''
-        , email: ''
-        , password: ''
-      }
+      users: []
+      , activeUser: {}
     }
   }
-
+  componentDidMount() {
+    
+  }
   toggleUser = (newUser) => {
-    try {
-      
-    }
-    catch(error) {
-      return error;
-    }
-    /*this.setState(() => ({
-      activeUser: this.state.users[0]
-    }));
-    console.log(this.state.activeUser)
-    */
+    console.log(newUser);
+    axios.post('http://localhost:8080/users', newUser)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
   checkAttribute = (newUser, attribute) => {
     // FIx the attribute-variable!!
