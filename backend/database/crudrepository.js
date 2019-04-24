@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 const mysql = require('mysql');
 const { config } = require('./config');
 
@@ -5,6 +6,20 @@ class CrudRepository {
     constructor() {
         this.connection = mysql.createConnection(config);
         this.connection.connect();
+    }
+    // Gets all users.
+    getUsers(user, callback) {
+        console.log(user);
+        this.connection.query(`SELECT * FROM Users WHERE name = '${user.name}';`, (error, result) => {
+            if(!result || error) {
+                throw new Error('User not found.');
+            }
+            else if(user.password === result.password) {
+                throw new Error('Wrong password');
+            } else {
+                callback(result);
+            }
+        });
     }
     // Gets all products.
     getProducts(callback) {

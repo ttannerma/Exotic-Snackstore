@@ -13,7 +13,7 @@ class LoginForm extends Component {
   }
   onSubmit = (e) => {
     e.preventDefault();
-    console.log(this.props.toggleUser(this.state));
+    this.props.toggleUser(this.state);
   }
   render() {
     return (
