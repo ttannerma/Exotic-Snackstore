@@ -63,6 +63,16 @@ app.get('/category/:value', (req, res) => {
     });
 });
 
+// Fetch product by id
+app.get('/products/id/:id', (req, res) => {
+    // curl http://localhost:8080/products/id/1
+    res.header('Access-Control-Allow-Origin', '*');
+    const value = req.params.id;
+    console.log(`Getting /product/id/${value}`);
+    crudrepo.getProductById(value, (results) => {
+        res.send(results);
+    });
+});
 /*
 app.get('/countries/:country', (req, res) => {
     // curl http://localhost:8080/countries/japan

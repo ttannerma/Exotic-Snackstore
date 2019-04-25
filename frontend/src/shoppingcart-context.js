@@ -9,9 +9,9 @@ export class ShoppingCartProvider extends Component {
         count: 0
     }
 
-    setProductId = (id, amount) => {
+    setProductId = (name, id, amount) => {
         let allProducts = this.state.products
-        let newProduct = {id: id, stock: amount}
+        let newProduct = {name: name, id: id, stock: amount}
         let productCount = 0;
         allProducts.push(newProduct)
         this.setState({
@@ -23,7 +23,6 @@ export class ShoppingCartProvider extends Component {
             productCount += allProducts[i].stock
         }
         this.setState({ count: productCount})
-        console.log(productCount)
     }
 
     render() {

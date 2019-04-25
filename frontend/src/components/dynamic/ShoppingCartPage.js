@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { ShoppingCartContext } from '../../shoppingcart-context'
-
 class ShoppingCartPage extends Component {
 
+
+    getProductInfo() {
+
+    }
 
     createCartItems() {
         let shoppingCartItems =
@@ -13,19 +16,20 @@ class ShoppingCartPage extends Component {
                     console.log('shopping cart products:',products)
                     let item = 
                         <div className="item-shoppingcart">
-                            <h1>name: {products[i].id}</h1>
+                            <h1>name: {products[i].name}</h1>
                             <h5>quantity: {products[i].stock}</h5>
                         </div>
                         allProducts.push(item)
                 }
                 return (
                     <>
-                    <p>Shopping Cart</p>
+                    <h1>Shopping Cart</h1>
                     {allProducts}
                     </>
                 )
             }}
             </ShoppingCartContext.Consumer>
+            this.getProductInfo()
         return shoppingCartItems
     }
     createCart() {

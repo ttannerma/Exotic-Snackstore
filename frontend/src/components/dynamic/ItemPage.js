@@ -28,7 +28,7 @@ class ItemPage extends Component {
                     <input type="number" onChange={this.handleChange} name="quantity" min="0" max="30" step="1" />
                     <button type="button"
                         //onClick={() => { this.saveItem(this.state.id) }}
-                        onClick={() => setProductId(this.state.id, this.state.value)}>Buy</button>
+                        onClick={() => setProductId(this.state.name, this.state.id, this.state.value)}>Buy</button>
                 </form>
                 <h2>{this.state.name}</h2>
                 <p>{this.state.description}</p>

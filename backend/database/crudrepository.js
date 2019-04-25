@@ -52,6 +52,13 @@ class CrudRepository {
             callback(results);
         });
     }
+    getProductById(id, callback) {
+        let sql = 'SELECT name, price FROM products WHERE id=' + this.connection.escape(id) + ';';
+        this.connection.query(sql, (error, results) => {
+            if (error) throw error;
+            callback(results);
+        });
+    }
 }
 
 module.exports = new CrudRepository();
