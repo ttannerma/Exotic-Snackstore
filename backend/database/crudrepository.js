@@ -8,14 +8,17 @@ class CrudRepository {
         this.connection.connect();
     }
     // Gets all users.
-    getUsers(user, callback) {
+    getUser(user, callback) {
         console.log(user);
-        this.connection.query(`SELECT * FROM Users WHERE name = '${user.name}';`, (error, result) => {
-            if(!result || error) {
-                throw new Error('User not found.');
+        const queryString = `SELECT * FROM Users WHERE name = '${user.username}';`;
+        console.log(queryString);
+        this.connection.query(queryString, (error, result) => {
+            console.log(result[0].password);
+            if(result === undefined || error) {
+                callback('User not found.');
             }
-            else if(user.password === result.password) {
-                throw new Error('Wrong password');
+            else if(user.password !== result[0].password) {
+                callback('Wrong password');
             } else {
                 callback(result);
             }

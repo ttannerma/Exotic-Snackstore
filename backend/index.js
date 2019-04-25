@@ -14,12 +14,11 @@ const server = app.listen(8080, () => {
 // Fetch all users
 app.post('/users', (req, res) => {
     const user = req.body;
-    console.log(user);
-    crudrepo.getUsers(user, (results) => {
-        if(results) {
-            res.status(200).send(results);
+    crudrepo.getUser(user, (results) => {
+        if(results[0].id) { 
+            res.status(200).send(results[0].name);
         } else {
-            res.status(404);
+            res.status(404).send(results);
         }
     });
 });

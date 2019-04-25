@@ -12,17 +12,20 @@ import Login from './components/static/Login/Login';
 import Signup from './components/static/signup/Signup';
 import ShoppingCartLogo from './components/dynamic/ShoppingCartLogo'
 
-import { UserProvider } from './user-context'; 
+import { UserProvider, Consumer } from './user-context'; 
 
 class Main extends Component {
   render() {
     return(
         <Router onUpdate={() => window.scrollTo(0, 0)}>
-          <div className="head">
-            <Header/>
-            <Navigation/>
-          </div>
-          <UserProvider>
+        <UserProvider>
+          <Consumer>
+            {value => (
+              <React.Fragment>
+                <div className="head">
+                  <Header/>
+                  <Navigation/>
+                </div>
               <div className="container">
                 <div className="content-shell">
                 <ShoppingCartLogo />
@@ -40,7 +43,9 @@ class Main extends Component {
                   </Switch>
                 </div>
               </div>
-
+            </React.Fragment>
+            )}
+            </Consumer>
          </UserProvider>
           <Footer/>
         </Router>
