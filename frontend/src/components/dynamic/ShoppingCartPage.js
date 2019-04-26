@@ -12,20 +12,37 @@ class ShoppingCartPage extends Component {
             <ShoppingCartContext.Consumer>
             {({ products }) => {
                 let allProducts = []
+                let cartTotalPrice = 0
+                if (products <= 0) {
+                    return (
+                    <React.Fragment>
+                        <h1>Shopping Cart</h1>
+                        <h3>No items in shopping cart!</h3>
+                    </React.Fragment>
+                    )
+                }
                 for (let i = 0; i < products.length; i++) {
                     console.log('shopping cart products:',products)
+                    const itemTotalPrice = (products[i].price * products[i].quantity).toFixed(2)
+                    console.log(typeof itemTotalPrice)
                     let item = 
                         <div className="item-shoppingcart">
-                            <h1>name: {products[i].name}</h1>
-                            <h5>quantity: {products[i].stock}</h5>
+                            <h3>name: {products[i].name}</h3>
+                            <h5>quantity: {products[i].quantity}</h5>
+                            <h5>price: {products[i].price} €</h5>
+                            <h5>total: {itemTotalPrice} €</h5>
                         </div>
                         allProducts.push(item)
+                        cartTotalPrice = parseFloat(cartTotalPrice) + parseFloat(itemTotalPrice)
+                        cartTotalPrice = cartTotalPrice.toFixed(2)
+                        console.log(typeof cartTotalPrice)
                 }
                 return (
-                    <>
-                    <h1>Shopping Cart</h1>
-                    {allProducts}
-                    </>
+                    <React.Fragment>
+                        <h1>Shopping Cart</h1>
+                        {allProducts}
+                        <h3>Cart total price: {cartTotalPrice} €</h3>
+                    </React.Fragment>
                 )
             }}
             </ShoppingCartContext.Consumer>

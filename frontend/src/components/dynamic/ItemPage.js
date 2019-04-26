@@ -27,7 +27,7 @@ class ItemPage extends Component {
                 <form className="itemAddForm">
                     <input type="number" onChange={this.handleChange} name="quantity" min="1" max="30" step="1" />
                     <button type="button"
-                        onClick={() => {this.state.value > 0 ? setProductId(this.state.name, this.state.id, this.state.value) : alert('You must add at least one product to cart.')}}>Buy</button>
+                        onClick={() => {this.state.value > 0 ? setProductId(this.state.name, this.state.id, this.state.value, this.state.price) : alert('You must add at least one product to cart')}}>Buy</button>
                 </form>
                 <h2>{this.state.name}</h2>
                 <p>{this.state.description}</p>
