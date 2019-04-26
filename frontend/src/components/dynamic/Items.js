@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Consumer } from '../../user-context';
-import ItemPage from './ItemPage';
 import { Link } from 'react-router-dom';
 import { ShoppingCartContext } from '../../shoppingcart-context'
 class Items extends Component {
@@ -85,9 +83,9 @@ class Items extends Component {
           <h2>{name}</h2>
           <p>{description}</p>
           <form className="itemAddForm">
-                    <input type="number" onChange={this.handleChange} name="quantity" min="0" max="30" step="1" />
+                    <input type="number" onChange={this.handleChange} name="quantity" min="1" max="30" step="1" />
                     <button type="button"
-                        onClick={() => setProductId(this.state.products[i].name, this.state.products[i].id, this.state.value)}>Buy</button>
+                        onClick={() => { this.state.value > 0 ? setProductId(this.state.products[i].name, this.state.products[i].id, this.state.value, this.state.products[i].price): alert('You must add at least one product to cart.')}}>Buy</button>
           </form>
           <h2>{price} €<span>{ratings ? ratings : 'No ratings'}</span></h2>
         </div>

@@ -9,18 +9,32 @@ export class ShoppingCartProvider extends Component {
         count: 0
     }
 
-    setProductId = (name, id, amount) => {
+    checkDuplicateItems(newProduct) {
+        let stateCopy = this.state.products
+        let counter = 0;
+        for(let i = 0; i < stateCopy.length; i++) {
+            if(stateCopy[i].id === newProduct.id) {
+                counter++
+                if(counter >= 2) {
+                    let removeIndex = stateCopy.map((item) => { return item.id}).indexOf(newProduct.id)
+                    newProduct.quantity += stateCopy[removeIndex].quantity
+                    stateCopy.splice(removeIndex, 1)
+                }
+            }
+        }
+    }
+
+    setProductId = (name, id, amount, price) => {
         let allProducts = this.state.products
-        let newProduct = {name: name, id: id, stock: amount}
+        let newProduct = {name: name, id: id, quantity: amount, price: price}
         let productCount = 0;
         allProducts.push(newProduct)
         this.setState({
             products: allProducts
         })
-        console.log(allProducts)
-
+        this.checkDuplicateItems(newProduct)
         for(let i = 0; i < allProducts.length; i++) {
-            productCount += allProducts[i].stock
+            productCount += allProducts[i].quantity
         }
         this.setState({ count: productCount})
     }
