@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Consumer } from '../../user-context';
 import ItemPage from './ItemPage';
 import { Link } from 'react-router-dom';
+import { ShoppingCartContext } from '../../shoppingcart-context'
 class Items extends Component {
 
     constructor(props) {
@@ -66,6 +67,8 @@ class Items extends Component {
 
       // Create item elements.
       let item =
+      <ShoppingCartContext.Consumer>
+      {({ setProductId }) => (
         <div className="item" key={name}>
           <Link to={{
               pathname: link,
@@ -84,10 +87,12 @@ class Items extends Component {
           <form className="itemAddForm">
                     <input type="number" onChange={this.handleChange} name="quantity" min="0" max="30" step="1" />
                     <button type="button"
-                        onClick={() => { this.saveItem(id, this.input) }}>Buy</button>
+                        onClick={() => setProductId(this.state.products[i].name, this.state.products[i].id, this.state.value)}>Buy</button>
           </form>
           <h2>{price} €<span>{ratings ? ratings : 'No ratings'}</span></h2>
         </div>
+      )}
+        </ShoppingCartContext.Consumer>
         items.push(item)
     }
     // Return array containing elements.
@@ -96,9 +101,16 @@ class Items extends Component {
 
   // Handles the event when incrementing product quantity within item container.
   handleChange = (event) => {
-    this.setState({
-        value: Number(event.target.value)
-    })
+      try {
+        this.setState({
+            value: Number(event.target.value)
+        })
+      } catch {
+        this.setState({
+            value: 0
+        })
+      }
+
   }
   // Contains item data which are passed to shopping cart.
   saveItem = (productId) => {
