@@ -18,11 +18,9 @@ export class ShoppingCartProvider extends Component {
             if(stateCopy[i].id === newProduct.id) {
                 counter++
                 if(counter >= 2) {
-                    console.log('not spliced statecopy',stateCopy)
                     let removeIndex = stateCopy.map((item) => { return item.id}).indexOf(newProduct.id)
                     newProduct.quantity += stateCopy[removeIndex].quantity
                     stateCopy.splice(removeIndex, 1)
-                    console.log('spliced statecopy',stateCopy)
                 }
             }
         }
