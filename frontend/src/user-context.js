@@ -7,7 +7,7 @@ export class UserProvider extends Component {
   constructor() {
     super();
     this.state = {
-      activeUser: ''
+      activeUser: {}
     }
   }
   componentDidMount() {
@@ -16,22 +16,13 @@ export class UserProvider extends Component {
   toggleUser = (newUser) => {
     axios.post('http://localhost:8080/users', newUser)
     .then(response => {
+      console.log(response);
       this.setState({activeUser: response.data});
+      console.log(this.state.activeUser);
     })
-    .catch(function (error) {
+    .catch((error) => {
       console.log(error);
       return error;
-    });
-    console.log(this.state.activeUser);
-  }
-  checkAttribute = (newUser, attribute) => {
-    // FIx the attribute-variable!!
-    this.state.users.forEach(user => {
-      if(user.attribute === newUser.attribute) {
-        return user;
-      } else {
-        throw new Error ('User not found.');
-      }
     });
   }
   addNewUser = (newUser) => {

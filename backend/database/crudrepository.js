@@ -9,12 +9,9 @@ class CrudRepository {
     }
     // Gets all users.
     getUser(user, callback) {
-        console.log(user);
         const queryString = `SELECT * FROM Users WHERE name = '${user.username}';`;
-        console.log(queryString);
         this.connection.query(queryString, (error, result) => {
-            console.log(result[0].password);
-            if(result === undefined || error) {
+            if(result.length === 0 || error) {
                 callback('User not found.');
             }
             else if(user.password !== result[0].password) {
