@@ -2,16 +2,12 @@ import React, { Component } from 'react'
 import { ShoppingCartContext } from '../../shoppingcart-context'
 class ShoppingCartPage extends Component {
 
-
-    getProductInfo() {
-
-    }
-
     createCartItems() {
         let shoppingCartItems =
             <ShoppingCartContext.Consumer>
             {({ products }) => {
                 let allProducts = []
+                let myarray = []
                 let cartTotalPrice = 0
                 if (products <= 0) {
                     return (
@@ -21,10 +17,9 @@ class ShoppingCartPage extends Component {
                     </React.Fragment>
                     )
                 }
+
                 for (let i = 0; i < products.length; i++) {
-                    console.log('shopping cart products:',products)
                     const itemTotalPrice = (products[i].price * products[i].quantity).toFixed(2)
-                    console.log(typeof itemTotalPrice)
                     let item = 
                         <div className="item-shoppingcart">
                             <h3>name: {products[i].name}</h3>
@@ -35,7 +30,6 @@ class ShoppingCartPage extends Component {
                         allProducts.push(item)
                         cartTotalPrice = parseFloat(cartTotalPrice) + parseFloat(itemTotalPrice)
                         cartTotalPrice = cartTotalPrice.toFixed(2)
-                        console.log(typeof cartTotalPrice)
                 }
                 return (
                     <React.Fragment>
@@ -46,7 +40,6 @@ class ShoppingCartPage extends Component {
                 )
             }}
             </ShoppingCartContext.Consumer>
-            this.getProductInfo()
         return shoppingCartItems
     }
     createCart() {
