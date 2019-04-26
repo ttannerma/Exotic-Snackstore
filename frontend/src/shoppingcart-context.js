@@ -18,9 +18,21 @@ export class ShoppingCartProvider extends Component {
             if(stateCopy[i].id === id) {
                     let removeIndex = stateCopy.map((item) => { return item.id}).indexOf(id)
                     stateCopy.splice(removeIndex, 1)
-                    this.setState({products: stateCopy})
             }
         }
+        this.updateItemCount()
+        this.setState({products: stateCopy, count: this.updateItemCount()})
+    }
+
+    updateItemCount = () => {
+        let updatedItemCount = 0
+        if(this.state.products.length > 0) {
+            for(let i = 0; i < this.state.products.length; i++) {
+                updatedItemCount += this.state.products[i].quantity 
+            }
+            return updatedItemCount
+        }
+        return updatedItemCount
     }
 
     checkDuplicateItems(newProduct) {
