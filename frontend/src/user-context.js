@@ -7,22 +7,24 @@ export class UserProvider extends Component {
   constructor() {
     super();
     this.state = {
-      users: []
-      , activeUser: {}
+      activeUser: {}
     }
   }
   componentDidMount() {
     
   }
   toggleUser = (newUser) => {
-    console.log(newUser);
     axios.post('http://localhost:8080/users', newUser)
     .then(function (response) {
-      console.log(response);
+      this.setUser(response);
     })
     .catch(function (error) {
       console.log(error);
+      return error;
     });
+  }
+  setUser = (newUser) => { 
+    this.setState({activeUser: newUser});
   }
   checkAttribute = (newUser, attribute) => {
     // FIx the attribute-variable!!
