@@ -22,10 +22,10 @@ class ShoppingCartPage extends Component {
                     const itemTotalPrice = (products[i].price * products[i].quantity).toFixed(2)
                     let item = 
                         <div className="item-shoppingcart">
-                            <h3>name: {products[i].name}</h3>
+                            <h3 className="item-name">{products[i].name}</h3>
                             <h5>quantity: {products[i].quantity}</h5>
                             <h5>price: {products[i].price} €</h5>
-                            <h5>total: {itemTotalPrice} €</h5>
+                            <h5>total price: {itemTotalPrice} €</h5>
                         </div>
                         allProducts.push(item)
                         cartTotalPrice = parseFloat(cartTotalPrice) + parseFloat(itemTotalPrice)

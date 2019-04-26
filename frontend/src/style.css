@@ -217,6 +217,15 @@ footer {
   display: inline-block;
 }
 
+.generic-container .item-shoppingcart:first-of-type {
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+}
+
+.generic-container .item-shoppingcart {
+  border-bottom: 1px solid gray;
+}
+
 #main {
   margin-top: 3rem;
   top: 50%;

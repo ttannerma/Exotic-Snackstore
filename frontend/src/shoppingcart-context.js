@@ -10,10 +10,8 @@ export class ShoppingCartProvider extends Component {
     }
 
     checkDuplicateItems(newProduct) {
-
         let stateCopy = this.state.products
         let counter = 0;
-
         for(let i = 0; i < stateCopy.length; i++) {
             if(stateCopy[i].id === newProduct.id) {
                 counter++
