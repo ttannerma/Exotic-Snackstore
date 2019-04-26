@@ -1,9 +1,22 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { Consumer} from '../../../user-context'; 
 import LoginForm from './LoginForm';
 
 class Login extends Component {
+  state = {
+    redirect: false
+  }
+  setRedirect = () => {
+    this.setState({
+      redirect: true
+    })
+  }
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/home' />
+    }
+  }
   render() {
     return (
       <div className="generic-container">

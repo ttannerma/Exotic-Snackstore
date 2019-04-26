@@ -16,7 +16,11 @@ app.post('/users', (req, res) => {
     const user = req.body;
     crudrepo.getUser(user, (results) => {
         if(results[0].id) { 
-            res.status(200).send(results[0].name);
+            const returnUser = {
+                username: results[0].name
+                , userType: results[0].userType
+            };
+            res.status(200).send(returnUser);
         } else {
             res.status(404).send(results);
         }

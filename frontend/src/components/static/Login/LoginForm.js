@@ -6,14 +6,27 @@ class LoginForm extends Component {
     this.state = {
        username: ''
       , password: ''
+      , disabled: true
+      , loginError: ''
     }
   }
   onChange = (e) => {
-    this.setState({[e.target.name]: e.target.value})
+    this.setState({[e.target.name]: e.target.value});
+    if(this.state.username !== '' &&
+       this.state.password !== '') {
+         this.setState({disabled: false});
+       }
   }
   onSubmit = (e) => {
+    const { username, password } = this.state;
     e.preventDefault();
-    this.props.toggleUser(this.state);
+    if(username && password) {
+      const loginError = this.props.toggleUser(this.state);
+      console.log(loginError)
+      if(loginError) {
+        this.setState({loginError});
+      }
+    }
   }
   render() {
     return (
@@ -23,22 +36,23 @@ class LoginForm extends Component {
         <div className="form-group">
           <label className="control-label">Username</label>
           <input onChange={this.onChange} value={this.state.username} 
-          type="text" name="username" className="form-control"
-          required
+            type="text" name="username" className="form-control"
+            required
           />
         </div>
 
         <div className="form-group">
           <label className="control-label">Password</label>
           <input onChange={this.onChange} value={this.state.password} 
-          type="password" name="password" className="form-control"
-          required
+            type="password" name="password" className="form-control"
+            required
           />
         </div>
 
         <div className="form-group">
-          <button className="login-button button" >Log In</button>
+          <button className="login-button button" disabled={this.state.disabled}>Log In</button>
         </div>
+        <p value={this.state.loginError}></p>
       </form>
     );
   }
