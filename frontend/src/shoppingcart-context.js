@@ -27,6 +27,10 @@ export class ShoppingCartProvider extends Component {
         this.setState({products: stateCopy, count: this.updateItemCount()})
     }
 
+    incrementProductCount = (id) => {
+        console.log('incremented product with id: ', id)
+    }
+
     // Updates item count after setState
     updateItemCount = () => {
         let updatedItemCount = 0
@@ -45,7 +49,6 @@ export class ShoppingCartProvider extends Component {
         let counter = 0;
         // Iterate shopping cart products
         for(let i = 0; i < stateCopy.length; i++) {
-            console.log(counter)
             // Check if new product exists already in cart.
             if(stateCopy[i].id === newProduct.id) {
                 counter++
@@ -82,6 +85,7 @@ export class ShoppingCartProvider extends Component {
                 ...this.state,
                 setProductId: this.setProductId
                 , removeItem: this.removeItem
+                , incrementProductCount: this.incrementProductCount
             }}>
                 {this.props.children}
             </ShoppingCartContext.Provider>
