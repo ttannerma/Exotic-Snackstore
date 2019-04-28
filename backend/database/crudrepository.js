@@ -7,8 +7,23 @@ class CrudRepository {
         this.connection = mysql.createConnection(config);
         this.connection.connect();
     }
-    // Gets all users.
+    // Gets all users
+    getUsers(callback) {
+        this.connection.query('SELECT * FROM Users;', (error, results) => {
+            if (error) throw error;
+            callback(results);
+        });
+    }
     getUser(user, callback) {
+        const queryString = `INSERT INTO Users(userType, name, email, password)
+        VALUES('user', '${user.username}', '${user.email}', '${user.password}');`;
+        console.log(queryString);
+        this.connection.query(queryString, (error, result) => {
+            if(error) throw error;
+            callback(result);
+        });
+    }
+    addUser(user, callback) {
         const queryString = `SELECT * FROM Users WHERE name = '${user.username}';`;
         this.connection.query(queryString, (error, result) => {
             if(result.length === 0 || error) {

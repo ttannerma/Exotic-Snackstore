@@ -195,7 +195,9 @@ footer{
         border-bottom: 1px solid gray;
     }
 }
-
+.invalid {
+    border-left: 10px solid red;
+}
 #main {
     margin-top: 3rem;
     top: 50%;

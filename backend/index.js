@@ -11,8 +11,7 @@ const server = app.listen(8080, () => {
     console.log(`Listening on port ${server.address().port}`);
 });
 
-// Fetch all users
-app.post('/users', (req, res) => {
+app.post('/users/login', (req, res) => {
     const user = req.body;
     crudrepo.getUser(user, (results) => {
         if(results[0].id) { 
@@ -26,11 +25,23 @@ app.post('/users', (req, res) => {
         }
     });
 });
+app.get('/users', (req, res) => {
+    crudrepo.getUsers(results => {
+        res.send(results);
+    });
+})
+
+app.post('/users/signup', (req, res) => {
+    const user = req.body;
+    crudrepo.getUser(user, (results) => {
+        res.send(results)
+    });
+});
 
 // Fetch all products
 app.get('/products', (req, res) => {
     console.log('Getting /products');
-    crudrepo.getProducts((results) => {
+    crudrepo.getProducts(results => {
         res.send(results);
     });
 });
