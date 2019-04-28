@@ -14,7 +14,6 @@ class Items extends Component {
     // Called when searched a second time. Compares old and new props.
     componentWillReceiveProps(nextProps) {
         if(this.props.category !== nextProps.category) {
-            console.log('new props: ', nextProps.category)
             this.setState({
                 category: nextProps.category
             })
