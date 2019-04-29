@@ -5,7 +5,7 @@ class ShoppingCartPage extends Component {
     createCartItems() {
         let shoppingCartItems =
             <ShoppingCartContext.Consumer>
-            {({ products, removeItem, incrementProductCount }) => {
+            {({ products, removeItem, incrementProductCount, decreaseProductCount }) => {
                 let allProducts = []
                 let cartTotalPrice = 0
                 if (products <= 0) {
@@ -24,10 +24,10 @@ class ShoppingCartPage extends Component {
                             <h3 className="item-name">{products[i].name}</h3>
                             <h5>quantity: {products[i].quantity}</h5>
                             <div onClick={() => {incrementProductCount(products[i].id)}} className="item-remove">
-                                <i class="fas fa-plus-square"></i>
+                                <i className="fas fa-plus-square"></i>
                             </div>
-                            <div onClick={() => {incrementProductCount(products[i].id)}} className="item-remove">
-                                <i class="fas fa-minus-square"></i>
+                            <div onClick={() => {decreaseProductCount(products[i].id)}} className="item-remove">
+                                <i className="fas fa-minus-square"></i>
                             </div>
                             <h5>price: {products[i].price} €</h5>
                             <h5>total price: {itemTotalPrice} €</h5>
