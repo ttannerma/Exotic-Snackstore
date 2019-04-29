@@ -10,9 +10,9 @@ class Signup extends Component {
       <div className="generic-container">
         <Consumer>
           {value => {
-            const { addNewUser } = value;
+            const { addNewUser, getUsers } = value;
             return(
-              <SignupForm addNewUser={addNewUser}/>
+              <SignupForm addNewUser={addNewUser} getUsers={getUsers}/>
             )
           }}
         </Consumer>

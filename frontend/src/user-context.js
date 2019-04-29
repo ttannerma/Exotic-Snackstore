@@ -13,8 +13,18 @@ export class UserProvider extends Component {
   componentDidMount() {
     
   }
+  getUsers = (callback) => {
+    axios.get('http://localhost:8080/users')
+    .then(response => {
+      let existingUsers= [];
+      response.data.forEach(user => {
+        existingUsers.push(user.name);
+      });
+      callback(existingUsers);
+    });
+  }
   toggleUser = (newUser) => {
-    axios.post('http://localhost:8080/users', newUser)
+    axios.post('http://localhost:8080/users/login', newUser)
     .then(response => {
       console.log(response);
       this.setState({activeUser: response.data});
@@ -25,14 +35,19 @@ export class UserProvider extends Component {
       return error;
     });
   }
-  addNewUser = (newUser) => {
-    this.state.users.push(newUser);
-    return this.state.users;
+  addNewUser = (newUser, callback) => {
+    axios.post('http://localhost:8080/users/signup', newUser)
+    .then(response => {
+      callback(response);
+    })
   }
 
   render() {
     return (
-      <UserContext.Provider value={{...this.state, toggleUser: this.toggleUser, addNewUser: this.addNewUser}}>
+      <UserContext.Provider value={{...this.state
+        , toggleUser: this.toggleUser
+        , addNewUser: this.addNewUser
+        , getUsers: this.getUsers}}>
         {this.props.children}
       </UserContext.Provider>
     )
