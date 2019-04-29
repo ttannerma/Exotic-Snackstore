@@ -33,7 +33,7 @@ app.get('/users', (req, res) => {
 
 app.post('/users/signup', (req, res) => {
     const user = req.body;
-    crudrepo.getUser(user, (results) => {
+    crudrepo.addUser(user, (results) => {
         res.send(results)
     });
 });

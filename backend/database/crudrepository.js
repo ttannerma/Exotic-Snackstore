@@ -1,6 +1,9 @@
 /* eslint-disable quotes */
 const mysql = require('mysql');
 const { config } = require('./config');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+let myPlaintextPassword = 's0/\/\P4$$w0rD';
 
 class CrudRepository {
     constructor() {
@@ -14,26 +17,36 @@ class CrudRepository {
             callback(results);
         });
     }
-    getUser(user, callback) {
-        const queryString = `INSERT INTO Users(userType, name, email, password)
-        VALUES('user', '${user.username}', '${user.email}', '${user.password}');`;
-        console.log(queryString);
-        this.connection.query(queryString, (error, result) => {
-            if(error) throw error;
-            callback(result);
-        });
-    }
     addUser(user, callback) {
+        myPlaintextPassword = user.password;
+        bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
+            if(err) throw err;
+            const queryString = `INSERT INTO Users(userType, name, email, password)
+            VALUES('user', '${user.username}', '${user.email}', '${hash}');`;
+            console.log(queryString);
+            this.connection.query(queryString, (error, result) => {
+                if(error) throw error;
+                callback(result);
+            });
+            // Store hash in your password DB.
+          });
+    }
+    getUser(user, callback) {
         const queryString = `SELECT * FROM Users WHERE name = '${user.username}';`;
         this.connection.query(queryString, (error, result) => {
             if(result.length === 0 || error) {
                 callback('User not found.');
             }
-            else if(user.password !== result[0].password) {
+            else if(this.comparePassword(user.password, result[0].password)) {
                 callback('Wrong password');
             } else {
                 callback(result);
             }
+        });
+    }
+    comparePassword(userPassword, hashPassword) {
+        bcrypt.compare(userPassword, hashPassword, function(err, res) {
+           return res;
         });
     }
     // Gets all products.
