@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { ShoppingCartContext } from '../../shoppingcart-context'
+import { Link } from 'react-router-dom'
 class ShoppingCartPage extends Component {
 
     createCartItems() {
@@ -46,6 +47,7 @@ class ShoppingCartPage extends Component {
                         <h1>Shopping Cart</h1>
                         {allProducts}
                         <h3>Cart total price: {cartTotalPrice} €</h3>
+                        <Link to={'/cart/payment-and-delivery'} >Payment and Delivery</Link>
                     </React.Fragment>
                 )
             }}
