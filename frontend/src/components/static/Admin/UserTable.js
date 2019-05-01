@@ -3,14 +3,17 @@ import React, { Component } from 'react'
 export default class UserTable extends Component {
   constructor() {
     super();
-    this.state = {users: []};
+    this.state = {fetchSuccess: false, users: []};
   }
   componentDidMount() {
     this.getUsers();
   }
   getUsers = () => {
     this.props.getUsers(users => {
-      this.createUserTable(users);
+      if(users) {
+        this.setState({fetchSuccess: true});
+        this.createUserTable(users);
+      }
     });
   }
   userDeleted = (code) => {
@@ -29,10 +32,12 @@ export default class UserTable extends Component {
     );
     this.setState({users: userTable});
   }
-  render() {
-    return (
-      <div>
-        <table>
+  renderNotFound = () => {
+    return <p>Sorry, no users found</p>
+  }
+  renderTable = () => {
+    return(
+      <table>
         <tbody>
           <tr>
             <th>ID</th>
@@ -42,7 +47,13 @@ export default class UserTable extends Component {
           {this.state.users}
         </tbody>
         </table>
-      </div>
     )
+  }
+  render() {
+    if(this.state.fetchSuccess === true) {
+      return <this.renderTable />
+    } else {
+      return <this.renderNotFound />
+    }
   }
 }

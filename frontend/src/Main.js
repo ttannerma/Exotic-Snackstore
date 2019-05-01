@@ -19,6 +19,7 @@ import DeliveryPaymentPage from './components/dynamic/DeliveryPaymentPage';
 import { UserProvider } from './user-context'; 
 import { ProductProvider} from './product-context';
 import { ShoppingCartProvider } from './shoppingcart-context';
+import AddNewForm from './components/static/Admin/AddNewForm';
 
 class Main extends Component {
   render() {
@@ -44,6 +45,7 @@ class Main extends Component {
                     <Route exact path="/admin" component={Admin}></Route>
                     <Route exact path="/admin/users" component={UserManager}></Route>
                     <Route exact path="/admin/products" component={ProductManager}></Route>
+                    <Route exact path="/admin/products/add-new" component={AddNewForm}></Route>
                     <Route exact path="/cart" component={ShoppingCartPage}></Route>
                     <Route exact path="/cart/payment-and-delivery" component={DeliveryPaymentPage}></Route>
                     <Route exact path="/search/:searchVal" component={Search}></Route>

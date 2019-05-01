@@ -52,7 +52,13 @@ app.get('/products', (req, res) => {
         res.send(results);
     });
 });
-
+// Add new Product
+app.post('/products', (req, res) => {
+    var productData = req.body;
+    crudrepo.save(productData, (result) => {
+        res.send(result);
+    });
+});
 // Fetch all products by search value
 app.get('/search/:value', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');

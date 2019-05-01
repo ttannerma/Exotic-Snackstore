@@ -18,6 +18,15 @@ export class ProductProvider extends Component {
       callback(response.data)
     });
   }
+  addNewProduct = (product, callback) => {
+    callback(product);
+    /*
+    axios.post('http://localhost:8080/products/add', product)
+    .then(response => {
+      callback(response);
+    })*/
+  }
+  /*
   deleteUser = (id, callback) => {
     axios.delete('http://localhost:8080/users/'+id)
     .then(response => {
@@ -36,18 +45,13 @@ export class ProductProvider extends Component {
       return error;
     });
   }
-  addNewUser = (newUser, callback) => {
-    axios.post('http://localhost:8080/users/signup', newUser)
-    .then(response => {
-      callback(response);
-    })
-  }
-
+  */
   render() {
     return (
       <ProductContext.Provider value={{
         getProducts: this.getProducts
-        , getProductsWithCat: this.getProductsWithCat}}>
+        , getProductsWithCat: this.getProductsWithCat
+        , addNewProduct: this.addNewProduct}}>
         {this.props.children}
       </ProductContext.Provider>
     )

@@ -3,14 +3,17 @@ import React, { Component } from 'react'
 export default class ProductTable extends Component {
   constructor() {
     super();
-    this.state = {products: []};
+    this.state = {fetchSuccesful: false, products: []};
   }
   componentDidMount() {
     this.getProducts();
   }
   getProducts = () => {
     this.props.getProducts(products => {
-      this.createProductTable(products.data);
+      if(products) {
+        this.setState({fetchSuccesful: true});
+        this.createProductTable(products.data);
+      } 
     });
   }
   ProductDeleted = (code) => {
@@ -50,26 +53,34 @@ export default class ProductTable extends Component {
     );
     this.setState({products: productsTable});
   }
-  render() {
+  renderNotFound = () => {
+    return <p>Sorry, no products found.</p>
+  }  
+  renderTable = () => {
     return (
-      <div>
-        <table>
-        <tbody>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Weight</th>
-            <th>Stock</th>
-            <th>Category</th>
-            <th>Country</th>
-            <th>Ratings</th>
-            <th>Action</th>            
-          </tr>
-          {this.state.products}
-        </tbody>
-        </table>
-      </div>
+    <table>
+      <tbody>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Weight</th>
+          <th>Stock</th>
+          <th>Category</th>
+          <th>Country</th>
+          <th>Ratings</th>
+          <th>Action</th>            
+        </tr>
+        {this.state.products}
+      </tbody>
+    </table>
     )
+  }
+  render() {
+    if(this.state.fetchSuccesful) {
+      return <this.renderTable />
+    } else {
+      return <this.renderNotFound />
+    }
   }
 }

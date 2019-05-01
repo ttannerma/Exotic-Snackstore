@@ -15,6 +15,7 @@ export default class ProductManager extends Component {
             return <ProductTable getProducts={getProducts} deleteProduct={deleteProduct}/>
           }}
         </Consumer>
+        <Link to="/admin/products/add-new">Add new product</Link>
         <Link to="/admin">Back</Link>
       </div>
 
