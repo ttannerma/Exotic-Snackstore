@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const UserContext = React.createContext();
+const ProductContext = React.createContext();
 
-export class UserProvider extends Component {
-  constructor() {
-    super();
-    this.state = {
-      activeUser: {}
-    }
-  }
-  componentDidMount() {
-    
-  }
-  getUsers = (callback) => {
-    axios.get('http://localhost:8080/users')
+export class ProductProvider extends Component {
+  getProducts = (callback) => {
+    axios.get('http://localhost:8080/products')
     .then(response => {
-      let existingUsers= [];
-      response.data.forEach(user => {
-        existingUsers.push({id: user.id, name: user.name});
-      });
-      callback(existingUsers);
+      console.log(response);
+      callback(response)
+    });
+  }
+  getProductsWithCat = (category, callback) => {
+    axios.get(`http://localhost:8080/search/${category}`)
+    .then(response => {
+      console.log(response.data);
+      callback(response.data)
     });
   }
   deleteUser = (id, callback) => {
@@ -50,15 +45,13 @@ export class UserProvider extends Component {
 
   render() {
     return (
-      <UserContext.Provider value={{...this.state
-        , toggleUser: this.toggleUser
-        , addNewUser: this.addNewUser
-        , getUsers: this.getUsers
-        , deleteUser: this.deleteUser}}>
+      <ProductContext.Provider value={{
+        getProducts: this.getProducts
+        , getProductsWithCat: this.getProductsWithCat}}>
         {this.props.children}
-      </UserContext.Provider>
+      </ProductContext.Provider>
     )
   }
 }
 
-export const Consumer = UserContext.Consumer;
+export const Consumer = ProductContext.Consumer;

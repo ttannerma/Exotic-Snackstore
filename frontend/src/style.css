@@ -196,6 +196,29 @@ nav .active {
   text-decoration: none;
 }
 
+.admin-tools {
+  display: inline-block;
+}
+
+.admin-tools .tool {
+  font-size: 2rem;
+  text-align: center;
+  border: grey solid 1px;
+  padding: 2rem;
+  background-color: orange;
+  color: white;
+}
+
+.admin-tools .adminLink {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.admin-tools .block {
+  display: block;
+}
+
 footer {
   margin: auto auto 0 auto;
   width: 100%;

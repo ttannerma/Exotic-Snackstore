@@ -22,28 +22,25 @@ class Items extends Component {
     }
 
     fetchNewProducts(category) {
-        fetch(`http://localhost:8080/search/${category}`).then(r => r.json())
-        .then(this.setProductData)
+      this.props.getProducts(category, products => {
+        console.log(products.data);
+      });
     }
 
   // Use fetch API to get data on products.
   componentDidMount() {
     // Check if products need to be searched by category, if not then fetch all products.
     if(this.state.category === '' || this.state.category === undefined) {
-        fetch(`http://localhost:8080/products/`).then(r => r.json())
-        .then(this.setProductData)
-        .catch(this.displayError)
+      this.props.getProducts(this.setProductData);
     } else {
         // Fetch products by category.
-        fetch(`http://localhost:8080/search/${this.state.category}`).then(r => r.json())
-        .then(this.setProductData)
-        .catch(this.displayError)
+        this.props.getProductsWithCat(this.state.category, this.setProductData);
     }
   }
 
   // Assign all product data to this.state
   setProductData = (results) => {
-    this.setState({products: results})
+    this.setState({products: results});
   }
 
   displayError = () => {
