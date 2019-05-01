@@ -8,10 +8,11 @@ import About from './components/static/About';
 import Contact from './components/static/Contact';
 import Search from './components/dynamic/Search';
 import ItemPage from './components/dynamic/ItemPage';
-import Login from './components/static/login/Login';
+import Login from './components/static/Login/Login';
 import Signup from './components/static/signup/Signup';
 import ShoppingCartLogo from './components/dynamic/ShoppingCartLogo';
 import ShoppingCartPage from './components/dynamic/ShoppingCartPage';
+import DeliveryPaymentPage from './components/dynamic/DeliveryPaymentPage';
 import { UserProvider } from './user-context'; 
 import { ShoppingCartProvider } from './shoppingcart-context';
 
@@ -36,6 +37,7 @@ class Main extends Component {
                     <Route exact path="/about" component={About}></Route>
                     <Route exact path="/contact" component={Contact}></Route>
                     <Route exact path="/cart" component={ShoppingCartPage}></Route>
+                    <Route exact path="/cart/payment-and-delivery" component={DeliveryPaymentPage}></Route>
                     <Route exact path="/search/:searchVal" component={Search}></Route>
                     <Route exact path="/categories/:searchVal" component={Search}></Route>
                     <Route exact path="/countries/:searchVal" component={Search}></Route>

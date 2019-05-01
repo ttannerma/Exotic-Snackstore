@@ -28,7 +28,23 @@ export class ShoppingCartProvider extends Component {
     }
 
     incrementProductCount = (id) => {
-        console.log('incremented product with id: ', id)
+        let stateCopy = this.state.products
+        let productIndex = stateCopy.map((item) => { return item.id}).indexOf(id)
+        stateCopy[productIndex].quantity += 1
+        this.setState({products: stateCopy, count: this.updateItemCount()})
+    }
+
+    decreaseProductCount = (id) => {
+        let stateCopy = this.state.products
+        let productIndex = stateCopy.map((item) => { return item.id}).indexOf(id)
+        if (stateCopy[productIndex].quantity >= 1) {
+            stateCopy[productIndex].quantity -= 1
+            this.setState({products: stateCopy, count: this.updateItemCount()})
+        }
+        if (stateCopy[productIndex].quantity === 0 || stateCopy[productIndex].quantity <= 0){
+            this.removeItem(id)
+        }
+
     }
 
     // Updates item count after setState
@@ -86,6 +102,7 @@ export class ShoppingCartProvider extends Component {
                 setProductId: this.setProductId
                 , removeItem: this.removeItem
                 , incrementProductCount: this.incrementProductCount
+                , decreaseProductCount: this.decreaseProductCount
             }}>
                 {this.props.children}
             </ShoppingCartContext.Provider>
