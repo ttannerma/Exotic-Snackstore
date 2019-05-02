@@ -22,7 +22,7 @@ class Items extends Component {
     }
 
     fetchNewProducts(category) {
-      this.props.getProducts(category, products => {
+      this.props.getProducts(category, (products) => {
         console.log(products.data);
       });
     }
