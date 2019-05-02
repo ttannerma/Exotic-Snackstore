@@ -31,7 +31,7 @@ class SignupForm extends Component {
     const user = {username, email, password};
     this.sendUser(user);
   }
-  sendUser(user) {
+  sendUser = (user) => {
     this.props.addNewUser(user, response => {
       console.log(response);
       this.props.history.push('/login');
