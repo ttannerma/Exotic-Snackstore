@@ -5,10 +5,11 @@ const ProductContext = React.createContext();
 
 export class ProductProvider extends Component {
   getProducts = (callback) => {
+    console.log('callback: '+callback);
     axios.get('http://localhost:8080/products')
     .then(response => {
-      console.log(response);
-      callback(response)
+      console.log(response.data);
+      callback(response.data)
     });
   }
   getProductsWithCat = (category, callback) => {

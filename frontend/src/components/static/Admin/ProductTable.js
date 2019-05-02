@@ -9,10 +9,10 @@ export default class ProductTable extends Component {
     this.getProducts();
   }
   getProducts = () => {
-    this.props.getProducts(products => {
+    this.props.getProducts((products) => {
       if(products) {
         this.setState({fetchSuccesful: true});
-        this.createProductTable(products.data);
+        this.createProductTable(products);
       } 
     });
   }
