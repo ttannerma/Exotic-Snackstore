@@ -23,8 +23,9 @@ class Items extends Component {
 
     fetchNewProducts(category) {
       console.log('FetchnewProducts');
-      this.props.getProducts(category, (products) => {
-        console.log(products.data);
+      this.props.getProductsWithCat(category, (products) => {
+        console.log(products);
+        this.setState({products})
       });
     }
 
