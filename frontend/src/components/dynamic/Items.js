@@ -22,6 +22,7 @@ class Items extends Component {
     }
 
     fetchNewProducts(category) {
+      console.log('FetchnewProducts');
       this.props.getProducts(category, (products) => {
         console.log(products.data);
       });
@@ -40,6 +41,7 @@ class Items extends Component {
 
   // Assign all product data to this.state
   setProductData = (results) => {
+    console.log('Set Product data: '+results)
     this.setState({products: results});
   }
 
