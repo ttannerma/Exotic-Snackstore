@@ -55,8 +55,15 @@ app.get('/products', (req, res) => {
 // Add new Product
 app.post('/products', (req, res) => {
     var productData = req.body;
-    crudrepo.save(productData, (result) => {
+    crudrepo.addNewProduct(productData, (result) => {
         res.send(result);
+    });
+});
+app.delete('/products/:id([0-9]+)', (req, res) => {
+    const id = req.params.id;
+    console.log(id);
+    crudrepo.deleteProduct(id, (results) => {
+        res.send(results);
     });
 });
 // Fetch all products by search value
