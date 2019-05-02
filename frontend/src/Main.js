@@ -6,6 +6,9 @@ import Body from './components/dynamic/Body';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import About from './components/static/About';
 import Contact from './components/static/Contact';
+import Admin from './components/static/Admin/Admin';
+import UserManager from './components/static/Admin/UserManager';
+import ProductManager from './components/static/Admin/ProductManager';
 import Search from './components/dynamic/Search';
 import ItemPage from './components/dynamic/ItemPage';
 import Login from './components/static/Login/Login';
@@ -14,7 +17,9 @@ import ShoppingCartLogo from './components/dynamic/ShoppingCartLogo';
 import ShoppingCartPage from './components/dynamic/ShoppingCartPage';
 import DeliveryPaymentPage from './components/dynamic/DeliveryPaymentPage';
 import { UserProvider } from './user-context'; 
+import { ProductProvider} from './product-context';
 import { ShoppingCartProvider } from './shoppingcart-context';
+import AddNewForm from './components/static/Admin/AddNewForm';
 
 class Main extends Component {
   render() {
@@ -26,6 +31,7 @@ class Main extends Component {
           </div>
           <UserProvider>
           <ShoppingCartProvider>
+          <ProductProvider>
               <div className="container">
                 <div className="content-shell">
                 <ShoppingCartLogo />
@@ -36,6 +42,10 @@ class Main extends Component {
                     <Route exact path ="/signup" component ={Signup}></Route>
                     <Route exact path="/about" component={About}></Route>
                     <Route exact path="/contact" component={Contact}></Route>
+                    <Route exact path="/admin" component={Admin}></Route>
+                    <Route exact path="/admin/users" component={UserManager}></Route>
+                    <Route exact path="/admin/products" component={ProductManager}></Route>
+                    <Route exact path="/admin/products/add-new" component={AddNewForm}></Route>
                     <Route exact path="/cart" component={ShoppingCartPage}></Route>
                     <Route exact path="/cart/payment-and-delivery" component={DeliveryPaymentPage}></Route>
                     <Route exact path="/search/:searchVal" component={Search}></Route>
@@ -45,6 +55,7 @@ class Main extends Component {
                   </Switch>
                 </div>
               </div>
+            </ProductProvider>
           </ShoppingCartProvider>
           </UserProvider>
           <Footer/>

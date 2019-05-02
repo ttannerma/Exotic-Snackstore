@@ -29,7 +29,15 @@ class CrudRepository {
                 callback(result);
             });
             // Store hash in your password DB.
-          });
+        });
+    }
+    deleteUser(id, callback) {
+        const queryString = `DELETE FROM Users WHERE ID = ${id}`;
+        console.log(queryString);
+        this.connection.query(queryString, (error, result) => {
+            if(error) throw error;
+            callback(result);
+        });
     }
     getUser(user, callback) {
         const queryString = `SELECT * FROM Users WHERE name = '${user.username}';`;
