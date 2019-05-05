@@ -22,28 +22,28 @@ class Items extends Component {
     }
 
     fetchNewProducts(category) {
-        fetch(`http://localhost:8080/search/${category}`).then(r => r.json())
-        .then(this.setProductData)
+      console.log('FetchnewProducts');
+      this.props.getProductsWithCat(category, (products) => {
+        console.log(products);
+        this.setState({products})
+      });
     }
 
   // Use fetch API to get data on products.
   componentDidMount() {
     // Check if products need to be searched by category, if not then fetch all products.
     if(this.state.category === '' || this.state.category === undefined) {
-        fetch(`http://localhost:8080/products/`).then(r => r.json())
-        .then(this.setProductData)
-        .catch(this.displayError)
+      this.props.getProducts(this.setProductData);
     } else {
         // Fetch products by category.
-        fetch(`http://localhost:8080/search/${this.state.category}`).then(r => r.json())
-        .then(this.setProductData)
-        .catch(this.displayError)
+        this.props.getProductsWithCat(this.state.category, this.setProductData);
     }
   }
 
   // Assign all product data to this.state
   setProductData = (results) => {
-    this.setState({products: results})
+    console.log('Set Product data: '+results)
+    this.setState({products: results});
   }
 
   displayError = () => {
@@ -84,7 +84,7 @@ class Items extends Component {
           <form className="itemAddForm">
                     <input type="number" onChange={this.handleChange} name="quantity" min="1" max="30" step="1" />
                     <button type="button"
-                        onClick={() => { this.state.value > 0 ? setProductId(this.state.products[i].name, this.state.products[i].id, this.state.value, this.state.products[i].price): alert('You must add at least one product to cart.')}}>Buy</button>
+                        onClick={() => { this.state.value > 0 && this.state.value <= 30 ? setProductId(this.state.products[i].name, this.state.products[i].id, this.state.value, this.state.products[i].price): alert('You must add at least one product to cart.')}}>Buy</button>
           </form>
           <h2>{price} €<span>{ratings ? ratings : 'No ratings'}</span></h2>
         </div>

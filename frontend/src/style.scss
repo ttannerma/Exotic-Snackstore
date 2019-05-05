@@ -170,6 +170,26 @@ nav{
     text-transform: capitalize;
     text-decoration: none;
 }
+.admin-tools {
+    display: inline-block;
+    .tool{
+        font-size: 2rem;
+        text-align: center;
+        border: grey solid 1px;
+        padding: 2rem;
+        
+        background-color: orange;
+        color: white;
+    }
+    .adminLink {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+    .block{
+        display: block;
+    }
+}
 footer{
     margin: auto auto 0 auto;
     width: 100%;

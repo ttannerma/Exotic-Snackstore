@@ -18,10 +18,16 @@ export class UserProvider extends Component {
     .then(response => {
       let existingUsers= [];
       response.data.forEach(user => {
-        existingUsers.push(user.name);
+        existingUsers.push({id: user.id, name: user.name});
       });
       callback(existingUsers);
     });
+  }
+  deleteUser = (id, callback) => {
+    axios.delete('http://localhost:8080/users/'+id)
+    .then(response => {
+      callback(response);
+    })
   }
   toggleUser = (newUser) => {
     axios.post('http://localhost:8080/users/login', newUser)
@@ -47,7 +53,8 @@ export class UserProvider extends Component {
       <UserContext.Provider value={{...this.state
         , toggleUser: this.toggleUser
         , addNewUser: this.addNewUser
-        , getUsers: this.getUsers}}>
+        , getUsers: this.getUsers
+        , deleteUser: this.deleteUser}}>
         {this.props.children}
       </UserContext.Provider>
     )

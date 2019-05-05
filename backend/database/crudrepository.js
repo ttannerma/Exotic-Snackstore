@@ -29,7 +29,14 @@ class CrudRepository {
                 callback(result);
             });
             // Store hash in your password DB.
-          });
+        });
+    }
+    deleteUser(id, callback) {
+        const queryString = `DELETE FROM Users WHERE ID = ${id}`;
+        this.connection.query(queryString, (error, result) => {
+            if(error) throw error;
+            callback(result);
+        });
     }
     getUser(user, callback) {
         const queryString = `SELECT * FROM Users WHERE name = '${user.username}';`;
@@ -46,7 +53,7 @@ class CrudRepository {
     }
     comparePassword(userPassword, hashPassword) {
         bcrypt.compare(userPassword, hashPassword, function(err, res) {
-           return res;
+            return res;
         });
     }
     // Gets all products.
@@ -85,6 +92,23 @@ class CrudRepository {
         this.connection.query(sql, (error, results) => {
             if (error) throw error;
             callback(results);
+        });
+    }
+    addNewProduct(product, callback) {
+        const queryString = `INSERT INTO products(name, price, weight, description, 
+        ratings, category, stock, country, allergies)
+        VALUES('${product.name}', ${product.price}, ${product.weight}, '${product.description}'
+        , '', '${product.category}', ${product.stock}, '${product.country}', '${product.allergies}');`;
+        this.connection.query(queryString, (error, result) => {
+            if(error) throw error;
+            callback(result);
+        });
+    }
+    deleteProduct(id, callback) {
+        const queryString = `DELETE FROM products WHERE ID = ${id}`;
+        this.connection.query(queryString, (error, result) => {
+            if(error) throw error;
+            callback(result);
         });
     }
 }

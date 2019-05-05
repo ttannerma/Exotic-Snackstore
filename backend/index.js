@@ -29,12 +29,19 @@ app.get('/users', (req, res) => {
     crudrepo.getUsers(results => {
         res.send(results);
     });
-})
+});
+app.delete('/users/:id([0-9]+)', (req, res) => {
+    const id = req.params.id;
+    console.log(id);
+    crudrepo.deleteUser(id, results => {
+        res.send(200, 'Succesfully Deleted');
+    });
+});
 
 app.post('/users/signup', (req, res) => {
     const user = req.body;
     crudrepo.addUser(user, (results) => {
-        res.send(results)
+        res.send(results);
     });
 });
 
@@ -45,7 +52,20 @@ app.get('/products', (req, res) => {
         res.send(results);
     });
 });
-
+// Add new Product
+app.post('/products', (req, res) => {
+    var productData = req.body;
+    crudrepo.addNewProduct(productData, (result) => {
+        res.send(result);
+    });
+});
+app.delete('/products/:id([0-9]+)', (req, res) => {
+    const id = req.params.id;
+    console.log(id);
+    crudrepo.deleteProduct(id, (results) => {
+        res.send(results);
+    });
+});
 // Fetch all products by search value
 app.get('/search/:value', (req, res) => {
     res.header('Access-Control-Allow-Origin', '*');
