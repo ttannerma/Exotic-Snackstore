@@ -20,6 +20,7 @@ import { UserProvider } from './user-context';
 import { ProductProvider} from './product-context';
 import { ShoppingCartProvider } from './shoppingcart-context';
 import AddNewConsumer from './components/static/Admin/AddNewConsumer';
+import OrderReviewPage from './components/dynamic/OrderReviewPage'
 
 class Main extends Component {
   render() {
@@ -52,6 +53,7 @@ class Main extends Component {
                     <Route exact path="/categories/:searchVal" component={Search}></Route>
                     <Route exact path="/countries/:searchVal" component={Search}></Route>
                     <Route exact path="/products/:productName" component={ItemPage}></Route>
+                    <Route exact path="/cart/order-review" component={OrderReviewPage}></Route>
                   </Switch>
                 </div>
               </div>

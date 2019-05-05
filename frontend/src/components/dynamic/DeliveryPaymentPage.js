@@ -23,8 +23,8 @@ class DeliveryPaymentPage extends Component {
         this.sum = 0
     }
 
-    componentDidUpdate() {
-
+    componentDidMount() {
+        this.setState({ products: this.products, price: this.sum})
     }
 
     createProductList() {
@@ -171,21 +171,17 @@ class DeliveryPaymentPage extends Component {
         )
     }
 
-    handleConfirm = () => {
-        if (this.state.deliveryMethod === "Home delivery") {
-            this.sum = Number(this.sum) + 10
-        } else if (this.state.deliveryMethod === "Nearest post office") {
-            this.sum = Number(this.sum) + 5
-        }
-        this.setState({sum : this.sum, products: this.products})
-    }
-
     createConfirmButton() {
         let confirmButton =
-            <button onClick={this.handleConfirm}>
-                Click to review your order
-            </button>
-            return confirmButton
+            <Link to={{
+                pathname: '/cart/order-review',
+                state: this.state
+            }}>
+                <button>
+                    Click to review your order
+                </button>
+            </Link>
+        return confirmButton
     }
 
     render() {
