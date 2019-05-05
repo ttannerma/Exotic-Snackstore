@@ -176,10 +176,15 @@ nav{
         font-size: 2rem;
         text-align: center;
         border: grey solid 1px;
-        padding: 2rem;
-        
+        padding: 3rem 0;
+        width: 12rem;
         background-color: orange;
         color: white;
+        float: left;
+        margin-right: 3rem;
+    }
+    .tool:hover {
+        background-color: lighten($orange, 10%)
     }
     .adminLink {
         text-decoration: none;
@@ -188,6 +193,68 @@ nav{
     }
     .block{
         display: block;
+    }
+}
+.admin-table {
+    margin-bottom: 2rem;
+    th {
+        font-size: 1.2rem;
+    }
+    th, td {
+        text-align: center;
+        padding: 0 1rem;
+    }
+    button, a {
+        border: grey solid 1.5px;
+        background-color: orange;
+        color: white;
+        padding: 0.2 0.5rem;
+        font-family: 'Montserrat';
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: lighten($orange, 10%)
+    }
+    .link-as-button {
+        text-decoration: none;
+    }
+    td.fitwidth {
+        width: 1px;
+        white-space: nowrap;
+    }
+}
+.admin-link {
+    color: orange;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    margin-right: 3rem;
+}
+.new-product-form {
+    margin-left: 2rem;
+    .form-group {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        input, select {
+            font-size: 1.2rem;
+        }
+        label {
+            margin-right: 0.5rem;
+        }
+        .submit-button{
+            border: grey solid 1.5px;
+            background-color: orange;
+            color: white;
+            padding: 0.5rem 1rem;
+            font-family: 'Montserrat';
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: lighten($orange, 10%)
+        }
     }
 }
 footer{
@@ -214,6 +281,9 @@ footer{
     .item-shoppingcart {
         border-bottom: 1px solid gray;
     }
+}
+.generic-container-no-top {
+    margin: 0 3rem;
 }
 .invalid {
     border-left: 10px solid red;

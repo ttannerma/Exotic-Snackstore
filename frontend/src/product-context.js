@@ -5,17 +5,14 @@ const ProductContext = React.createContext();
 
 export class ProductProvider extends Component {
   getProducts = (callback) => {
-    console.log('callback: '+callback);
     axios.get('http://localhost:8080/products')
     .then(response => {
-      console.log(response.data);
       callback(response.data)
     });
   }
   getProductsWithCat = (category, callback) => {
     axios.get(`http://localhost:8080/search/${category}`)
     .then(response => {
-      console.log(response.data);
       callback(response.data)
     });
   }
@@ -31,27 +28,34 @@ export class ProductProvider extends Component {
       callback(response);
     })
   }
-  /*
-  toggleUser = (newUser) => {
-    axios.post('http://localhost:8080/users/login', newUser)
+  getOrders = (callback) => {
+    axios.get('http://localhost:8080/orders')
     .then(response => {
-      console.log(response);
-      this.setState({activeUser: response.data});
-      console.log(this.state.activeUser);
-    })
-    .catch((error) => {
-      console.log(error);
-      return error;
+      callback(response.data)
     });
   }
-  */
+  getOrderByID = (id, callback) => {
+    axios.get('http://localhost:8080/orders/'+id)
+    .then(response => {
+      callback(response);
+    });
+  }
+  deliverOrder = (id, callback) => {
+    axios.post('http://localhost:8080/orders/'+id)
+    .then(response => {
+      callback(response);
+    })
+  }
   render() {
     return (
       <ProductContext.Provider value={{
         getProducts: this.getProducts
         , getProductsWithCat: this.getProductsWithCat
         , addNewProduct: this.addNewProduct
-        , deleteProduct: this.deleteProduct}}>
+        , deleteProduct: this.deleteProduct
+        , getOrders: this.getOrders
+        , deliverOrder: this.deliverOrder
+        , getOrderByID: this.getOrderByID}}>
         {this.props.children}
       </ProductContext.Provider>
     )

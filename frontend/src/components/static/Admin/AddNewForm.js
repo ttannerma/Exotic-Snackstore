@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import { withRouter } from "react-router";
 
 export default class AddNewForm extends Component {
   constructor(props) {
@@ -24,14 +23,15 @@ export default class AddNewForm extends Component {
     const product = this.state;
     this.props.addNewProduct(product, response => {
       console.log(response);
-      this.props.history.push('/admin/products');
+      this.props.renderRedirect();
     })
   }
   render() {
     return (
-      <div className="new-product-form">
-        <form onSubmit={this.onSubmit}>
-        <h1>Add a new Product</h1>
+      <div className="generic-container">
+        <h1>Admin</h1>
+        <form className="new-product-form" onSubmit={this.onSubmit}>
+        <h2>Add new Product</h2>
 
         <div className="form-group">
           <label className="control-label">Name</label>
@@ -102,10 +102,10 @@ export default class AddNewForm extends Component {
         </div>
 
         <div className="form-group">
-        <input type="submit" value="Add" />
+        <input type="submit" value="Add" className="submit-button"/>
         </div>
       </form>
-      <Link to="/admin/products" className="adminLink">Back</Link>
+      <Link to="/admin/products" className="admin-link">Back</Link>
       </div>
     )
   }

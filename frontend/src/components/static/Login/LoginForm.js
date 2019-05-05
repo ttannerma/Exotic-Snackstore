@@ -7,7 +7,7 @@ class LoginForm extends Component {
        username: ''
       , password: ''
       , disabled: true
-      , loginError: ''
+      , errorMessage: ''
     }
   }
   onChange = (e) => {
@@ -18,14 +18,19 @@ class LoginForm extends Component {
        }
   }
   onSubmit = (e) => {
-    const { username, password } = this.state;
     e.preventDefault();
+    const { username, password } = this.state;
     if(username && password) {
-      const loginError = this.props.toggleUser(this.state);
-      console.log(loginError)
-      if(loginError) {
-        this.setState({loginError});
-      }
+      this.props.toggleUser(this.state, this.checkTheError);
+    }
+  }
+  checkTheError = (response) => {
+    if(response.message === 'Request failed with status code 404') {
+      this.setState({errorMessage: "Invalid username"});
+    } else if (response.message === 'Request failed with status code 403') {
+      this.setState({errorMessage: "Wrong password"});
+    } else {
+      this.props.setRedirect();
     }
   }
   render() {
@@ -52,7 +57,7 @@ class LoginForm extends Component {
         <div className="form-group">
           <button className="login-button button" disabled={this.state.disabled}>Log In</button>
         </div>
-        <p value={this.state.loginError}></p>
+        <p>{this.state.errorMessage}</p>
       </form>
     );
   }

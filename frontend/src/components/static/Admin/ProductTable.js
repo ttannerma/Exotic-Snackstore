@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import NotFound from '../../dynamic/NotFound';
 
 export default class ProductTable extends Component {
   constructor() {
@@ -27,12 +28,8 @@ export default class ProductTable extends Component {
       return 'No ratings yet!';
     }
   }
-  allergiesOrNull(allergies) {
-    if(allergies) {
-      return allergies;
-    } else {
-      return 'No allergies';
-    }
+  somethingOrNull(something) {
+    return something ? something : 'None';  
   }
   createProductTable = (products) => {
     console.log(products);
@@ -45,8 +42,8 @@ export default class ProductTable extends Component {
         <td>{product.stock}</td>
         <td>{product.category}</td>
         <td>{product.country}</td>
-        <td>{this.allergiesOrNull(product.allergies)}</td>
-        <td>{this.ratingsOrNull(product.ratings)}</td>
+        <td>{this.somethingOrNull(product.allergies)}</td>
+        <td>{this.somethingOrNull(product.ratings)}</td>
         <td><button onClick={() => {
           this.props.deleteProduct(product.id, this.productDeleted)
         }}>Delete</button></td>
@@ -54,12 +51,9 @@ export default class ProductTable extends Component {
     );
     this.setState({products: productsTable});
   }
-  renderNotFound = () => {
-    return <p>Sorry, no products found.</p>
-  }  
   renderTable = () => {
     return (
-    <table>
+    <table className="admin-table">
       <tbody>
         <tr>
           <th>ID</th>
@@ -69,6 +63,7 @@ export default class ProductTable extends Component {
           <th>Stock</th>
           <th>Category</th>
           <th>Country</th>
+          <th>Allergies</th>
           <th>Ratings</th>
           <th>Action</th>            
         </tr>
@@ -81,7 +76,7 @@ export default class ProductTable extends Component {
     if(this.state.fetchSuccesful) {
       return <this.renderTable />
     } else {
-      return <this.renderNotFound />
+      return <NotFound />
     }
   }
 }

@@ -1,5 +1,10 @@
 import React from 'react'
 
-export default function Logout() {
-  
+const Logout = (props) => {
+  sessionStorage.removeItem("activeUser");
+  props.history.push("/");
+  window.location.reload(true);
+  return (<h1>Logout</h1>);
 }
+
+export default Logout;

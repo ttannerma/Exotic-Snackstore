@@ -1,21 +1,12 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Consumer} from '../../../user-context'; 
 import LoginForm from './LoginForm';
 
 class Login extends Component {
-  state = {
-    redirect: false
-  }
   setRedirect = () => {
-    this.setState({
-      redirect: true
-    })
-  }
-  renderRedirect = () => {
-    if (this.state.redirect) {
-      return <Redirect to='/home' />
-    }
+    this.props.history.push('/home');
+    window.location.reload(true);
   }
   render() {
     return (
@@ -24,12 +15,12 @@ class Login extends Component {
           {value => {
             const { toggleUser } = value;
             return(
-              <LoginForm toggleUser={toggleUser}/>
+              <LoginForm toggleUser={toggleUser} setRedirect={this.setRedirect}/>
             )
           }}
         </Consumer>
         <Link to="/signup">Signup</Link>
-        </div>
+      </div>
     );
   }
 }

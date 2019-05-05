@@ -42,18 +42,26 @@ class CrudRepository {
         const queryString = `SELECT * FROM Users WHERE name = '${user.username}';`;
         this.connection.query(queryString, (error, result) => {
             if(result.length === 0 || error) {
-                callback('User not found.');
-            }
-            else if(this.comparePassword(user.password, result[0].password)) {
-                callback('Wrong password');
+                callback('404');
             } else {
-                callback(result);
-            }
+                this.comparePassword(user.password, result[0].password, (res) => {
+                    console.log(res);
+                    if(!res) {
+                        callback('403');
+                    } else {
+                        const returnUser = {
+                            username: result[0].name
+                            , userType: result[0].userType
+                        };
+                        callback(returnUser);
+                    }
+                });
+            } 
         });
     }
-    comparePassword(userPassword, hashPassword) {
-        bcrypt.compare(userPassword, hashPassword, function(err, res) {
-            return res;
+    comparePassword(userPassword, hashPassword, callback) {
+        bcrypt.compare(userPassword, hashPassword).then(res => {
+            callback(res);
         });
     }
     // Gets all products.
@@ -110,6 +118,29 @@ class CrudRepository {
             if(error) throw error;
             callback(result);
         });
+    }
+    // Gets all orders
+    getOrders(callback) {
+        this.connection.query('SELECT * FROM orders;', (error, results) => {
+            if (error) throw error;
+            callback(results);
+        });
+    }
+    deliverOrder(id, callback) {
+        const queryString = `UPDATE orders 
+        SET delivered = 1
+        WHERE id = ${id}`;
+        this.connection.query(queryString, (error, result) => {
+            if(error) throw error;
+            callback(result);
+        });
+    }
+    getOrderByID(id, callback) {
+        const queryString = `SELECT * FROM orders WHERE id = ${id};`
+        this.connection.query(queryString, (error, result) => {
+            if(error) throw error;
+            callback(result);
+        })
     }
 }
 

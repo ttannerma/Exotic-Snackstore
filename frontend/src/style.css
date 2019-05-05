@@ -204,9 +204,16 @@ nav .active {
   font-size: 2rem;
   text-align: center;
   border: grey solid 1px;
-  padding: 2rem;
+  padding: 3rem 0;
+  width: 12rem;
   background-color: orange;
   color: white;
+  float: left;
+  margin-right: 3rem;
+}
+
+.admin-tools .tool:hover {
+  background-color: #ffb733;
 }
 
 .admin-tools .adminLink {
@@ -217,6 +224,82 @@ nav .active {
 
 .admin-tools .block {
   display: block;
+}
+
+.admin-table {
+  margin-bottom: 2rem;
+}
+
+.admin-table th {
+  font-size: 1.2rem;
+}
+
+.admin-table th, .admin-table td {
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.admin-table button, .admin-table a {
+  border: grey solid 1.5px;
+  background-color: orange;
+  color: white;
+  padding: 0.2 0.5rem;
+  font-family: 'Montserrat';
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.admin-table button:hover {
+  background-color: #ffb733;
+}
+
+.admin-table .link-as-button {
+  text-decoration: none;
+}
+
+.admin-table td.fitwidth {
+  width: 1px;
+  white-space: nowrap;
+}
+
+.admin-link {
+  color: orange;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  margin-right: 3rem;
+}
+
+.new-product-form {
+  margin-left: 2rem;
+}
+
+.new-product-form .form-group {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.new-product-form .form-group input, .new-product-form .form-group select {
+  font-size: 1.2rem;
+}
+
+.new-product-form .form-group label {
+  margin-right: 0.5rem;
+}
+
+.new-product-form .form-group .submit-button {
+  border: grey solid 1.5px;
+  background-color: orange;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.new-product-form .form-group button:hover {
+  background-color: #ffb733;
 }
 
 footer {
@@ -247,6 +330,10 @@ footer {
 
 .generic-container .item-shoppingcart {
   border-bottom: 1px solid gray;
+}
+
+.generic-container-no-top {
+  margin: 0 3rem;
 }
 
 .invalid {

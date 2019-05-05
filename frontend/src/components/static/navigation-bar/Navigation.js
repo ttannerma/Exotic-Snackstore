@@ -9,8 +9,11 @@ class Navigation extends Component{
     super(props);
     let countries = ['Japan', 'China', 'USA', 'Russia'];
     let categories = ['Salty', 'Sweet', 'Drinks', 'Other']; 
-    let isLoggedIn = true;
-    this.state = {countries, categories, isLoggedIn};
+    this.state = {
+      countries
+      , categories
+      , isLoggedIn: sessionStorage.getItem("activeUserType")
+    };
   }
   componentDidMount = () => {
     window.onclick = function(event) {
@@ -40,10 +43,17 @@ class Navigation extends Component{
     toggleTarget.classList.toggle('hidden');
   }
   LoginOrLogout = () => {
-    if(!this.state.isLoggedIn) {
+    if(this.state.isLoggedIn) {
       return <NavButton icon="fas fa-sign-out-alt" name="Logout"/>
     } else {
       return <NavButton icon="fas fa-sign-in-alt" name="Login"/>
+    }
+  }
+  isAdmin = () => {
+    if(this.state.isLoggedIn === "admin") {
+      return <NavButton name="Admin" icon="fas fa-tools"/>
+    } else {
+      return null;
     }
   }
   render(){
@@ -59,7 +69,7 @@ class Navigation extends Component{
         <div className="search nav-item">
         <SearchBar />
         </div>
-        <NavButton name="Admin" icon="fas fa-tools"/>
+        <this.isAdmin />
         <this.LoginOrLogout />
       </nav>
     )
