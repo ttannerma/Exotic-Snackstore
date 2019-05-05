@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { ShoppingCartContext } from '../../shoppingcart-context'
+import { Link } from 'react-router-dom'
 
 class DeliveryPaymentPage extends Component {
 
@@ -8,12 +9,24 @@ class DeliveryPaymentPage extends Component {
         this.state = {
             deliveryMethod: ""
             , paymentMethod: ""
+            , price: 0
+            , products: []
+            , firstname: ""
+            , lastname: ""
+            , phonenumber: undefined
+            , email: ""
+            , address: ""
+            , city: ""
+            , postalcode: undefined
         }
+        this.products = []
+        this.sum = 0
     }
 
-    setSum = (sum) => {
-        this.setState({paymentSum: sum})
+    componentDidUpdate() {
+
     }
+
     createProductList() {
         let itemContainer = 
         <ShoppingCartContext.Consumer>
@@ -33,6 +46,8 @@ class DeliveryPaymentPage extends Component {
                         cartTotalPrice = parseFloat(cartTotalPrice) + parseFloat(itemTotalPrice)
                         cartTotalPrice = cartTotalPrice.toFixed(2)
                 }
+                this.products = products
+                this.sum = cartTotalPrice
             return (
                 <React.Fragment>
                     <h1>DeliveryPaymentPage: </h1>
@@ -47,45 +62,135 @@ class DeliveryPaymentPage extends Component {
 
 
     setDeliveryMethods(event) {
-        if(event.target.value === "post" || event.target.value === "home") {
-            this.setState({ deliveryMethod: event})
-        }
+        this.setState({ deliveryMethod: event.target.value})
     }
 
     createDeliveryMethods() {
         let deliveryMethodList =
-            <tbody>
-                <tr>
-                    <input type="radio"
-                        name="deliveryMethod" 
-                        value="post"
-                        onClick={this.setDeliveryMethods.bind(this)}/>Nearest post office
-                </tr>
-                <tr>
+        <div className="delivery-method container">
+                <h3> Select delivery option: </h3>
+                <p>Your order will be shipped in the next business day.</p>
+                <tbody>
+                    <tr>
                         <input type="radio"
-                        name="deliveryMethod"
-                        value="home"
-                        onClick={this.setDeliveryMethods.bind(this)}/>Home delivery
-                </tr>
-            </tbody>
+                            name="deliveryMethod" 
+                            value="Nearest post office"
+                            required
+                            onClick={this.setDeliveryMethods.bind(this)}/>Nearest post office: 5 €
+                    </tr>
+                    <tr>
+                            <input type="radio"
+                            name="deliveryMethod"
+                            value="Home delivery"
+                            required
+                            onClick={this.setDeliveryMethods.bind(this)}/>Home delivery: 10 €
+                    </tr>
+                </tbody>
+            </div>
         return deliveryMethodList
+    }
+
+    createPaymentMethods() {
+        let paymentMethodList =
+            <div className="payment-method container">
+                <h3> Select payment option: </h3>
+                <select required onChange={this.setPaymentMethod.bind(this)}>
+                    <option value="PayPal">PayPal</option>
+                    <option value="OP">OP</option>
+                    <option value="Danske Bank">Danske Bank</option>
+                    <option value="Nordea">Nordea</option>
+                    <option value="Säästöpankki">Säästöpankki</option>
+                    <option value="POP Pankki">POP Pankki</option>
+                </select>
+            </div>
+        return paymentMethodList
+    }
+
+    setPaymentMethod(event) {
+        this.setState({paymentMethod: event.target.value})
+    }
+
+    setContactDetails(event) {
+        switch(event.target.name) {
+            case "firstname":
+                this.setState({firstname: event.target.value})
+            case "lastname":
+                this.setState({lastname: event.target.value})
+            case "phonenumber":
+                this.setState({phonenumber: event.target.value})
+            case "email":
+                this.setState({email: event.target.value})
+            case "address": 
+                this.setState({address: event.target.value})
+            case "city":
+                this.setState({city: event.target.value})
+            case "postalcode":
+                this.setState({postalcode: event.target.value})
+        }
+    }
+
+    createCustomerInfoForm() {
+        let customerInfo = 
+            <div className="contact-details container">
+                <h3>Fill out your contact details: </h3>
+                    <form onChange={this.setContactDetails.bind(this)}>
+                        <label> First name: </label>
+                        <input required type="text" name="firstname" />
+
+                        <label> Last name: </label>
+                        <input required type="text" name="lastname" />
+
+                        <label> Phone number: </label>
+                        <input required type="text" name="phonenumber" />
+
+                        <label> Email: </label>
+                        <input required type="text" name="email" />
+
+                        <label> Address: </label>
+                        <input required type="text" name="address" />
+
+                        <label> City: </label>
+                        <input required type="text" name="city" />
+
+                        <label> Postal code: </label>
+                        <input required type="text" name="postalcode" />
+                    </form>
+             </div>
+        return customerInfo
     }
 
     createPageContent() {
         return (
-            <div>
+            <div className="generic-container">
                 {this.createProductList()}
                 {this.createDeliveryMethods()}
+                {this.createPaymentMethods()}
+                {this.createCustomerInfoForm()}
+                {this.createConfirmButton()}
             </div>
         )
     }
 
+    handleConfirm = () => {
+        if (this.state.deliveryMethod === "Home delivery") {
+            this.sum = Number(this.sum) + 10
+        } else if (this.state.deliveryMethod === "Nearest post office") {
+            this.sum = Number(this.sum) + 5
+        }
+        this.setState({sum : this.sum, products: this.products})
+    }
+
+    createConfirmButton() {
+        let confirmButton =
+            <button onClick={this.handleConfirm}>
+                Click to review your order
+            </button>
+            return confirmButton
+    }
+
     render() {
         return (
-            <React.Fragment>
-            {this.createProductList()}
-            {this.createDeliveryMethods()}
-            </React.Fragment>
+            this.createPageContent()
         )
     }
 }
