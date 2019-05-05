@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { ShoppingCartContext } from '../../shoppingcart-context'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 class DeliveryPaymentPage extends Component {
 
@@ -18,6 +19,7 @@ class DeliveryPaymentPage extends Component {
             , address: ""
             , city: ""
             , postalcode: undefined
+            , formErrors: ""
         }
         this.products = []
         this.sum = 0
@@ -50,7 +52,7 @@ class DeliveryPaymentPage extends Component {
                 this.sum = cartTotalPrice
             return (
                 <React.Fragment>
-                    <h1>DeliveryPaymentPage: </h1>
+                    <h1>Order: </h1>
                     {allProducts}
                     <h1>Total price: {cartTotalPrice}€</h1>
                 </React.Fragment>
@@ -114,18 +116,26 @@ class DeliveryPaymentPage extends Component {
         switch(event.target.name) {
             case "firstname":
                 this.setState({firstname: event.target.value})
+                break;
             case "lastname":
                 this.setState({lastname: event.target.value})
+                break;
             case "phonenumber":
                 this.setState({phonenumber: event.target.value})
+                break;
             case "email":
                 this.setState({email: event.target.value})
+                break;
             case "address": 
                 this.setState({address: event.target.value})
+                break;
             case "city":
                 this.setState({city: event.target.value})
+                break;
             case "postalcode":
                 this.setState({postalcode: event.target.value})
+                break;
+            default:
         }
     }
 
@@ -136,7 +146,6 @@ class DeliveryPaymentPage extends Component {
                     <form onChange={this.setContactDetails.bind(this)}>
                         <label> First name: </label>
                         <input required type="text" name="firstname" />
-
                         <label> Last name: </label>
                         <input required type="text" name="lastname" />
 
@@ -170,17 +179,29 @@ class DeliveryPaymentPage extends Component {
             </div>
         )
     }
+    addNewOrder = () => {
+        let orderData = this.state
+        let productArray = []
+        for (let i = 0; i < orderData.products.length; i++) {
+            let productName = orderData.products[i].name
+            let quantity = orderData.products[i].quantity 
+            let obj = { name: productName, quantity: quantity}
+            productArray.push(obj)
+        }
+        let products = JSON.stringify(productArray)
+        orderData.products = products
+        axios.post('http://localhost:8080/orders/', orderData)
+        .then(response => {
+            console.log(response);
+        });
+    }
 
     createConfirmButton() {
         let confirmButton =
-            <Link to={{
-                pathname: '/cart/order-review',
-                state: this.state
-            }}>
-                <button>
-                    Click to review your order
-                </button>
-            </Link>
+            <button onClick={this.addNewOrder}>
+                Click to review your order
+            </button>
+
         return confirmButton
     }
 

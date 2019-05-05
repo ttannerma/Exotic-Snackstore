@@ -59,6 +59,15 @@ app.post('/products', (req, res) => {
         res.send(result);
     });
 });
+// Add new order
+app.post('/orders', (req, res) => {
+    let orderData = req.body;
+    crudrepo.addOrder(orderData, (result) => {
+        res.send(result);
+        console.log(orderData);
+    });
+});
+
 app.delete('/products/:id([0-9]+)', (req, res) => {
     const id = req.params.id;
     console.log(id);
@@ -107,6 +116,7 @@ app.get('/products/id/:id', (req, res) => {
         res.send(results);
     });
 });
+
 /*
 app.get('/countries/:country', (req, res) => {
     // curl http://localhost:8080/countries/japan

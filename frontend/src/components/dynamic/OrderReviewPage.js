@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class OrderReviewPage extends Component {
     constructor(props) {
@@ -50,8 +51,14 @@ class OrderReviewPage extends Component {
 
     createConfirmationButton() {
         let confirmationButton =
-            <button onClick={() => console.log('Purchase complete')}>Continue to payment</button>
-
+            <Link to={{
+                pathname: '/order-success'
+                , state: this.state
+            }}>
+                <button>
+                    Continue to purchase
+                </button>
+            </Link>
             return confirmationButton
     }
     render() {

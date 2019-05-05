@@ -29,7 +29,6 @@ class Items extends Component {
       });
     }
 
-  // Use fetch API to get data on products.
   componentDidMount() {
     // Check if products need to be searched by category, if not then fetch all products.
     if(this.state.category === '' || this.state.category === undefined) {

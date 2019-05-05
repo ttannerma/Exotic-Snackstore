@@ -111,6 +111,18 @@ class CrudRepository {
             callback(result);
         });
     }
+    addOrder(userData, callback) {
+        console.log(userData);
+        const queryString = `INSERT INTO orders (firstname, lastname, phonenumber, email, address,
+            city, postalcode, paymentmethod, deliverymethod, products, totalprice)
+            VALUES ('${userData.firstname}', '${userData.lastname}', '${userData.phonenumber}', '${userData.email}'
+            , '${userData.address}', '${userData.city}', '${userData.postalcode}', '${userData.paymentMethod}', '${userData.deliveryMethod}','${userData.products}'
+            ,'${userData.price}');`;
+        this.connection.query(queryString, (error, result) => {
+            if(error) throw error;
+            callback(result);
+        });
+    }
 }
 
 module.exports = new CrudRepository();
