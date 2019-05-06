@@ -51,11 +51,11 @@ class Items extends Component {
   createItem = () => {
     // If products are not found, display error message.
     if (this.state.products.length === 0) return this.displayError()
-    
+    let defaultImageLink = "https://lh3.googleusercontent.com/hmYFfk7e8FOdiMg4j6qSckZ4ThQQUKIzQGdY1jQw5a8I9kV48wmktV0QhdQUPGFKha7dp9JkZ2Y=s220"
     let items = []
     // Iterate all products in current state.
     for (let i = 0; i < this.state.products.length; i++) {
-      let { ratings, id, name, description, price } = this.state.products[i];
+      let { ratings, id, name, description, price, imagepath } = this.state.products[i];
       let link = `/products/${name}`
 
       // Create item elements.
@@ -73,7 +73,7 @@ class Items extends Component {
                   price: price
               }
           }}>
-            <img src="https://fpoimg.com/300x300?text=Advertisement" alt="Product"/>
+            <img src={imagepath ? imagepath : defaultImageLink} alt={name}/>
           </Link>
           <h2>{name}</h2>
           <p>{description}</p>
