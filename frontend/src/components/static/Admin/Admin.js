@@ -6,15 +6,25 @@ export default class Admin extends Component {
     return (
       <div className="generic-container">
         <h1>Admin</h1>
-        <div className="admin-tools">
-          <div className="tool">
-            <i className="fas fa-users block"></i>
-            <Link to="/admin/users" className="adminLink">Users</Link>
-          </div>
-          <div className="tool">
-            <i className="fas fa-store block"></i>
-            <Link to="/admin/products" className="adminLink">Products</Link>
-          </div>
+        <div className="admin-tools generic-container-no-top">
+          <Link to="/admin/users" className="adminLink">
+            <div className="tool">
+              <i className="fas fa-users block"></i>
+              Users
+            </div>
+          </Link>
+          <Link to="/admin/products" className="adminLink">
+            <div className="tool">
+              <i className="fas fa-store block"></i>
+              Products
+            </div>
+          </Link>
+          <Link to="/admin/orders" className="adminLink">
+            <div className="tool">
+              <i className="fas fa-boxes block"></i>
+              Orders
+            </div>
+          </Link>
         </div>
       </div>
     )

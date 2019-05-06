@@ -8,17 +8,18 @@ export default class ProductManager extends Component {
     return (
       <div className="generic-container">
         <h1>Admin</h1>
-        <h2>Products</h2>
-        <Consumer>
-          {value => {
-            const { getProducts, deleteProduct } = value;
-            return <ProductTable getProducts={getProducts} deleteProduct={deleteProduct}/>
-          }}
-        </Consumer>
-        <Link to="/admin/products/add-new">Add new product</Link>
-        <Link to="/admin">Back</Link>
+        <div className="generic-container-no-top">
+          <h2>Products</h2>
+          <Consumer>
+            {value => {
+              const { getProducts, deleteProduct } = value;
+              return <ProductTable getProducts={getProducts} deleteProduct={deleteProduct}/>
+            }}
+          </Consumer>
+          <Link to="/admin/products/add-new" className="admin-link">Add new product</Link>
+          <Link to="/admin" className="admin-link">Back</Link>
+        </div>
       </div>
-
     )
   }
 }

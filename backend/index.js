@@ -14,14 +14,13 @@ const server = app.listen(8080, () => {
 app.post('/users/login', (req, res) => {
     const user = req.body;
     crudrepo.getUser(user, (results) => {
-        if(results[0].id) { 
-            const returnUser = {
-                username: results[0].name
-                , userType: results[0].userType
-            };
-            res.status(200).send(returnUser);
+        console.log('resulsts: '+ results)
+        if(results === '404') { 
+            res.sendStatus(404);
+        } else if(results === '403') {
+            res.sendStatus(403);
         } else {
-            res.status(404).send(results);
+            res.send(results);
         }
     });
 });
@@ -116,7 +115,29 @@ app.get('/products/id/:id', (req, res) => {
         res.send(results);
     });
 });
+<<<<<<< HEAD
 
+=======
+// Fetch orders
+app.get('/orders', (req, res) => {
+    crudrepo.getOrders(results => {
+        res.send(results);
+    });
+});
+app.post('/orders/:id([0-9]+)', (req, res) => {
+    var id = req.params.id
+    crudrepo.deliverOrder(id, (result) => {
+      res.send(result)
+    });
+});
+// Fetch order by id
+app.get('/orders/:id([0-9]+)', (req, res) => {
+    const id = req.params.id;
+    crudrepo.getOrderByID(id, (results) => {
+        res.send(results);
+    });
+});
+>>>>>>> Niko
 /*
 app.get('/countries/:country', (req, res) => {
     // curl http://localhost:8080/countries/japan

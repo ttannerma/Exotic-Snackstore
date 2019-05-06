@@ -8,14 +8,16 @@ export default class UserManager extends Component {
     return (
       <div className="generic-container">
         <h1>Admin</h1>
-        <h2>Users</h2>
-        <Consumer>
-          {value => {
-            const { getUsers, deleteUser } = value;
-            return <UserTable getUsers={getUsers} deleteUser={deleteUser}/>
-          }}
-        </Consumer>
-        <Link to="/admin">Back</Link>
+        <div className="generic-container-no-top">
+          <h2>Users</h2>
+          <Consumer>
+            {value => {
+              const { getUsers, deleteUser } = value;
+              return <UserTable getUsers={getUsers} deleteUser={deleteUser}/>
+            }}
+          </Consumer>
+          <Link to="/admin" className="admin-link">Back</Link>
+        </div>
       </div>
     )
   }

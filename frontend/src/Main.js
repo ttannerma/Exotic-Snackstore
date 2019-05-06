@@ -11,7 +11,8 @@ import UserManager from './components/static/Admin/UserManager';
 import ProductManager from './components/static/Admin/ProductManager';
 import Search from './components/dynamic/Search';
 import ItemPage from './components/dynamic/ItemPage';
-import Login from './components/static/Login/Login';
+import Login from './components/static/login/Login';
+import Logout from './components/static/login/Logout';
 import Signup from './components/static/signup/Signup';
 import ShoppingCartLogo from './components/dynamic/ShoppingCartLogo';
 import ShoppingCartPage from './components/dynamic/ShoppingCartPage';
@@ -19,9 +20,17 @@ import DeliveryPaymentPage from './components/dynamic/DeliveryPaymentPage';
 import { UserProvider } from './user-context'; 
 import { ProductProvider} from './product-context';
 import { ShoppingCartProvider } from './shoppingcart-context';
+<<<<<<< HEAD
 import AddNewConsumer from './components/static/Admin/AddNewConsumer';
 import OrderReviewPage from './components/dynamic/OrderReviewPage'
 import OrderSuccess from './components/dynamic/OrderSuccess'
+=======
+import  AddNewConsumer  from './components/static/Admin/AddNewConsumer';
+import OrderManager from './components/static/Admin/OrderManager';
+import PrivateRoute from './components/static/PrivateRoute';
+import NotFound from './components/dynamic/NotFound';
+import  ShowInfoManager  from './components/static/Admin/ShowInfoManager';
+>>>>>>> Niko
 
 class Main extends Component {
   render() {
@@ -41,21 +50,28 @@ class Main extends Component {
                     <Route exact path ="/" component={Body}></Route>
                     <Route exact path ="/home" component={Body}></Route>
                     <Route exact path ="/login" component={Login}></Route>
+                    <Route exact path ="/logout" component={Logout}></Route>
                     <Route exact path ="/signup" component ={Signup}></Route>
                     <Route exact path="/about" component={About}></Route>
                     <Route exact path="/contact" component={Contact}></Route>
-                    <Route exact path="/admin" component={Admin}></Route>
-                    <Route exact path="/admin/users" component={UserManager}></Route>
-                    <Route exact path="/admin/products" component={ProductManager}></Route>
-                    <Route exact path="/admin/products/add-new" component={AddNewConsumer}></Route>
+                    <PrivateRoute exact path="/admin" component={Admin}></PrivateRoute>
+                    <PrivateRoute exact path="/admin/users" component={UserManager}></PrivateRoute>
+                    <PrivateRoute exact path="/admin/products" component={ProductManager}></PrivateRoute>
+                    <PrivateRoute exact path="/admin/products/add-new" component={AddNewConsumer}></PrivateRoute>
+                    <PrivateRoute exact path="/admin/orders" component={OrderManager}></PrivateRoute>
+                    <PrivateRoute exact path="/admin/orders/:id" component={ShowInfoManager}></PrivateRoute>
                     <Route exact path="/cart" component={ShoppingCartPage}></Route>
                     <Route exact path="/cart/payment-and-delivery" component={DeliveryPaymentPage}></Route>
                     <Route exact path="/search/:searchVal" component={Search}></Route>
                     <Route exact path="/categories/:searchVal" component={Search}></Route>
                     <Route exact path="/countries/:searchVal" component={Search}></Route>
                     <Route exact path="/products/:productName" component={ItemPage}></Route>
+<<<<<<< HEAD
                     <Route exact path="/cart/order-review" component={OrderReviewPage}></Route>
                     <Route exact path="/order-success" component={OrderSuccess}></Route>
+=======
+                    <Route exact path="/notfound" component={NotFound}></Route>
+>>>>>>> Niko
                   </Switch>
                 </div>
               </div>

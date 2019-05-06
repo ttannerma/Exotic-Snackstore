@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import NotFound from '../../dynamic/NotFound';
 
 export default class UserTable extends Component {
   constructor() {
@@ -20,7 +21,7 @@ export default class UserTable extends Component {
     this.getUsers();
   }
   createUserTable = (users) => {
-    const usersWithoutAdmin = users.filter(user => user.name !== 'admin'); 
+    const usersWithoutAdmin = users.filter(user => user.name !== 'admin2'); 
     const userTable = usersWithoutAdmin.map((user) =>
       <tr key={user.id}>
         <td>{user.id}</td>
@@ -32,12 +33,9 @@ export default class UserTable extends Component {
     );
     this.setState({users: userTable});
   }
-  renderNotFound = () => {
-    return <p>Sorry, no users found</p>
-  }
   renderTable = () => {
     return(
-      <table>
+      <table className="admin-table">
         <tbody>
           <tr>
             <th>ID</th>
@@ -53,7 +51,7 @@ export default class UserTable extends Component {
     if(this.state.fetchSuccess === true) {
       return <this.renderTable />
     } else {
-      return <this.renderNotFound />
+      return <NotFound />
     }
   }
 }

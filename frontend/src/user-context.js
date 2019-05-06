@@ -10,9 +10,6 @@ export class UserProvider extends Component {
       activeUser: {}
     }
   }
-  componentDidMount() {
-    
-  }
   getUsers = (callback) => {
     axios.get('http://localhost:8080/users')
     .then(response => {
@@ -29,16 +26,16 @@ export class UserProvider extends Component {
       callback(response);
     })
   }
-  toggleUser = (newUser) => {
+  toggleUser = (newUser, callback) => {
     axios.post('http://localhost:8080/users/login', newUser)
     .then(response => {
-      console.log(response);
-      this.setState({activeUser: response.data});
-      console.log(this.state.activeUser);
+      sessionStorage.setItem("activeUser", response.data.username);
+      sessionStorage.setItem("activeUserType", response.data.userType);
+      console.log(response.data.userType);
+      callback('success');
     })
     .catch((error) => {
-      console.log(error);
-      return error;
+      callback(error);
     });
   }
   addNewUser = (newUser, callback) => {
