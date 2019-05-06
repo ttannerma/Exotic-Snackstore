@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { ShoppingCartContext } from '../../shoppingcart-context'
+import axios from 'axios'
 
 class ItemPage extends Component {
     constructor(props) {
@@ -17,12 +18,14 @@ class ItemPage extends Component {
             value: Number(event.target.value)
         })
     }
+
     createItemPage() {
+        let defaultImageLink = "https://lh3.googleusercontent.com/hmYFfk7e8FOdiMg4j6qSckZ4ThQQUKIzQGdY1jQw5a8I9kV48wmktV0QhdQUPGFKha7dp9JkZ2Y=s220"
         let item = 
         <ShoppingCartContext.Consumer>
         {({ setProductId }) => (
             <div className="item">
-                <img className="item-image" src="../../assets/download.jpg" alt="Candy"></img>
+                <img className="item-image" src={this.state.imagepath ? this.state.imagepath : defaultImageLink} alt="Candy"></img>
                 <h3>Ratings: {this.state.ratings ? this.state.ratings : 'No ratings yet.'}</h3>
                 <form className="itemAddForm">
                     <input type="number" onChange={this.handleChange} name="quantity" min="1" max="30" step="1" />

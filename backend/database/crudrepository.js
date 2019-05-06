@@ -96,7 +96,7 @@ class CrudRepository {
         });
     }
     getProductById(id, callback) {
-        let sql = 'SELECT name, price FROM products WHERE id=' + this.connection.escape(id) + ';';
+        let sql = 'SELECT * FROM products WHERE id=' + this.connection.escape(id) + ';';
         this.connection.query(sql, (error, results) => {
             if (error) throw error;
             callback(results);
