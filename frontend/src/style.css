@@ -240,10 +240,10 @@ nav .active {
 }
 
 .admin-table button, .admin-table a {
-  border: grey solid 1.5px;
+  border: solid 1.5px #ffb733;
   background-color: orange;
   color: white;
-  padding: 0.2 0.5rem;
+  padding: 0.2rem 1rem;
   font-family: 'Montserrat';
   font-size: 1.2rem;
   font-weight: bold;
@@ -255,10 +255,11 @@ nav .active {
 }
 
 .admin-table .link-as-button {
+  padding: 0.2rem 1rem;
   text-decoration: none;
 }
 
-.admin-table td.fitwidth {
+.admin-table td, .admin-table th.fitwidth {
   width: 1px;
   white-space: nowrap;
 }
@@ -338,6 +339,23 @@ footer {
 
 .invalid {
   border-left: 10px solid red;
+}
+
+.red {
+  color: #813c4f;
+}
+
+.green {
+  color: #1f775a;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.big-i {
+  margin-left: 0.5rem;
+  font-size: 1.6rem;
 }
 
 #main {

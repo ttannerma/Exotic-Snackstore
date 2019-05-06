@@ -43,7 +43,7 @@ class Navigation extends Component{
     toggleTarget.classList.toggle('hidden');
   }
   LoginOrLogout = () => {
-    if(this.state.isLoggedIn) {
+    if(!this.state.isLoggedIn) {
       return <NavButton icon="fas fa-sign-out-alt" name="Logout"/>
     } else {
       return <NavButton icon="fas fa-sign-in-alt" name="Login"/>

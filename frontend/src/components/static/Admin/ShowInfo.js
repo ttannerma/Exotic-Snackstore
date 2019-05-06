@@ -15,14 +15,30 @@ export default class ShowInfo extends Component {
     this.props.getOrderByID(this.state.id, order => {
       if(order) {
         this.setState({fetchSuccess: true, order: order.data[0]});
-        console.log(order.data[0]);
       }
     });
+  }
+  somethingOrNull(something) {
+    return something ? something : 'None';  
+  }
+  renderProductTable = (products) => {
+    console.log(JSON.parse(products));
+    const productsTable = JSON.parse(products).map((product) =>
+      <tr key={product.name}>
+        <td>{product.name}</td>
+        <td>{product.quantity}</td>
+        <td>{product.price}</td>
+      </tr>
+    );
+    return productsTable;
   }
   renderTable= () => {
     const {id, firstname, lastname, address, city, postalcode, phonenumber
       , email, comment, paymentmethod, deliverymethod, delivered, 
       products, totalprice} = this.state.order;
+    const deliveredAlt = delivered.data[0] 
+    ? <i className="fas fa-check green big-i"></i>
+    : <i className="fas fa-times red big-i"></i>;
     return(
       <div>
         <h2>Customer Info</h2>
@@ -39,10 +55,21 @@ export default class ShowInfo extends Component {
         <div>
           <h2>Products</h2>
           <div className="generic-container-no-top">
-            <h3>Delivered: {delivered.data[0]}</h3>
+            <h3>Delivered: {deliveredAlt}</h3>
             <h3>Payment Method: {paymentmethod}</h3>
             <h3>Delivery Method: {deliverymethod}</h3>
-            <h3>Comment: {comment}</h3>
+            <h3>Comment: {this.somethingOrNull(comment)}</h3>
+            <table className="admin-table">
+              <tbody>
+                <tr>
+                  <th>Product</th>
+                  <th>Amount</th>
+                  <th>Price</th>
+                </tr>
+                  {this.renderProductTable(products)}
+                </tbody>
+            </table>
+            <h3>Total Price: {totalprice}</h3>
           </div>
         </div>
       </div>

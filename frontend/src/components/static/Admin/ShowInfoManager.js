@@ -17,7 +17,7 @@ export default class ShowInfoManager extends Component {
                 return <ShowInfo id={id} getOrderByID={getOrderByID}/>
               }}
             </Consumer>
-            <Link to="/admin" className="admin-link">Back</Link>
+            <Link to="/admin/orders" className="admin-link">Back</Link>
           </div>
       </div>
     )

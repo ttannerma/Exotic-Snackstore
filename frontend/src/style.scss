@@ -1,7 +1,10 @@
 $itemInfoPadding: 10px;
 $itemImgWidth: 300px;
 $itemInfoMargin: 10px;
-$orange: rgba(255, 165, 0, 1);
+$orange: rgba(255, 165, 0,1 );
+$turqoiuse: rgb(84, 165, 174);
+$green: rgb(31, 119, 90);
+$red: rgb(129, 60, 79);
 
 html,
 body {
@@ -205,10 +208,10 @@ nav{
         padding: 0 1rem;
     }
     button, a {
-        border: grey solid 1.5px;
+        border: solid 1.5px lighten($orange, 10%);
         background-color: orange;
         color: white;
-        padding: 0.2 0.5rem;
+        padding: 0.2rem 1rem;
         font-family: 'Montserrat';
         font-size: 1.2rem;
         font-weight: bold;
@@ -218,9 +221,10 @@ nav{
         background-color: lighten($orange, 10%)
     }
     .link-as-button {
+        padding: 0.2rem 1rem; 
         text-decoration: none;
     }
-    td.fitwidth {
+    td, th.fitwidth {
         width: 1px;
         white-space: nowrap;
     }
@@ -288,6 +292,20 @@ footer{
 .invalid {
     border-left: 10px solid red;
 }
+.red {
+    color: $red;
+}
+.green {
+    color: $green;
+}
+.capitalize {
+    text-transform: capitalize;
+}
+.big-i{
+    margin-left: 0.5rem;
+    font-size: 1.6rem;
+}
+
 #main {
     margin-top: 3rem;
     top: 50%;
