@@ -28,7 +28,7 @@ export default class UserTable extends Component {
         <td>{user.name}</td>
         <td><button onClick={() => {
           this.props.deleteUser(user.id, this.userDeleted)
-        }}>Delete</button></td>
+        }}><i class="fas fa-trash-alt"></i></button></td>
       </tr>
     );
     this.setState({users: userTable});

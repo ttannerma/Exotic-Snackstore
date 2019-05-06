@@ -36,17 +36,17 @@ export default class ProductTable extends Component {
     const productsTable = products.map((product) =>
       <tr key={product.id}>
         <td>{product.id}</td>
-        <td>{product.name}</td>
+        <td className="capitalize">{product.name}</td>
         <td>{product.price}</td>
         <td>{product.weight}</td>
         <td>{product.stock}</td>
-        <td>{product.category}</td>
-        <td>{product.country}</td>
-        <td>{this.somethingOrNull(product.allergies)}</td>
-        <td>{this.somethingOrNull(product.ratings)}</td>
+        <td className="capitalize">{product.category}</td>
+        <td className="capitalize">{product.country}</td>
+        <td className="capitalize">{this.somethingOrNull(product.allergies)}</td>
+        <td className="capitalize">{this.somethingOrNull(product.ratings)}</td>
         <td><button onClick={() => {
           this.props.deleteProduct(product.id, this.productDeleted)
-        }}>Delete</button></td>
+        }}><i class="fas fa-trash-alt"></i></button></td>
       </tr>
     );
     this.setState({products: productsTable});

@@ -29,14 +29,14 @@ export default class OrderTable extends Component {
     const orderTable = orders.map((order) =>
       <tr key={order.id}>
         <td>{order.id}</td>
-        <td>{order.lastname}</td>
+        <td className="capitalize">{order.lastname}</td>
         <td>{this.isDelivered(order.delivered.data[0])}</td>
         <td className="fitwidth">
-          <Link to={"/admin/orders/"+order.id} className="link-as-button">Show Info</Link>
+          <Link to={"/admin/orders/"+order.id} className="link-as-button"><i className="fas fa-info-circle"></i></Link>
         </td>
         <td><button onClick={() => {
           this.props.deliverOrder(order.id, this.orderDelivered)
-        }}>Deliver</button></td>
+        }} className="admin-button"><i className="fas fa-truck"></i></button></td>
       </tr>
     );
     this.setState({orderTable});
@@ -49,8 +49,8 @@ export default class OrderTable extends Component {
             <th>ID</th>
             <th>Lastname</th>
             <th>Delivered</th>
-            <th>Show Info</th>
-            <th>Set to Delivered</th>         
+            <th className="fitwidth">Show Info</th>
+            <th className="fitwidth">Set to Delivered</th>         
           </tr>
           {this.state.orderTable}
         </tbody>
