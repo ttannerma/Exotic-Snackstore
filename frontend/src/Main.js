@@ -11,8 +11,8 @@ import UserManager from './components/static/Admin/UserManager';
 import ProductManager from './components/static/Admin/ProductManager';
 import Search from './components/dynamic/Search';
 import ItemPage from './components/dynamic/ItemPage';
-import Login from './components/static/login/Login';
-import Logout from './components/static/login/Logout';
+import Login from './components/static/Login/Login';
+import Logout from './components/static/Login/Logout';
 import Signup from './components/static/signup/Signup';
 import ShoppingCartLogo from './components/dynamic/ShoppingCartLogo';
 import ShoppingCartPage from './components/dynamic/ShoppingCartPage';
@@ -20,17 +20,15 @@ import DeliveryPaymentPage from './components/dynamic/DeliveryPaymentPage';
 import { UserProvider } from './user-context'; 
 import { ProductProvider} from './product-context';
 import { ShoppingCartProvider } from './shoppingcart-context';
-<<<<<<< HEAD
+
 import AddNewConsumer from './components/static/Admin/AddNewConsumer';
 import OrderReviewPage from './components/dynamic/OrderReviewPage'
 import OrderSuccess from './components/dynamic/OrderSuccess'
-=======
-import  AddNewConsumer  from './components/static/Admin/AddNewConsumer';
 import OrderManager from './components/static/Admin/OrderManager';
 import PrivateRoute from './components/static/PrivateRoute';
 import NotFound from './components/dynamic/NotFound';
 import  ShowInfoManager  from './components/static/Admin/ShowInfoManager';
->>>>>>> Niko
+
 
 class Main extends Component {
   render() {
@@ -66,12 +64,9 @@ class Main extends Component {
                     <Route exact path="/categories/:searchVal" component={Search}></Route>
                     <Route exact path="/countries/:searchVal" component={Search}></Route>
                     <Route exact path="/products/:productName" component={ItemPage}></Route>
-<<<<<<< HEAD
                     <Route exact path="/cart/order-review" component={OrderReviewPage}></Route>
                     <Route exact path="/order-success" component={OrderSuccess}></Route>
-=======
                     <Route exact path="/notfound" component={NotFound}></Route>
->>>>>>> Niko
                   </Switch>
                 </div>
               </div>

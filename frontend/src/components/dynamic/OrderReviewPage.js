@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 class OrderReviewPage extends Component {
     constructor(props) {
@@ -24,6 +25,7 @@ class OrderReviewPage extends Component {
                 <h1>Order review: </h1>
                 <p>Please check that all your information is correct.</p>
                 {this.createOrderTable()}
+                {this.createReturnButton()}
                 {this.createConfirmationButton()}
             </div>
             return orderContainer
@@ -49,18 +51,40 @@ class OrderReviewPage extends Component {
         return orderDetails
     }
 
+    addNewOrder = () => {
+        let orderData = this.state
+        let productArray = []
+        for (let i = 0; i < orderData.products.length; i++) {
+            let productName = orderData.products[i].name
+            let quantity = orderData.products[i].quantity 
+            let obj = { name: productName, quantity: quantity}
+            productArray.push(obj)
+        }
+        let products = JSON.stringify(productArray)
+        orderData.products = products
+        axios.post('http://localhost:8080/orders/', orderData)
+        .then(response => {
+            console.log(response);
+        })
+        this.props.history.push('/order-success')
+    }
+
     createConfirmationButton() {
         let confirmationButton =
-            <Link to={{
-                pathname: '/order-success'
-                , state: this.state
-            }}>
-                <button>
-                    Continue to purchase
+                <button onClick={this.addNewOrder}>
+                    Purchase and return to front page
                 </button>
-            </Link>
             return confirmationButton
     }
+    createReturnButton() {
+        let returnButton = 
+            <button onClick={() => this.props.history.push('/cart/payment-and-delivery')}>
+                Edit contact info
+            </button>
+
+            return returnButton
+    }
+
     render() {
         return (
             this.createPageContent()

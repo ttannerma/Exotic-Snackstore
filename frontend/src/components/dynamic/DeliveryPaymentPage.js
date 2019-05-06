@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ShoppingCartContext } from '../../shoppingcart-context'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
+
 
 class DeliveryPaymentPage extends Component {
 
@@ -153,7 +153,7 @@ class DeliveryPaymentPage extends Component {
                         <input required type="text" name="phonenumber" />
 
                         <label> Email: </label>
-                        <input required type="text" name="email" />
+                        <input required type="email" name="email" />
 
                         <label> Address: </label>
                         <input required type="text" name="address" />
@@ -175,34 +175,33 @@ class DeliveryPaymentPage extends Component {
                 {this.createDeliveryMethods()}
                 {this.createPaymentMethods()}
                 {this.createCustomerInfoForm()}
+                {this.createReturnButton()}
                 {this.createConfirmButton()}
             </div>
         )
     }
-    addNewOrder = () => {
-        let orderData = this.state
-        let productArray = []
-        for (let i = 0; i < orderData.products.length; i++) {
-            let productName = orderData.products[i].name
-            let quantity = orderData.products[i].quantity 
-            let obj = { name: productName, quantity: quantity}
-            productArray.push(obj)
-        }
-        let products = JSON.stringify(productArray)
-        orderData.products = products
-        axios.post('http://localhost:8080/orders/', orderData)
-        .then(response => {
-            console.log(response);
-        });
-    }
 
     createConfirmButton() {
         let confirmButton =
-            <button onClick={this.addNewOrder}>
-                Click to review your order
-            </button>
+            <Link to={{
+                pathname: '/cart/order-review'
+                , state: this.state
+            }}>
+                <button>
+                    Continue to review and purchase
+                </button>
+            </Link>
 
         return confirmButton
+    }
+
+    createReturnButton() {
+        let returnButton = 
+            <button onClick={() => this.props.history.push('/cart')}>
+                Go back
+            </button>
+
+            return returnButton
     }
 
     render() {

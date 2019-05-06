@@ -115,9 +115,7 @@ app.get('/products/id/:id', (req, res) => {
         res.send(results);
     });
 });
-<<<<<<< HEAD
 
-=======
 // Fetch orders
 app.get('/orders', (req, res) => {
     crudrepo.getOrders(results => {
@@ -137,7 +135,7 @@ app.get('/orders/:id([0-9]+)', (req, res) => {
         res.send(results);
     });
 });
->>>>>>> Niko
+
 /*
 app.get('/countries/:country', (req, res) => {
     // curl http://localhost:8080/countries/japan
