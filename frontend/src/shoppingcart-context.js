@@ -11,6 +11,11 @@ export class ShoppingCartProvider extends Component {
         count: 0
     }
 
+    resetCart = () => {
+        console.log('cart reset: ', this.state)
+        this.setState({products: [], count: 0})
+    }
+
     removeItem = (id) => {
         // Create state copy
         let stateCopy = this.state.products
@@ -103,6 +108,7 @@ export class ShoppingCartProvider extends Component {
                 , removeItem: this.removeItem
                 , incrementProductCount: this.incrementProductCount
                 , decreaseProductCount: this.decreaseProductCount
+                , resetCart: this.resetCart
             }}>
                 {this.props.children}
             </ShoppingCartContext.Provider>

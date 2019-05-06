@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { ShoppingCartContext } from '../../shoppingcart-context'
 import axios from 'axios'
 
 class OrderReviewPage extends Component {
@@ -20,6 +21,13 @@ class OrderReviewPage extends Component {
     }
 
     createPageContent() {
+
+        if(!this.state.firstname && !this.state.lastname) {
+            this.props.history.push({
+                pathname: '/notfound'
+            })
+        }
+
         let orderContainer =
             <div className="generic-container">
                 <h1>Order review: </h1>
@@ -71,9 +79,16 @@ class OrderReviewPage extends Component {
 
     createConfirmationButton() {
         let confirmationButton =
-                <button onClick={this.addNewOrder}>
-                    Purchase and return to front page
-                </button>
+            <ShoppingCartContext.Consumer>
+                {({ resetCart }) => (
+                    <button type="button" onClick={() => {
+                        resetCart()
+                        this.addNewOrder()
+                    }}>
+                        Purchase and return to front page
+                    </button>
+                )}
+            </ShoppingCartContext.Consumer>
             return confirmationButton
     }
     createReturnButton() {

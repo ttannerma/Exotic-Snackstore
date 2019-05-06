@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 class OrderSuccess extends Component {
 
     constructor(props) {
@@ -7,7 +8,9 @@ class OrderSuccess extends Component {
         this.state = this.props.location.state
     }
 
-    
+    componentDidMount() {
+
+    }
     render() {
         return (
             <React.Fragment>

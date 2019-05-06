@@ -105,10 +105,6 @@ class Items extends Component {
       }
 
   }
-  // Contains item data which are passed to shopping cart.
-  saveItem = (productId) => {
-      console.log('product id: ' + productId,'amount to add or decrease: '+  this.state.value)
-  }
 
   render() {
     return (
