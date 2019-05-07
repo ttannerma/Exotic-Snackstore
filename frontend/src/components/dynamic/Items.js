@@ -55,7 +55,7 @@ class Items extends Component {
     let items = []
     // Iterate all products in current state.
     for (let i = 0; i < this.state.products.length; i++) {
-      let { ratings, id, name, description, price, imagepath, allergies } = this.state.products[i];
+      let { ratings, id, name, description, price, imagepath, allergies, stock } = this.state.products[i];
       let link = `/products/${name}`
       let ratingsArray = []
       let star = <i class="fas fa-star"></i>
@@ -66,7 +66,7 @@ class Items extends Component {
       // Create item elements.
       let item =
       <ShoppingCartContext.Consumer>
-      {({ setProductId }) => (
+      {({ setProductId, checkCartItemQuantity }) => (
         <div className="item" key={name}>
           <Link to={{
               pathname: link,
@@ -78,6 +78,7 @@ class Items extends Component {
                   price: price,
                   imagepath: imagepath,
                   allergies: allergies,
+                  stock: stock
               }
           }}>
             <img src={imagepath ? imagepath : defaultImageLink} alt={name}/>
@@ -85,11 +86,23 @@ class Items extends Component {
           <h2>{name}</h2>
           <p>{description}</p>
           <form className="itemAddForm">
-                    <input type="number" onChange={this.handleChange} name="quantity" min="1" max="30" step="1" />
+                    <input type="number" onChange={this.handleChange} name="quantity" min={stock ? 1 : 0} max={stock ? stock : 0} step="1" />
                     <button type="button"
-                        onClick={() => { this.state.value > 0 && this.state.value <= 30 ? setProductId(this.state.products[i].name, this.state.products[i].id, this.state.value, this.state.products[i].price): alert('You must add at least one product to cart.')}}>Buy</button>
+                        onClick={() => {
+                            if(checkCartItemQuantity(id) + this.state.value <= stock) {
+                                if(this.state.value >= stock) {
+                                    this.setState({value: this.state.value - 1}) 
+                                }
+                                if(this.state.value > 0 && this.state.value <= 30) {
+                                    setProductId(this.state.products[i].name, this.state.products[i].id, this.state.value, this.state.products[i].price, this.state.products[i].stock)
+                                }
+                            } else {
+                                alert('We dont have that many items in stock')
+                            }
+                            }}>Add</button>
           </form>
           <h2>{price} €<span>{ratings ? ratingsArray : 'No ratings'}</span></h2>
+          <h5>{stock ? 'Stock: ' + stock : 'Out of stock'}</h5>
         </div>
       )}
         </ShoppingCartContext.Consumer>

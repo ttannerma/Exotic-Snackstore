@@ -123,9 +123,9 @@ app.get('/orders', (req, res) => {
     });
 });
 app.post('/orders/:id([0-9]+)', (req, res) => {
-    var id = req.params.id
+    var id = req.params.id;
     crudrepo.deliverOrder(id, (result) => {
-      res.send(result)
+        res.send(result);
     });
 });
 // Fetch order by id

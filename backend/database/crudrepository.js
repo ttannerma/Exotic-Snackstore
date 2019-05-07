@@ -148,7 +148,7 @@ class CrudRepository {
         });
     }
     getOrderByID(id, callback) {
-        const queryString = `SELECT * FROM orders WHERE id = ${id};`
+        const queryString = `SELECT * FROM orders WHERE id = ${id};`;
         this.connection.query(queryString, (error, result) => {
             if(error) throw error;
             callback(result);

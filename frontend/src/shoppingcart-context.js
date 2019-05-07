@@ -12,7 +12,6 @@ export class ShoppingCartProvider extends Component {
     }
 
     resetCart = () => {
-        console.log('cart reset: ', this.state)
         this.setState({products: [], count: 0})
     }
 
@@ -35,8 +34,13 @@ export class ShoppingCartProvider extends Component {
     incrementProductCount = (id) => {
         let stateCopy = this.state.products
         let productIndex = stateCopy.map((item) => { return item.id}).indexOf(id)
-        stateCopy[productIndex].quantity += 1
-        this.setState({products: stateCopy, count: this.updateItemCount()})
+        console.log(stateCopy[productIndex].stock)
+        if(stateCopy[productIndex].quantity + 1 <= stateCopy[productIndex].stock){
+            stateCopy[productIndex].quantity += 1
+            this.setState({products: stateCopy, count: this.updateItemCount()})
+        } else alert('We dont have that many products in stock')
+
+
     }
 
     decreaseProductCount = (id) => {
@@ -49,9 +53,16 @@ export class ShoppingCartProvider extends Component {
         if (stateCopy[productIndex].quantity === 0 || stateCopy[productIndex].quantity <= 0){
             this.removeItem(id)
         }
-
     }
 
+    checkCartItemQuantity = (id) => {
+        let stateCopy = this.state.products
+        if (stateCopy.length > 0) {
+            let productIndex = stateCopy.map((item) => { return item.id}).indexOf(id)
+            if(stateCopy[productIndex] === undefined) return 0
+            return stateCopy[productIndex].quantity
+        } else return 0
+    }
     // Updates item count after setState
     updateItemCount = () => {
         let updatedItemCount = 0
@@ -86,10 +97,10 @@ export class ShoppingCartProvider extends Component {
     }
 
     // Sets product data to shopping cart
-    setProductId = (name, id, amount, price) => {
+    setProductId = (name, id, amount, price, stock) => {
         // Create state copy of products
         let allProducts = this.state.products
-        let newProduct = {name: name, id: id, quantity: amount, price: price}
+        let newProduct = {name: name, id: id, quantity: amount, price: price, stock: stock}
         allProducts.push(newProduct)
         // If new product already exists on cart, then update quantity on existing product.
         this.checkDuplicateItems(newProduct)
@@ -109,6 +120,7 @@ export class ShoppingCartProvider extends Component {
                 , incrementProductCount: this.incrementProductCount
                 , decreaseProductCount: this.decreaseProductCount
                 , resetCart: this.resetCart
+                , checkCartItemQuantity: this.checkCartItemQuantity
             }}>
                 {this.props.children}
             </ShoppingCartContext.Provider>
