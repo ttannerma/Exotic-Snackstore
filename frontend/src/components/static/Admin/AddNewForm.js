@@ -105,7 +105,7 @@ export default class AddNewForm extends Component {
         <div className="form-group">
           <label className="control-label">Image-Link</label>
           <input onChange={this.onChange} value={this.state.image} 
-          type="text" name="image" className="form-control"
+          type="url" name="image" className="form-control"
           />
         </div>
 
