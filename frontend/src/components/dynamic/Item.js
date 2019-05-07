@@ -4,6 +4,7 @@ import Items from './Items';
 
 // Creates item elements into array and returns it
 const Item = (props) => {
+    
     return (
         <Consumer>
             {value => {
