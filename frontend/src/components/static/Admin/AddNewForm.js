@@ -14,6 +14,9 @@ export default class AddNewForm extends Component {
       , weight: '0g/ml'
       , stock: 0
       , image: ''
+      , ratings_count: 0
+      , ratings_totalsum: 0
+      , ratings: 0
     }
   }
   onChange = (e) => {
