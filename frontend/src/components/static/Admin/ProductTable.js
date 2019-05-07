@@ -32,7 +32,6 @@ export default class ProductTable extends Component {
     return something ? something : 'None';  
   }
   createProductTable = (products) => {
-    console.log(products);
     const productsTable = products.map((product) =>
       <tr key={product.id}>
         <td>{product.id}</td>
@@ -46,7 +45,7 @@ export default class ProductTable extends Component {
         <td className="capitalize">{this.somethingOrNull(product.ratings)}</td>
         <td><button onClick={() => {
           this.props.deleteProduct(product.id, this.productDeleted)
-        }}><i class="fas fa-trash-alt"></i></button></td>
+        }}><i className="fas fa-trash-alt"></i></button></td>
       </tr>
     );
     this.setState({products: productsTable});
@@ -59,7 +58,7 @@ export default class ProductTable extends Component {
           <th>ID</th>
           <th>Name</th>
           <th>Price</th>
-          <th>Weight</th>
+          <th>Quantity</th>
           <th>Stock</th>
           <th>Category</th>
           <th>Country</th>
