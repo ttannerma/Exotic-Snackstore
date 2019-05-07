@@ -12,10 +12,14 @@ class Navigation extends Component{
     this.state = {
       countries
       , categories
-      , isLoggedIn: sessionStorage.getItem("activeUserType")
+      , isLoggedIn: ''
     };
   }
+  componentWillMount () {
+    this.setState({isLoggedIn: sessionStorage.getItem("activeUserType")})
+  }
   componentDidMount = () => {
+    //this.setState({isLoggedIn: sessionStorage.getItem("activeUserType")})
     window.onclick = function(event) {
       var dropdowns = document.getElementsByClassName("dropdown-content");
       if (!event.target.matches('.dropbutton')) {
@@ -43,7 +47,7 @@ class Navigation extends Component{
     toggleTarget.classList.toggle('hidden');
   }
   LoginOrLogout = () => {
-    if(!this.state.isLoggedIn) {
+    if(this.state.isLoggedIn) {
       return <NavButton icon="fas fa-sign-out-alt" name="Logout"/>
     } else {
       return <NavButton icon="fas fa-sign-in-alt" name="Login"/>

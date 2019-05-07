@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Logout = (props) => {
+  sessionStorage.removeItem("activeUserType");
   sessionStorage.removeItem("activeUser");
   props.history.push("/");
   window.location.reload(true);
