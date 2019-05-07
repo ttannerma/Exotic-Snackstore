@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Consumer } from '../../product-context';
 import Items from './Items';
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { ShoppingCartContext } from '../../shoppingcart-context'
-import { Router, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class DeliveryPaymentPage extends Component {
 
