@@ -103,9 +103,9 @@ class DeliveryPaymentPage extends Component {
             <br/>
             <h4>Fill out your contact details: </h4>
                 <label> First name: </label>
-                <input required type="text" name="firstname" minlength="1" maxlength="100" onChange={this.setContactDetails.bind(this)} />
+                <input required type="text" name="firstname" minlength="2" maxlength="100" onChange={this.setContactDetails.bind(this)} />
                 <label> Last name: </label>
-                <input required type="text" name="lastname" minlength="1" maxlength="100" onChange={this.setContactDetails.bind(this)} />
+                <input required type="text" name="lastname" minlength="2" maxlength="100" onChange={this.setContactDetails.bind(this)} />
 
                 <label> Phone number: </label>
                 <input required type="text" name="phonenumber" minlenght="3" maxlength="40" onChange={this.setContactDetails.bind(this)}/>
@@ -117,10 +117,10 @@ class DeliveryPaymentPage extends Component {
                 <input required type="text" name="address" minlength="1" maxlength="100" onChange={this.setContactDetails.bind(this)}/>
 
                 <label> City: </label>
-                <input required type="text" name="city" maxlength="60" minlength="1" onChange={this.setContactDetails.bind(this)}/>
+                <input required type="text" name="city" minlength="1" maxlength="60" onChange={this.setContactDetails.bind(this)}/>
 
                 <label> Postal code: </label>
-                <input required type="text" name="postalcode" minlength="5" maxlength="10" onChange={this.setContactDetails.bind(this)}/>
+                <input required type="text" pattern="[0-9]{5}" title="postal code containing 5 numbers" name="postalcode" minlength="5" maxlength="10" onChange={this.setContactDetails.bind(this)}/>
 
                 <button type="submit">Continue to order review</button>
         </form>
