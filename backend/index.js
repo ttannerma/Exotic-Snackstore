@@ -135,6 +135,15 @@ app.get('/orders/:id([0-9]+)', (req, res) => {
         res.send(results);
     });
 });
+// Add new rating to product
+app.post('/products/:id/rating/:rating', (req, res) => {
+    const id = req.params.id;
+    const rating = req.params.rating;
+    console.log('submitted rating: ', rating);
+    crudrepo.addRating(rating, id, (result) => {
+        res.send(result);
+    });
+});
 
 /*
 app.get('/countries/:country', (req, res) => {

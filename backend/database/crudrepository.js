@@ -152,7 +152,18 @@ class CrudRepository {
         this.connection.query(queryString, (error, result) => {
             if(error) throw error;
             callback(result);
-        })
+        });
+    }
+    addRating(newRating, id, callback) {
+        const queryString = `UPDATE products
+        SET ratings_totalsum = ratings_totalsum + ${newRating},
+            ratings_count = ratings_count + 1,
+            ratings = ratings_totalsum / ratings_count
+        WHERE id=${id};`;
+        this.connection.query(queryString, (error, result) => {
+            if(error) throw error;
+            callback(result);
+        });
     }
 }
 

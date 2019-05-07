@@ -77,7 +77,7 @@ class Items extends Component {
                   description: description,
                   price: price,
                   imagepath: imagepath,
-                  allergies: allergies
+                  allergies: allergies,
               }
           }}>
             <img src={imagepath ? imagepath : defaultImageLink} alt={name}/>
