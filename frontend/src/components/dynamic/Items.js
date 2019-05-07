@@ -55,7 +55,7 @@ class Items extends Component {
     let items = []
     // Iterate all products in current state.
     for (let i = 0; i < this.state.products.length; i++) {
-      let { ratings, id, name, description, price, imagepath, allergies, stock } = this.state.products[i];
+      let { ratings, id, name, description, price, imagepath, allergies, stock, weight } = this.state.products[i];
       let link = `/products/${name}`
       let ratingsArray = []
       let star = <i class="fas fa-star"></i>
@@ -78,7 +78,8 @@ class Items extends Component {
                   price: price,
                   imagepath: imagepath,
                   allergies: allergies,
-                  stock: stock
+                  stock: stock,
+                  weight: weight
               }
           }}>
             <img src={imagepath ? imagepath : defaultImageLink} alt={name}/>
