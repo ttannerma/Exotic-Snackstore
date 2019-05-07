@@ -59,7 +59,7 @@ export default class ProductTable extends Component {
           <th>ID</th>
           <th>Name</th>
           <th>Price</th>
-          <th>Weight</th>
+          <th>Quantity</th>
           <th>Stock</th>
           <th>Category</th>
           <th>Country</th>

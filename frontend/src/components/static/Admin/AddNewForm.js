@@ -13,6 +13,7 @@ export default class AddNewForm extends Component {
       , price: 0
       , weight: 0
       , stock: 0
+      , image: ''
     }
   }
   onChange = (e) => {
@@ -45,7 +46,7 @@ export default class AddNewForm extends Component {
           <label className="control-label">Price</label>
           <input onChange={this.onChange} value={this.state.price} 
           type="number" name="price" className="form-control"
-          required
+          required min="0"
           />
         </div>
 
@@ -53,7 +54,7 @@ export default class AddNewForm extends Component {
           <label className="control-label">Weight</label>
           <input onChange={this.onChange} value={this.state.weight} 
           type="number" name="weight" className="form-control"
-          required 
+          required min="0"
           />
         </div>
 
@@ -61,7 +62,7 @@ export default class AddNewForm extends Component {
           <label className="control-label">Stock</label>
           <input onChange={this.onChange} value={this.state.stock} 
           type="number" name="stock" className="form-control"
-          required 
+          required min="0"
           />
         </div>
 
@@ -91,13 +92,20 @@ export default class AddNewForm extends Component {
           <label className="control-label">Description</label>
           <input onChange={this.onChange} value={this.state.description} 
           type="text" name="description" className="form-control"
-          />
+          required/>
         </div>
 
         <div className="form-group">
           <label className="control-label">Allergies</label>
           <input onChange={this.onChange} value={this.state.allergies} 
           type="text" name="allergies" className="form-control"
+          />
+        </div>
+
+        <div className="form-group">
+          <label className="control-label">Image-Link</label>
+          <input onChange={this.onChange} value={this.state.image} 
+          type="text" name="image" className="form-control"
           />
         </div>
 

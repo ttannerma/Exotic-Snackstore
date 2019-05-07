@@ -18,8 +18,12 @@ export class ShoppingCartProvider extends Component {
 
     componentDidMount() {
         let retrievedCartContent = localStorage.getItem("cartContent")
-        let parsedContent = JSON.parse(retrievedCartContent)
-        console.log(parsedContent.products.length)
+        if(retrievedCartContent) {
+            this.createCart(retrievedCartContent);
+        }
+    }
+    createCart = (content) => {
+        let parsedContent = JSON.parse(content)
         if (parsedContent.products.length > 0) {
             let count = 0;
             for(let i = 0; i < parsedContent.products.length; i++) {
