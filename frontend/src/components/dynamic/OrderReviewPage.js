@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { ShoppingCartContext } from '../../shoppingcart-context'
 import axios from 'axios'
 
@@ -45,13 +44,12 @@ class OrderReviewPage extends Component {
                 <h5>First name: {this.state.firstname}</h5>
                 <h5>Last name: {this.state.lastname}</h5>
                 <h5>Address: {this.state.address}</h5>
+                <h5>Postal code: {this.state.postalcode}</h5>
                 <h5>City: {this.state.city}</h5>
                 <h5>Email: {this.state.email}</h5>
                 <h5>Phone number: {this.state.phonenumber}</h5>
                 <h5>Delivery : {this.state.deliveryMethod}</h5>
                 <h5>Payment: {this.state.paymentMethod}</h5>
-
-
                 <h3>Delivery fee: {this.state.deliveryFee} €</h3>
                 <h3>Products cost: {this.state.price} €</h3>
                 <h3>Total: {this.state.total} €</h3>

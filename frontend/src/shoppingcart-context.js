@@ -27,8 +27,6 @@ export class ShoppingCartProvider extends Component {
         if (parsedContent.products.length > 0) {
             let count = 0;
             for(let i = 0; i < parsedContent.products.length; i++) {
-                
-                console.log(parsedContent.products[i].quantity)
                 count += parsedContent.products[i].quantity
             }
             this.setState({products: parsedContent.products, count: count})

@@ -8,7 +8,7 @@ const Item = (props) => {
         <Consumer>
             {value => {
                 const { getProducts, getProductsWithCat } = value;
-                return <Items 
+                return <Items
                 category={props.category} 
                 getProducts={getProducts} 
                 getProductsWithCat={getProductsWithCat}/>

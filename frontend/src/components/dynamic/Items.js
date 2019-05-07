@@ -53,22 +53,23 @@ class Items extends Component {
     if (this.state.products.length === 0) return this.displayError()
     let defaultImageLink = "https://lh3.googleusercontent.com/hmYFfk7e8FOdiMg4j6qSckZ4ThQQUKIzQGdY1jQw5a8I9kV48wmktV0QhdQUPGFKha7dp9JkZ2Y=s220"
     let items = []
+
     // Iterate all products in current state.
     for (let i = 0; i < this.state.products.length; i++) {
       let { ratings, id, name, description, price, imagepath, allergies, stock, weight } = this.state.products[i];
       let link = `/products/${name}`
       let ratingsArray = []
-      let star = <i class="fas fa-star"></i>
       for(let k = 0; k < ratings; k++) {
-          ratingsArray.push(star)
+        let star = <i key={name + k} className="fas fa-star"></i>
+        ratingsArray.push(star)
       }
 
       // Create item elements.
       let item =
       <ShoppingCartContext.Consumer>
       {({ setProductId, checkCartItemQuantity }) => (
-        <div className="item" key={name}>
-          <Link to={{
+        <div className="item" key={'item - '+ i}>
+          <Link key={'link - '+ i} to={{
               pathname: link,
               state: {
                   ratings: ratings,
@@ -82,13 +83,13 @@ class Items extends Component {
                   weight: weight
               }
           }}>
-            <img src={imagepath ? imagepath : defaultImageLink} alt={name}/>
+            <img src={imagepath ? imagepath : defaultImageLink} alt={name} key={'img - '+ i}/>
           </Link>
-          <h2>{name}</h2>
-          <p>{description}</p>
-          <form className="itemAddForm">
-                    <input type="number" onChange={this.handleChange} name="quantity" min={stock ? 1 : 0} max={stock ? stock : 0} step="1" />
-                    <button type="button"
+          <h2 key={'name - '+ i}>{name}</h2>
+          <p key={'desc - '+ i}>{description}</p>
+          <form className="itemAddForm" key={'form - ' + i}>
+                    <input key={'input - '+ i} type="number" onChange={this.handleChange} name="quantity" min={stock ? 1 : 0} max={stock ? stock : 0} step="1" />
+                    <button key={'btn - '+ i} type="button"
                         onClick={() => {
                             if(checkCartItemQuantity(id) + this.state.value <= stock) {
                                 if(this.state.value >= stock) {
@@ -102,8 +103,8 @@ class Items extends Component {
                             }
                             }}>Add</button>
           </form>
-          <h2>{price} €<span>{ratings ? ratingsArray : 'No ratings'}</span></h2>
-          <h5>{stock ? 'Stock: ' + stock : 'Out of stock'}</h5>
+          <h2 key={'price - '+ i}>{price} €<span>{ratings ? ratingsArray : 'No ratings'}</span></h2>
+          <h5 key={'stock - '+ i}>{stock ? 'Stock: ' + stock : 'Out of stock'}</h5>
         </div>
       )}
         </ShoppingCartContext.Consumer>

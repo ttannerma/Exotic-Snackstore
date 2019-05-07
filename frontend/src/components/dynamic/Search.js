@@ -8,8 +8,6 @@ export default class Search extends Component {
     this.state = {
         searchValue: this.props.match.params.searchVal
     }
-    // props.location.pathname gets url path.
-    // props.match.params.someId gets params from url.
   }
 
   componentDidUpdate() {
