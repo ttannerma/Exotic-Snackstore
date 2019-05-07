@@ -22,10 +22,12 @@ export default class AddNewForm extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const product = this.state;
+    console.log(product);
+    /*
     this.props.addNewProduct(product, response => {
       console.log(response);
       this.props.renderRedirect();
-    })
+    })*/
   }
   render() {
     return (
@@ -46,7 +48,7 @@ export default class AddNewForm extends Component {
           <label className="control-label">Price</label>
           <input onChange={this.onChange} value={this.state.price} 
           type="number" name="price" className="form-control"
-          required min="0"
+          required min="0" step="0.01"
           />
         </div>
 
