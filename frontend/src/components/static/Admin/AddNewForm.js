@@ -22,12 +22,10 @@ export default class AddNewForm extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const product = this.state;
-    console.log(product);
-    /*
     this.props.addNewProduct(product, response => {
       console.log(response);
       this.props.renderRedirect();
-    })*/
+    })
   }
   render() {
     return (

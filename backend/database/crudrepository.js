@@ -105,8 +105,8 @@ class CrudRepository {
     addNewProduct(product, callback) {
         const queryString = `INSERT INTO products(name, price, weight, description, 
         ratings, category, stock, country, allergies)
-        VALUES('${product.name}', ${product.price}, ${product.weight}, '${product.description}'
-        , '', '${product.category}', ${product.stock}, '${product.country}', '${product.allergies}');`;
+        VALUES("${product.name}", ${product.price}, "${product.weight}", "${product.description}"
+        , "", "${product.category}", ${product.stock}, "${product.country}", "${product.allergies}");`;
         this.connection.query(queryString, (error, result) => {
             if(error) throw error;
             callback(result);
