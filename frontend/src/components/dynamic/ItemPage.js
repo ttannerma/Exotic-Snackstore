@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ShoppingCartContext } from '../../shoppingcart-context'
 import axios from 'axios'
-import { callbackify } from 'util';
+import { Link } from 'react-router-dom'
 
 class ItemPage extends Component {
     constructor(props) {
@@ -49,11 +49,10 @@ class ItemPage extends Component {
     }
 
     createRatingForm() {
-
-        if(!this.state.hasRated) {
+        if(!this.state.hasRated && sessionStorage.getItem("activeUserType")) {
             let ratingForm =
             <div className="rating-form">
-                <label>Have you tried this product? Rate it!</label>
+                <label>Have you tried this product? Rate it!</label> <br></br>
                     <select required onChange={this.handleRatingChange.bind(this)}>
                         <option value="0"></option>
                         <option value="5">Very Good</option>
@@ -62,15 +61,21 @@ class ItemPage extends Component {
                         <option value="2">Bad</option>
                         <option value="1">Very Bad</option>
                     </select>
-                    <button type="submit" onClick={this.handleRatingSubmit.bind(this)}>Submit rating</button>
+                    <button type="submit" onClick={this.handleRatingSubmit.bind(this)}>Submit Rating</button>
             </div>
             return ratingForm
+        } else if(!sessionStorage.getItem("activeUserType")) {
+            let loginToRate = 
+                <div>
+                    <h5><Link to={'/login'}>Login</Link> to add rating to this product!</h5>
+                </div>
+            return loginToRate
         } else {
-            let rated = 
+            return (
                 <div>
                     <h5>Thank you for rating!</h5>
                 </div>
-            return rated
+            )
         }
     }
 
@@ -87,7 +92,9 @@ class ItemPage extends Component {
                 <div className="generic-container">
                     <img className="item-image" src={this.state.imagepath ? this.state.imagepath : defaultImageLink} alt={this.state.name}></img>
                     <h2>{this.state.name}</h2>
+                    <p>{this.state.weight} </p>
                     <p>{this.state.description}</p>
+                    <p>{this.state.allergies ? "This product contains: " + this.state.allergies : ""}</p>
                     <h2>{this.state.price} €</h2>
                     <h3>{this.state.ratings ? ratingsArray : 'No ratings yet.'}</h3>
                     {this.createRatingForm()}
@@ -105,8 +112,9 @@ class ItemPage extends Component {
                             } else {
                                 alert('We dont have that many items in stock')
                             }
-                            }}>Add</button>
+                            }}>Add to cart</button>
                     </form>
+                    <h3> {this.state.stock ? 'In stock: ' + this.state.stock : 'Out of stock.'}</h3>
                 </div>
             )}
             </ShoppingCartContext.Consumer>

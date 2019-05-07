@@ -11,8 +11,8 @@ import UserManager from './components/static/Admin/UserManager';
 import ProductManager from './components/static/Admin/ProductManager';
 import Search from './components/dynamic/Search';
 import ItemPage from './components/dynamic/ItemPage';
-import Login from './components/static/login/Login';
-import Logout from './components/static/login/Logout';
+import Login from './components/static/Login/Login';
+import Logout from './components/static/Login/Logout';
 import Signup from './components/static/signup/Signup';
 import ShoppingCartLogo from './components/dynamic/ShoppingCartLogo';
 import ShoppingCartPage from './components/dynamic/ShoppingCartPage';
@@ -20,7 +20,6 @@ import DeliveryPaymentPage from './components/dynamic/DeliveryPaymentPage';
 import { UserProvider } from './user-context'; 
 import { ProductProvider} from './product-context';
 import { ShoppingCartProvider } from './shoppingcart-context';
-
 import AddNewConsumer from './components/static/Admin/AddNewConsumer';
 import OrderReviewPage from './components/dynamic/OrderReviewPage'
 import OrderSuccess from './components/dynamic/OrderSuccess'

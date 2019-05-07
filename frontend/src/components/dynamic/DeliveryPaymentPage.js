@@ -8,7 +8,7 @@ class DeliveryPaymentPage extends Component {
         super()
         this.state = {
             deliveryMethod: ""
-            , paymentMethod: ""
+            , paymentMethod: "PayPal"
             , price: 0
             , products: []
             , firstname: ""

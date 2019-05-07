@@ -6,6 +6,7 @@ export class ShoppingCartProvider extends Component {
 
     // State contains product array which will contain product objects.
     // count contains product count.
+
     state = {
         products: [],
         count: 0
@@ -15,6 +16,24 @@ export class ShoppingCartProvider extends Component {
         this.setState({products: [], count: 0})
     }
 
+    componentDidMount() {
+        let retrievedCartContent = localStorage.getItem("cartContent")
+        let parsedContent = JSON.parse(retrievedCartContent)
+        console.log(parsedContent.products.length)
+        if (parsedContent.products.length > 0) {
+            let count = 0;
+            for(let i = 0; i < parsedContent.products.length; i++) {
+                
+                console.log(parsedContent.products[i].quantity)
+                count += parsedContent.products[i].quantity
+            }
+            this.setState({products: parsedContent.products, count: count})
+        }
+    }
+    componentDidUpdate() {
+        let shoppingCartContent = this.state
+        localStorage.setItem("cartContent", JSON.stringify(shoppingCartContent))
+    }
     removeItem = (id) => {
         // Create state copy
         let stateCopy = this.state.products
@@ -39,8 +58,6 @@ export class ShoppingCartProvider extends Component {
             stateCopy[productIndex].quantity += 1
             this.setState({products: stateCopy, count: this.updateItemCount()})
         } else alert('We dont have that many products in stock')
-
-
     }
 
     decreaseProductCount = (id) => {
