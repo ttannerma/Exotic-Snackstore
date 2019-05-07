@@ -51,7 +51,7 @@ export default class AddNewForm extends Component {
         </div>
 
         <div className="form-group">
-          <label className="control-label">Weight</label>
+          <label className="control-label">Quantity</label>
           <input onChange={this.onChange} value={this.state.weight} 
           type="text" name="weight" className="form-control"
           required min="0"
