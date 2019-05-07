@@ -55,8 +55,13 @@ class Items extends Component {
     let items = []
     // Iterate all products in current state.
     for (let i = 0; i < this.state.products.length; i++) {
-      let { ratings, id, name, description, price, imagepath } = this.state.products[i];
+      let { ratings, id, name, description, price, imagepath, allergies } = this.state.products[i];
       let link = `/products/${name}`
+      let ratingsArray = []
+      let star = <i class="fas fa-star"></i>
+      for(let k = 0; k < ratings; k++) {
+          ratingsArray.push(star)
+      }
 
       // Create item elements.
       let item =
@@ -71,7 +76,8 @@ class Items extends Component {
                   name: name,
                   description: description,
                   price: price,
-                  imagepath: imagepath
+                  imagepath: imagepath,
+                  allergies: allergies
               }
           }}>
             <img src={imagepath ? imagepath : defaultImageLink} alt={name}/>
@@ -83,7 +89,7 @@ class Items extends Component {
                     <button type="button"
                         onClick={() => { this.state.value > 0 && this.state.value <= 30 ? setProductId(this.state.products[i].name, this.state.products[i].id, this.state.value, this.state.products[i].price): alert('You must add at least one product to cart.')}}>Buy</button>
           </form>
-          <h2>{price} €<span>{ratings ? ratings : 'No ratings'}</span></h2>
+          <h2>{price} €<span>{ratings ? ratingsArray : 'No ratings'}</span></h2>
         </div>
       )}
         </ShoppingCartContext.Consumer>

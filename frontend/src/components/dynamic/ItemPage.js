@@ -25,7 +25,7 @@ class ItemPage extends Component {
         <ShoppingCartContext.Consumer>
         {({ setProductId }) => (
             <div className="item">
-                <img className="item-image" src={this.state.imagepath ? this.state.imagepath : defaultImageLink} alt="Candy"></img>
+                <img className="item-image" src={this.state.imagepath ? this.state.imagepath : defaultImageLink} alt={this.state.name}></img>
                 <h3>Ratings: {this.state.ratings ? this.state.ratings : 'No ratings yet.'}</h3>
                 <form className="itemAddForm">
                     <input type="number" onChange={this.handleChange} name="quantity" min="1" max="30" step="1" />
