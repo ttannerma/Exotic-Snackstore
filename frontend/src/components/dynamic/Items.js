@@ -66,10 +66,10 @@ class Items extends Component {
 
       // Create item elements.
       let item =
-      <ShoppingCartContext.Consumer>
+      <ShoppingCartContext.Consumer key={'consumer - ' + i}>
       {({ setProductId, checkCartItemQuantity }) => (
         <div className="item" key={'item - '+ i}>
-          <Link key={'link - '+ i} to={{
+          <Link to={{
               pathname: link,
               state: {
                   ratings: ratings,
@@ -85,11 +85,11 @@ class Items extends Component {
           }}>
             <img src={imagepath ? imagepath : defaultImageLink} alt={name} key={'img - '+ i}/>
           </Link>
-          <h2 key={'name - '+ i}>{name}</h2>
-          <p key={'desc - '+ i}>{description}</p>
+          <h2>{name}</h2>
+          <p>{description}</p>
           <form className="itemAddForm" key={'form - ' + i}>
-                    <input key={'input - '+ i} type="number" onChange={this.handleChange} name="quantity" min={stock ? 1 : 0} max={stock ? stock : 0} step="1" />
-                    <button key={'btn - '+ i} type="button"
+                    <input type="number" onChange={this.handleChange} name="quantity" min={stock ? 1 : 0} max={stock ? stock : 0} step="1" />
+                    <button  type="button"
                         onClick={() => {
                             if(checkCartItemQuantity(id) + this.state.value <= stock) {
                                 if(this.state.value >= stock) {
@@ -103,8 +103,8 @@ class Items extends Component {
                             }
                             }}>Add</button>
           </form>
-          <h2 key={'price - '+ i}>{price} €<span>{ratings ? ratingsArray : 'No ratings'}</span></h2>
-          <h5 key={'stock - '+ i}>{stock ? 'Stock: ' + stock : 'Out of stock'}</h5>
+          <h2>{price} € <span>{ratings ? ratingsArray : 'No ratings'}</span></h2>
+          <h5>{stock ? 'Stock: ' + stock : 'Out of stock'}</h5>
         </div>
       )}
         </ShoppingCartContext.Consumer>
