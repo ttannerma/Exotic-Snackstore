@@ -394,15 +394,61 @@ footer {
   height: 2rem;
 }
 
+.contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.contacts .contact-card {
+  float: left;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  max-width: 30rem;
+  border: 1.5px solid grey;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  background-color: orange;
+  color: white;
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
+  font-weight: bold;
+  zoom: 100%;
+  -webkit-transition: zoom 2s;
+  transition: zoom 2s;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+.contacts .contact-card h3, .contacts .contact-card span {
+  margin: 0;
+}
+
+.contacts .contact-card span {
+  white-space: nowrap;
+}
+
+.contacts .contact-card:nth-child(even) {
+  margin: 0 3rem;
+}
+
+.contacts .contact-card:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
 .generic-container {
   font-family: 'Montserrat';
   margin: 3rem;
   padding-top: 3rem;
   width: 90%;
-}
-
-.generic-container .contact-card {
-  display: inline-block;
 }
 
 .generic-container .order-form {
@@ -652,10 +698,6 @@ div.item {
   transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
-/*div.item:hover {
-    border: 1px solid black;
-    zoom: 110%;
-}*/
 div.item:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
