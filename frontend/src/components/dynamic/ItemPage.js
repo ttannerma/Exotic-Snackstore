@@ -82,21 +82,23 @@ class ItemPage extends Component {
     createItemPage() {
         let defaultImageLink = "https://lh3.googleusercontent.com/hmYFfk7e8FOdiMg4j6qSckZ4ThQQUKIzQGdY1jQw5a8I9kV48wmktV0QhdQUPGFKha7dp9JkZ2Y=s220"
         let ratingsArray = []
-        let star = <i class="fas fa-star"></i>
+
         for(let k = 0; k < this.state.ratings; k++) {
+            let star = <i key={'star - '+ k} className="fas fa-star"></i>
             ratingsArray.push(star)
         }
         let item = 
-            <ShoppingCartContext.Consumer>
+            <ShoppingCartContext.Consumer key={'consumer - ' + this.state.name}>
             {({ setProductId, checkCartItemQuantity }) => (
-                <div className="generic-container">
+                <React.Fragment>
                     <img className="item-image" src={this.state.imagepath ? this.state.imagepath : defaultImageLink} alt={this.state.name}></img>
                     <h2>{this.state.name}</h2>
                     <p>{this.state.weight} </p>
-                    <p>{this.state.description}</p>
-                    <p>{this.state.allergies ? "This product contains: " + this.state.allergies : ""}</p>
+                    <p className="desc">{this.state.description}</p>
+                    {this.state.allergies && <p>This product contains: " + {this.state.allergies}</p>}
                     <h2>{this.state.price} €</h2>
                     <h3>{this.state.ratings ? ratingsArray : 'No ratings yet.'}</h3>
+                    <div className="item-forms" key={'item-form - ' + this.state.name}>
                     {this.createRatingForm()}
                     <form className="itemAddForm">
                         <input type="number" onChange={this.handleChange} name="quantity" min={this.state.stock ? 1 : 0} max={this.state.stock} step="1" />
@@ -114,8 +116,9 @@ class ItemPage extends Component {
                             }
                             }}>Add to cart</button>
                     </form>
+                    </div>
                     <h3> {this.state.stock ? 'In stock: ' + this.state.stock : 'Out of stock.'}</h3>
-                </div>
+                    </React.Fragment>
             )}
             </ShoppingCartContext.Consumer>
         return item

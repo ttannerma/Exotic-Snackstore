@@ -78,53 +78,59 @@ class DeliveryPaymentPage extends Component {
 
     createForm() {
         let contactAndDeliveryForm =
-        <form onSubmit={this.handleSubmit.bind(this)}>
-        <h4> Select delivery option: </h4>
-            <input type="radio"
-            name="deliveryMethod"
-            value="Nearest post office"
-            required
-            onClick={this.setDeliveryMethods.bind(this)} /> Nearest post office
-            <input type="radio"
-            name="deliveryMethod"
-            value="Home delivery"
-            required
-            onClick={this.setDeliveryMethods.bind(this)} /> Home delivery
-            <br/>
-            <h4>Select payment option: </h4>
-            <select required onChange={this.setPaymentMethod.bind(this)}>
-                <option value="PayPal">PayPal</option>
-                <option value="OP">OP</option>
-                <option value="Danske Bank">Danske Bank</option>
-                <option value="Nordea">Nordea</option>
-                <option value="Säästöpankki">Säästöpankki</option>
-                <option value="POP Pankki">POP Pankki</option>
-            </select>
-            <br/>
-            <h4>Fill out your contact details: </h4>
-                <label> First name: </label>
-                <input required type="text" name="firstname" minlength="2" maxlength="100" onChange={this.setContactDetails.bind(this)} />
-                <label> Last name: </label>
-                <input required type="text" name="lastname" minlength="2" maxlength="100" onChange={this.setContactDetails.bind(this)} />
+        <div className="order-form">
+            <form onSubmit={this.handleSubmit.bind(this)}>
+            <h4> Select delivery option: </h4>
+                <input className="input-radio"
+                type="radio"
+                name="deliveryMethod"
+                value="Nearest post office"
+                required
+                onClick={this.setDeliveryMethods.bind(this)} /> Nearest post office
+                <input className="input-radio"
+                type="radio"
+                name="deliveryMethod"
+                value="Home delivery"
+                required
+                onClick={this.setDeliveryMethods.bind(this)} /> Home delivery
+                <br/>
+                <h4>Select payment option: </h4>
+                <select required onChange={this.setPaymentMethod.bind(this)}>
+                    <option value="PayPal">PayPal</option>
+                    <option value="OP">OP</option>
+                    <option value="Danske Bank">Danske Bank</option>
+                    <option value="Nordea">Nordea</option>
+                    <option value="Säästöpankki">Säästöpankki</option>
+                    <option value="POP Pankki">POP Pankki</option>
+                </select>
+                <br/>
+                <h4>Fill out your contact details: </h4>
+                    <label> First name: </label>
+                    <input required type="text" name="firstname" minlength="2" maxlength="100" onChange={this.setContactDetails.bind(this)} />
+                    <label> Last name: </label>
+                    <input required type="text" name="lastname" minlength="2" maxlength="100" onChange={this.setContactDetails.bind(this)} />
 
-                <label> Phone number: </label>
-                <input required type="text" name="phonenumber" minlenght="3" maxlength="40" onChange={this.setContactDetails.bind(this)}/>
+                    <label> Phone number: </label>
+                    <input required type="text" name="phonenumber" minlenght="3" maxlength="40" onChange={this.setContactDetails.bind(this)}/>
 
-                <label> Email: </label>
-                <input required type="email" name="email" minlength="5" maxength="50" onChange={this.setContactDetails.bind(this)}/>
+                    <label> Email: </label>
+                    <input required type="email" name="email" minlength="5" maxength="50" onChange={this.setContactDetails.bind(this)}/>
 
-                <label> Address: </label>
-                <input required type="text" name="address" minlength="1" maxlength="100" onChange={this.setContactDetails.bind(this)}/>
+                    <label> Address: </label>
+                    <input required type="text" name="address" minlength="1" maxlength="100" onChange={this.setContactDetails.bind(this)}/>
 
-                <label> City: </label>
-                <input required type="text" name="city" minlength="1" maxlength="60" onChange={this.setContactDetails.bind(this)}/>
+                    <label> City: </label>
+                    <input required type="text" name="city" minlength="1" maxlength="60" onChange={this.setContactDetails.bind(this)}/>
 
-                <label> Postal code: </label>
-                <input required type="text" pattern="[0-9]{5}" title="postal code containing 5 numbers" name="postalcode" minlength="5" maxlength="10" onChange={this.setContactDetails.bind(this)}/>
+                    <label> Postal code: </label>
+                    <input required type="text" pattern="[0-9]{5}" title="postal code containing 5 numbers" name="postalcode" minlength="5" maxlength="10" onChange={this.setContactDetails.bind(this)}/>
 
-                <button type="submit">Continue to order review</button>
-        </form>
-
+                    <div className="button-container">
+                    {this.createReturnButton()}
+                    <button type="submit">Continue to order review</button>
+                    </div>
+            </form>
+        </div>
         return contactAndDeliveryForm
     }
 
@@ -164,7 +170,6 @@ class DeliveryPaymentPage extends Component {
             <div className="generic-container">
                 {this.createProductList()}
                 {this.createForm()}
-                {this.createReturnButton()}
             </div>
         )
     }

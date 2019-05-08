@@ -30,7 +30,7 @@ body {
 }
 
 .shoppingCart {
-  border: 1px solid blue;
+  margin-top: 50px;
   height: 50px;
   max-height: 50px;
   max-width: 100px;
@@ -58,6 +58,67 @@ body {
   font-weight: bold;
   font-family: sans-serif;
   color: black;
+}
+
+.itemPageContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.itemPageContainer i {
+  color: gold;
+}
+
+.itemPageContainer img {
+  margin-top: 40px;
+  max-width: 220px;
+  max-height: auto;
+}
+
+.itemPageContainer .desc {
+  max-width: 50%;
+}
+
+.itemPageContainer .item-forms select {
+  width: 80px;
+}
+
+.itemPageContainer .item-forms input {
+  width: 76px;
+}
+
+.itemPageContainer .item-forms button {
+  border: grey solid 1.5px;
+  background-color: orange;
+  color: white;
+  padding: 0.2rem;
+  font-family: 'Montserrat';
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 150px;
+}
+
+.itemPageContainer .item-forms button:hover {
+  background-color: #ffb733;
+}
+
+.itemPageContainer .item-forms button:last-child {
+  margin-left: 50px;
+}
+
+.itemPageContainer .item-forms .rating-form {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.itemPageContainer .item-forms .rating-form label {
+  display: block;
 }
 
 header {
@@ -324,13 +385,149 @@ footer {
   display: inline-block;
 }
 
-.generic-container .item-shoppingcart:first-of-type {
-  border-bottom: 1px solid gray;
-  border-top: 1px solid gray;
+.generic-container .order-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.generic-container .order-form form label {
+  display: block;
+}
+
+.generic-container .order-form form input {
+  max-width: 300px;
+  margin-bottom: 10px;
+}
+
+.generic-container .order-form .button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.generic-container .order-form .button-container button {
+  border: grey solid 1.5px;
+  background-color: orange;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.generic-container .order-form .button-container button:hover {
+  background-color: #ffb733;
+}
+
+.generic-container .order-form .button-container button:last-child {
+  margin-left: 100px;
 }
 
 .generic-container .item-shoppingcart {
   border-bottom: 1px solid gray;
+}
+
+.generic-container .item-shoppingcart .total {
+  text-decoration: underline;
+}
+
+.generic-container .item-shoppingcart .cart-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 60%;
+}
+
+.generic-container .item-shoppingcart .cart-actions .item-remove {
+  font-size: 1.5rem;
+  color: black;
+}
+
+.generic-container .item-shoppingcart .cart-actions .item-add {
+  font-size: 1.5rem;
+  color: green;
+  margin-right: 50px;
+}
+
+.generic-container .item-shoppingcart .cart-actions .item-decrease {
+  font-size: 1.5rem;
+  color: red;
+  margin-right: 50px;
+}
+
+.generic-container .cart-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.generic-container .cart-bottom .cart-total {
+  text-decoration: underline;
+}
+
+.generic-container .cart-bottom a {
+  margin-left: auto;
+}
+
+.generic-container .cart-bottom a button {
+  border: grey solid 1.5px;
+  background-color: orange;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.generic-container .cart-bottom a button:hover {
+  background-color: #ffb733;
+}
+
+.generic-container .order-details {
+  margin-left: 5px;
+}
+
+.generic-container .order-buttons button {
+  border: grey solid 1.5px;
+  background-color: orange;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.generic-container .order-buttons button:hover {
+  background-color: #ffb733;
+}
+
+.generic-container .order-buttons button:last-child {
+  margin-left: 50px;
+}
+
+.item-shoppingcart:first-of-type {
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
 }
 
 .generic-container-no-top {
@@ -364,7 +561,6 @@ footer {
   left: 50%;
   display: -ms-grid;
   display: grid;
-  border: 1.5px solid grey;
   -ms-grid-columns: (300px)[3];
       grid-template-columns: repeat(3, 300px);
   grid-column-gap: 50px;
@@ -380,6 +576,17 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+#main .item .product-name {
+  max-width: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#main .item i {
+  color: gold;
 }
 
 #main .item img {
