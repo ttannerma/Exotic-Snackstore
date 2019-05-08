@@ -18,7 +18,6 @@ export default class ProductTable extends Component {
     });
   }
   productDeleted = (result) => {
-    console.log(result);
     this.getProducts();
   }
   ratingsOrNull = (ratings) => {

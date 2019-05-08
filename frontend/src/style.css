@@ -10,20 +10,31 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: #ffdb99;
 }
 
-.container {
+.content-shell {
   margin-left: 20rem;
   width: 65%;
   position: relative;
-  padding-bottom: 60px;
   padding-bottom: 2.5rem;
   font-family: 'Montserrat', Arial;
+  background-color: white;
+}
+
+.container {
+  position: relative;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.mb3 {
+  margin-bottom: 3rem;
 }
 
 .head {
   top: 0;
-  background: #ffb733;
+  background: #4ccdae;
   max-width: 100%;
   padding-left: 20rem;
   min-height: 70px;
@@ -122,6 +133,7 @@ body {
 }
 
 header {
+  background-color: #4CCDAE;
   padding-top: 2rem;
 }
 
@@ -365,14 +377,18 @@ nav .active {
 }
 
 footer {
-  margin: auto auto 0 auto;
-  width: 100%;
+  margin: 3rem auto 0 auto;
+  font-family: 'Montserrat';
   font-size: 1.5rem;
   font-weight: bold;
   background-color: orange;
   color: black;
   text-align: center;
   padding: 2.5rem 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
 }
 
 .generic-container {
@@ -617,5 +633,9 @@ footer {
 #main .item .itemAddForm input[type=number]::-webkit-inner-spin-button,
 #main .item .itemAddForm input[type=number]::-webkit-outer-spin-button {
   font-size: 14px;
+}
+
+div.item:hover {
+  background-color: #ffedcc;
 }
 /*# sourceMappingURL=style.css.map */

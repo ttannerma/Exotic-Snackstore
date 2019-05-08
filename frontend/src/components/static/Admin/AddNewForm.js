@@ -49,7 +49,7 @@ export default class AddNewForm extends Component {
           <label className="control-label">Price</label>
           <input onChange={this.onChange} value={this.state.price} 
           type="number" name="price" className="form-control"
-          required min="0" step="0.01"
+          required min="0.01" step="0.01"
           />
         </div>
 
@@ -65,7 +65,7 @@ export default class AddNewForm extends Component {
           <label className="control-label">Stock</label>
           <input onChange={this.onChange} value={this.state.stock} 
           type="number" name="stock" className="form-control"
-          required min="0"
+          required min="0" max="9999"
           />
         </div>
 
@@ -109,7 +109,7 @@ export default class AddNewForm extends Component {
           <label className="control-label">Image-Link</label>
           <input onChange={this.onChange} value={this.state.image} 
           type="url" name="image" className="form-control"
-          />
+          required/>
         </div>
 
         <div className="form-group">

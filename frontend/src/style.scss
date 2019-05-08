@@ -1,8 +1,8 @@
 $itemInfoPadding: 10px;
 $itemImgWidth: 300px;
 $itemInfoMargin: 10px;
-$orange: rgba(255, 165, 0,1 );
-$turqoiuse: rgb(84, 165, 174);
+$orange: rgba(255, 165, 0, 1);
+$turquoise: rgb(76, 205, 174);
 $green: rgb(31, 119, 90);
 $red: rgb(129, 60, 79);
 
@@ -13,19 +13,28 @@ body {
    height:100%;
    display: flex;
    flex-direction: column;
+   background-color: lighten($orange, 30%);
 }
 
-.container{
+.content-shell{
     margin-left: 20rem;
     width: 65%;
     position: relative;
-    padding-bottom: 60px;
     padding-bottom: 2.5rem;
     font-family: 'Montserrat', Arial;
+    background-color: white;
+}
+.container {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+}
+.mb3 {
+    margin-bottom: 3rem;
 }
 .head {
     top: 0;
-    background: lighten($orange, 10%);
+    background: $turquoise;
     max-width: 100%;
     padding-left: 20rem;
     min-height: 70px;
@@ -106,6 +115,7 @@ body {
 }
 
 header{
+    background-color: #4CCDAE;
     padding-top: 2rem;
     * {
         display: inline-block;
@@ -234,7 +244,7 @@ nav{
         margin-right: 3rem;
     }
     .tool:hover {
-        background-color: lighten($orange, 10%)
+        background-color: lighten($orange, 10%);
     }
     .adminLink {
         text-decoration: none;
@@ -309,14 +319,18 @@ nav{
     }
 }
 footer{
-    margin: auto auto 0 auto;
-    width: 100%;
+    margin: 3rem auto 0 auto;
+    font-family: 'Montserrat';
     font-size: 1.5rem;
     font-weight: bold;
     background-color: $orange;
     color: black;
     text-align: center;
     padding: 2.5rem 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem; 
 }
 .generic-container {
     font-family: 'Montserrat';
@@ -501,4 +515,7 @@ footer{
             }
         }
     }
+}
+div.item:hover {
+    background-color: lighten($orange, 40%);
 }
