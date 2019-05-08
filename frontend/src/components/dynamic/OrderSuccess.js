@@ -9,8 +9,13 @@ class OrderSuccess extends Component {
     }
 
     componentDidMount() {
-
+        setTimeout(() => {
+            this.props.history.push({
+                pathname: '/home'
+            })
+        }, 3000) 
     }
+
     render() {
         return (
             <React.Fragment>
