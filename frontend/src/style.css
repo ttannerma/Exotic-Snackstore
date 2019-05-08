@@ -20,12 +20,15 @@ body {
   padding-bottom: 2.5rem;
   font-family: 'Montserrat', Arial;
   background-color: white;
+  margin-top: 0;
+  padding-top: 0;
+  min-height: 40vh;
 }
 
 .container {
   position: relative;
   min-height: 100vh;
-  margin: 0;
+  margin-top: -3rem;
 }
 
 .mb3 {
@@ -381,19 +384,20 @@ footer {
   font-family: 'Montserrat';
   font-size: 1.5rem;
   font-weight: bold;
-  background-color: orange;
+  background-color: #4CCDAE;
   color: black;
   text-align: center;
   padding: 2.5rem 0;
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;
+  height: 2rem;
 }
 
 .generic-container {
   font-family: 'Montserrat';
   margin: 3rem;
+  padding-top: 3rem;
   width: 90%;
 }
 
@@ -595,6 +599,9 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-top: 2rem;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 #main .item .product-name {
@@ -635,7 +642,24 @@ footer {
   font-size: 14px;
 }
 
+div.item {
+  zoom: 100%;
+  -webkit-transition: zoom 2s;
+  transition: zoom 2s;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+/*div.item:hover {
+    border: 1px solid black;
+    zoom: 110%;
+}*/
 div.item:hover {
-  background-color: #ffedcc;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
 }
 /*# sourceMappingURL=style.css.map */

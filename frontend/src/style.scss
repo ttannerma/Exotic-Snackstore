@@ -23,11 +23,14 @@ body {
     padding-bottom: 2.5rem;
     font-family: 'Montserrat', Arial;
     background-color: white;
+    margin-top: 0;
+    padding-top: 0;
+    min-height: 40vh;
 }
 .container {
     position: relative;
     min-height: 100vh;
-    margin: 0;
+    margin-top: -3rem;
 }
 .mb3 {
     margin-bottom: 3rem;
@@ -323,18 +326,19 @@ footer{
     font-family: 'Montserrat';
     font-size: 1.5rem;
     font-weight: bold;
-    background-color: $orange;
+    background-color: #4CCDAE;
     color: black;
     text-align: center;
     padding: 2.5rem 0;
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 2.5rem; 
+    height: 2rem; 
 }
 .generic-container {
     font-family: 'Montserrat';
     margin:  3rem;
+    padding-top: 3rem;
     width: 90%;
     .contact-card {
         display: inline-block;
@@ -482,6 +486,8 @@ footer{
         padding: $itemInfoPadding;
         display: flex;
         flex-direction: column;
+        margin-top: 2rem;
+        align-content: center;
         .product-name {
             max-width: auto;
             overflow: hidden;
@@ -516,6 +522,16 @@ footer{
         }
     }
 }
-div.item:hover {
-    background-color: lighten($orange, 40%);
+div.item {
+    zoom: 100%;
+    transition: zoom 2s;
+    transition: transform 0.3s ease-in-out;
 }
+/*div.item:hover {
+    border: 1px solid black;
+    zoom: 110%;
+}*/
+div.item:hover {
+    transform: scale(1.05);
+    transition-duration: 0.2s;
+  }
