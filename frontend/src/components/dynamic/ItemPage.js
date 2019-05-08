@@ -95,7 +95,7 @@ class ItemPage extends Component {
                     <h2>{this.state.name}</h2>
                     <p>{this.state.weight} </p>
                     <p className="desc">{this.state.description}</p>
-                    {this.state.allergies && <p>This product contains: " + {this.state.allergies}</p>}
+                    {this.state.allergies && <p>This product contains:  + {this.state.allergies}</p>}
                     <h2>{this.state.price} €</h2>
                     <h3>{this.state.ratings ? ratingsArray : 'No ratings yet.'}</h3>
                     <div className="item-forms" key={'item-form - ' + this.state.name}>

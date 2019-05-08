@@ -102,11 +102,19 @@ class CrudRepository {
             callback(results);
         });
     }
+
     addNewProduct(product, callback) {
+        /*
         const queryString = `INSERT INTO products(name, price, weight, description, 
         ratings, category, stock, country, allergies, imagepath, ratings_count, ratings_totalsum)
         VALUES("${product.name}", ${product.price}, "${product.weight}", "${product.description}"
         , 0, "${product.category}", ${product.stock}, "${product.country}", "${product.allergies}", "${product.image}", 0, 0);`;
+        */
+        const queryString = `INSERT INTO products(name, price, weight, description, 
+        ratings, category, stock, country, allergies, imagepath, ratings_count, ratings_totalsum)`+
+        'VALUES(' + this.connection.escape(product.name)+', ' + this.connection.escape(product.price) + ', ' + this.connection.escape(product.weight) + ', ' +  this.connection.escape(product.description) + ', '
+         + 0 + ', ' + this.connection.escape(product.category) + ', ' + product.stock + ', ' + this.connection.escape(product.country) + ', ' + this.connection.escape(product.allergies)+', ' + this.connection.escape(product.image)
+         +', ' + 0 + ', ' + 0 + ');';
         this.connection.query(queryString, (error, result) => {
             if(error) throw error;
             callback(result);
