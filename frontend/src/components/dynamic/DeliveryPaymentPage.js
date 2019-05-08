@@ -38,7 +38,7 @@ class DeliveryPaymentPage extends Component {
                 for(let i = 0; i < products.length; i++) {
                     const itemTotalPrice = (products[i].price * products[i].quantity).toFixed(2)
                     let item = 
-                        <div className="item-shoppingcart">
+                        <div className="item-shoppingcart" key={products[i].name}>
                             <h3>{products[i].name}</h3>
                             <h3>Quantity: {products[i].quantity}</h3>
                             <h3>price: {products[i].price}€ x {products[i].quantity} = {itemTotalPrice}€</h3>
@@ -106,24 +106,24 @@ class DeliveryPaymentPage extends Component {
                 <br/>
                 <h4>Fill out your contact details: </h4>
                     <label> First name: </label>
-                    <input required type="text" name="firstname" minlength="2" maxlength="100" onChange={this.setContactDetails.bind(this)} />
+                    <input required type="text" name="firstname" minLength="2" maxLength="100" onChange={this.setContactDetails.bind(this)} />
                     <label> Last name: </label>
-                    <input required type="text" name="lastname" minlength="2" maxlength="100" onChange={this.setContactDetails.bind(this)} />
+                    <input required type="text" name="lastname" minLength="2" maxLength="100" onChange={this.setContactDetails.bind(this)} />
 
                     <label> Phone number: </label>
-                    <input required type="text" name="phonenumber" minlenght="3" maxlength="40" onChange={this.setContactDetails.bind(this)}/>
+                    <input required type="text" name="phonenumber" minLength="3" maxLength="40" onChange={this.setContactDetails.bind(this)}/>
 
                     <label> Email: </label>
-                    <input required type="email" name="email" minlength="5" maxength="50" onChange={this.setContactDetails.bind(this)}/>
+                    <input required type="email" name="email" minLength="5" maxLength="50" onChange={this.setContactDetails.bind(this)}/>
 
                     <label> Address: </label>
-                    <input required type="text" name="address" minlength="1" maxlength="100" onChange={this.setContactDetails.bind(this)}/>
+                    <input required type="text" name="address" minLength="1" maxLength="100" onChange={this.setContactDetails.bind(this)}/>
 
                     <label> City: </label>
-                    <input required type="text" name="city" minlength="1" maxlength="60" onChange={this.setContactDetails.bind(this)}/>
+                    <input required type="text" name="city" minLength="1" maxLength="60" onChange={this.setContactDetails.bind(this)}/>
 
                     <label> Postal code: </label>
-                    <input required type="text" pattern="[0-9]{5}" title="postal code containing 5 numbers" name="postalcode" minlength="5" maxlength="10" onChange={this.setContactDetails.bind(this)}/>
+                    <input required type="text" pattern="[0-9]{5}" title="postal code containing 5 numbers" name="postalcode" minLength="5" maxLength="10" onChange={this.setContactDetails.bind(this)}/>
 
                     <div className="button-container">
                     {this.createReturnButton()}

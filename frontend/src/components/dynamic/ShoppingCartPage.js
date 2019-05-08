@@ -21,7 +21,7 @@ class ShoppingCartPage extends Component {
                 for (let i = 0; i < products.length; i++) {
                     const itemTotalPrice = (products[i].price * products[i].quantity).toFixed(2)
                     let item = 
-                        <div className="item-shoppingcart">
+                        <div className="item-shoppingcart" key={products[i].name}>
                             <h3 className="item-name">{products[i].name}</h3>
                             <h3>In cart: {products[i].quantity}</h3>
                             <div className="cart-actions">
