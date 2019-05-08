@@ -126,7 +126,7 @@ class ItemPage extends Component {
 
     render() {
         return (
-            <div className="itemPageContainer">
+            <div className="itemPageContainer generic-container">
                 {this.createItemPage()}
             </div>
         )
