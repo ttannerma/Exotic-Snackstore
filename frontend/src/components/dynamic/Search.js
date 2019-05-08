@@ -31,7 +31,7 @@ export default class Search extends Component {
 
   render() {
     return (
-      <div>
+      <div className="searchContent">
         {this.displaySearchMessage()}
             <Body category={this.getSearchValue()}/>
       </div>

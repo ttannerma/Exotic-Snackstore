@@ -14,14 +14,14 @@ body {
 }
 
 .content-shell {
-  margin-left: 20rem;
-  width: 65%;
+  margin-left: 15rem;
+  width: auto;
+  min-width: 65%;
+  max-width: 80%;
   position: relative;
   padding-bottom: 2.5rem;
   font-family: 'Montserrat', Arial;
   background-color: white;
-  margin-top: 0;
-  padding-top: 0;
   min-height: 40vh;
 }
 
@@ -628,6 +628,10 @@ footer {
   font-size: 1.6rem;
 }
 
+div.searchContent {
+  margin-left: 10rem;
+}
+
 #main {
   margin-top: 3rem;
   top: 50%;
@@ -636,7 +640,7 @@ footer {
   display: grid;
   -ms-grid-columns: (300px)[3];
       grid-template-columns: repeat(3, 300px);
-  grid-column-gap: 50px;
+  grid-column-gap: 5rem;
   font-family: 'Montserrat';
 }
 
