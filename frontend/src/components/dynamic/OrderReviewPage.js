@@ -64,8 +64,9 @@ class OrderReviewPage extends Component {
         let productArray = []
         for (let i = 0; i < orderData.products.length; i++) {
             let productName = orderData.products[i].name
-            let quantity = orderData.products[i].quantity 
-            let obj = { name: productName, quantity: quantity}
+            let quantity = orderData.products[i].quantity
+            let price = orderData.products[i].price
+            let obj = { name: productName, quantity: quantity, price: price}
             productArray.push(obj)
         }
         let products = JSON.stringify(productArray)
