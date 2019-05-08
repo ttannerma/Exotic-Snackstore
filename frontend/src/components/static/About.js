@@ -4,7 +4,7 @@ export default () => {
   return (
     <div className="generic-container">
       <h1>About Exotic Snackstore</h1>
-      <p>
+      <p className="about">
         Our mission is to bring foreign and exotic snacks and drinks to your home quick and easy.
         The Exotic Snackstore has a great variety of different countries and categories to choose from
         each with their own distinct tastes and aethestetics. We fully stand behind our service and 
