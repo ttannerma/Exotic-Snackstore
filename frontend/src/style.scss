@@ -370,16 +370,19 @@ footer{
             .item-remove {
                 font-size: 1.5rem;
                 color: black;
+                cursor: pointer;
             }
             .item-add {
                 font-size: 1.5rem;
                 color: green;
                 margin-right: 50px;
+                cursor: pointer;
             }
             .item-decrease {
                 font-size: 1.5rem;
                 color: red;
                 margin-right: 50px;
+                cursor: pointer;
             }
         }
     }

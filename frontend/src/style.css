@@ -455,18 +455,21 @@ footer {
 .generic-container .item-shoppingcart .cart-actions .item-remove {
   font-size: 1.5rem;
   color: black;
+  cursor: pointer;
 }
 
 .generic-container .item-shoppingcart .cart-actions .item-add {
   font-size: 1.5rem;
   color: green;
   margin-right: 50px;
+  cursor: pointer;
 }
 
 .generic-container .item-shoppingcart .cart-actions .item-decrease {
   font-size: 1.5rem;
   color: red;
   margin-right: 50px;
+  cursor: pointer;
 }
 
 .generic-container .cart-bottom {
