@@ -444,6 +444,10 @@ footer {
           transition-duration: 0.2s;
 }
 
+.about {
+  font-size: 1.5rem;
+}
+
 .generic-container {
   font-family: 'Montserrat';
   margin: 3rem;
