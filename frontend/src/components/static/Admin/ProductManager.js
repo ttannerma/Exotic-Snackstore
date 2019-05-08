@@ -6,7 +6,7 @@ import ProductTable from './ProductTable';
 export default class ProductManager extends Component {
   render() {
     return (
-      <div className="generic-container">
+      <div className="generic-container mb3">
         <h1>Admin</h1>
         <div className="generic-container-no-top">
           <h2>Products</h2>

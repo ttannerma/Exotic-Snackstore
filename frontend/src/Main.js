@@ -68,11 +68,11 @@ class Main extends Component {
                     <Route exact path="/notfound" component={NotFound}></Route>
                   </Switch>
                 </div>
+                <Footer/>
               </div>
             </ProductProvider>
           </ShoppingCartProvider>
           </UserProvider>
-          <Footer/>
         </Router>
     )
   }
