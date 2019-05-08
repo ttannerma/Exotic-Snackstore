@@ -6,7 +6,7 @@ class Header extends Component{
     return(
       <header>
         <NavLink to="/"className="headerH1">Exotic Snackstore</NavLink>
-        <img src="assets/candy2.jpg" alt=""/>
+        <img src="assets/candy.png" alt=""/>
       </header>
     )
   }

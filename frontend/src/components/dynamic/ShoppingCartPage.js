@@ -23,22 +23,24 @@ class ShoppingCartPage extends Component {
                     let item = 
                         <div className="item-shoppingcart">
                             <h3 className="item-name">{products[i].name}</h3>
-                            <h5>quantity: {products[i].quantity}</h5>
-                            <div onClick={() => {
-                                // checkCartItemQuantity(products[i].id)
-                                incrementProductCount(products[i].id)
-                            }} className="item-remove">
-                                <i className="fas fa-plus-square"></i>
-                            </div>
-                            <div onClick={() => {decreaseProductCount(products[i].id)}} className="item-remove">
-                                <i className="fas fa-minus-square"></i>
-                            </div>
-                            <h5>price: {products[i].price} €</h5>
-                            <h5>total price: {itemTotalPrice} €</h5>
-                            <div onClick={() => {removeItem(products[i].id)}} className="item-remove">
+                            <h3>In cart: {products[i].quantity}</h3>
+                            <div className="cart-actions">
+                                <div onClick={() => {
+                                    // checkCartItemQuantity(products[i].id)
+                                    incrementProductCount(products[i].id)
+                                }} className="item-add">
+                                    <i className="fas fa-plus-square"></i>
+                                </div>
+                                <div onClick={() => {decreaseProductCount(products[i].id)}} className="item-decrease">
+                                    <i className="fas fa-minus-square"></i>
+                                </div>
+                                <div onClick={() => {removeItem(products[i].id)}} className="item-remove">
                                 <i className="fas fa-trash-alt">
-                                </i>
+                                    </i>
+                                </div>
                             </div>
+                            <h4>Price: {products[i].price} €</h4>
+                            <h4 className="total">Total: {itemTotalPrice} €</h4>
                         </div>
                         allProducts.push(item)
                         cartTotalPrice = parseFloat(cartTotalPrice) + parseFloat(itemTotalPrice)
@@ -49,8 +51,10 @@ class ShoppingCartPage extends Component {
                     <React.Fragment>
                         <h1>Shopping Cart</h1>
                         {allProducts}
-                        <h3>Cart total price: {cartTotalPrice} €</h3>
-                        <Link to={'/cart/payment-and-delivery'} >Payment and Delivery</Link>
+                        <div className="cart-bottom">
+                        <h2 className="cart-total">Cart total: {cartTotalPrice} €</h2>
+                            <Link to={'/cart/payment-and-delivery'}><button className="continue-purchase">Payment and Delivery</button></Link>
+                        </div>
                     </React.Fragment>
                 )
             }}

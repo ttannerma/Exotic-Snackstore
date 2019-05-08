@@ -32,15 +32,17 @@ class OrderReviewPage extends Component {
                 <h1>Order review: </h1>
                 <p>Please check that all your information is correct.</p>
                 {this.createOrderTable()}
-                {this.createReturnButton()}
-                {this.createConfirmationButton()}
+                <div className="order-buttons">
+                    {this.createReturnButton()}
+                    {this.createConfirmationButton()}
+                </div>
             </div>
             return orderContainer
     }
 
     createOrderTable() {
         let orderDetails =
-            <div className="order-details container">
+            <div className="order-details">
                 <h5>First name: {this.state.firstname}</h5>
                 <h5>Last name: {this.state.lastname}</h5>
                 <h5>Address: {this.state.address}</h5>

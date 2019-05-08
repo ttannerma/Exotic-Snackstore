@@ -85,7 +85,7 @@ class Items extends Component {
           }}>
             <img src={imagepath ? imagepath : defaultImageLink} alt={name} key={'img - '+ i}/>
           </Link>
-          <h2>{name}</h2>
+          <h2 className="product-name">{name}</h2>
           <p>{description}</p>
           <form className="itemAddForm" key={'form - ' + i}>
                     <input type="number" onChange={this.handleChange} name="quantity" min={stock ? 1 : 0} max={stock ? stock : 0} step="1" />
