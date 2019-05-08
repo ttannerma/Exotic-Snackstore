@@ -40,7 +40,7 @@ export default class AddNewForm extends Component {
         <div className="form-group">
           <label className="control-label">Name</label>
           <input onChange={this.onChange} value={this.state.name} 
-          type="text" pattern="/^[a-z ,.'-]+$/i" name="name" className="form-control"
+          type="text" pattern="/^[a-z ,.'-]+$/i" title="Enter a valid name." name="name" className="form-control"
           required minLength="4"
           />
         </div>
