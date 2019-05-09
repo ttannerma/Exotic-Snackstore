@@ -18,34 +18,6 @@ class Navigation extends Component{
   componentWillMount () {
     this.setState({isLoggedIn: sessionStorage.getItem("activeUserType")})
   }
-  componentDidMount = () => {
-    //this.setState({isLoggedIn: sessionStorage.getItem("activeUserType")})
-    window.onclick = function(event) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      if (!event.target.matches('.dropbutton')) {
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-          var openDropdown = dropdowns[i];
-          if (!openDropdown.classList.contains('hidden')) {
-            openDropdown.classList.add('hidden');
-          }
-        }
-      }
-    }
-  }
-  OpenDropDown(e){
-    let target = e.target.innerHTML;
-    let toggleTarget;
-    if(target === 'countries'){
-      toggleTarget = document.querySelector('.countriesDD');
-      document.querySelector('.categoriesDD').classList.add('hidden');
-    }else if(target === 'categories'){
-      toggleTarget = document.querySelector('.categoriesDD');
-      document.querySelector('.countriesDD').classList.add('hidden');
-    }
-    e.target.classList.toggle('active');
-    toggleTarget.classList.toggle('hidden');
-  }
   LoginOrLogout = () => {
     if(this.state.isLoggedIn) {
       return <NavButton icon="fas fa-sign-out-alt" name="Logout"/>
