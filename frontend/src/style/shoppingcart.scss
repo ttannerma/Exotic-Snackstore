@@ -1,0 +1,39 @@
+@import '_config';
+.container {
+    .content-shell {
+        .shoppingCart {
+            float: right;
+            padding: 1rem;
+            width: 100%;
+            @include md {
+                padding: 2.5rem;
+            }
+            @include lg {
+
+            }
+            @include xl {
+                padding-right: 5rem;
+            }
+            .fa-shopping-cart{
+                color: black;
+                font-size: 40px;
+                float: right;
+            }
+            .productCount {
+                background-color: $orange;
+                border-radius: 100%;
+                border: 1px solid black;
+                height: 2em;
+                width: 2em;
+                text-align: center;
+                float:right;
+                p {
+                    margin-top: 0.10em;
+                    font-size: 1.5em;
+                    font-weight: bold;
+                    font-family: sans-serif;
+                }
+            }
+        }
+    }
+}

@@ -103,7 +103,8 @@ class Items extends Component {
                             }
                             }}>Add</button>
           </form>
-          <h2>{price} € <span>{ratings ? ratingsArray : 'No ratings'}</span></h2>
+          <h2>{price} €</h2>
+          <h2>{ratings ? ratingsArray : 'No ratings'}</h2>
           <h5>{stock ? 'Stock: ' + stock : 'Out of stock'}</h5>
         </div>
       )}

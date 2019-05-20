@@ -1,0 +1,41 @@
+.container .content-shell .shoppingCart {
+  float: right;
+  padding: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .container .content-shell .shoppingCart {
+    padding: 2.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container .content-shell .shoppingCart {
+    padding-right: 5rem;
+  }
+}
+
+.container .content-shell .shoppingCart .fa-shopping-cart {
+  color: black;
+  font-size: 40px;
+  float: right;
+}
+
+.container .content-shell .shoppingCart .productCount {
+  background-color: #FFA66E;
+  border-radius: 100%;
+  border: 1px solid black;
+  height: 2em;
+  width: 2em;
+  text-align: center;
+  float: right;
+}
+
+.container .content-shell .shoppingCart .productCount p {
+  margin-top: 0.10em;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+/*# sourceMappingURL=shoppingcart.css.map */
