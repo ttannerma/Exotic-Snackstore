@@ -2,6 +2,8 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -11,6 +13,7 @@ footer {
   height: 100px;
   background-color: #83E5CE;
   margin-top: 0.5rem;
+  margin-bottom: 0;
   font-size: 20px;
 }
 /*# sourceMappingURL=footer.css.map */

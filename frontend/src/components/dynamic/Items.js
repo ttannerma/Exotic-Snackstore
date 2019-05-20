@@ -44,7 +44,7 @@ class Items extends Component {
 
   displayError = () => {
     // If there are no items return message.
-        return <div className="generic-container"><h1> No products found! </h1></div>
+        return <div className="generic-container"><h1 className="search-no-result"> No products found! </h1></div>
   }
 
   // Creates item elements.

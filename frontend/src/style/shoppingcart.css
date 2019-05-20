@@ -1,12 +1,12 @@
 .container .content-shell .shoppingCart {
   float: right;
-  padding: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 0;
   width: 100%;
 }
 
 @media (min-width: 768px) {
   .container .content-shell .shoppingCart {
-    padding: 2.5rem;
+    padding-right: 2.5rem;
   }
 }
 
