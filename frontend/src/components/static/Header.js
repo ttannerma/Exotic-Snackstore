@@ -5,7 +5,7 @@ class Header extends Component{
   render(){
     return(
       <header>
-        <NavLink to="/"className="headerH1">Exotic Snackstore</NavLink>
+        <NavLink to="/"><h1>Exotic Snackstore</h1></NavLink>
         <img src="assets/candy.png" alt=""/>
       </header>
     )
