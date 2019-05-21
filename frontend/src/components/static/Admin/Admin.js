@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 export default class Admin extends Component {
   render() {
     return (
-      <div className="generic-container">
-        <h1>Admin</h1>
+      <div className="generic-container wh-bg">
+        <h1 className="align-text">Admin</h1>
         <div className="admin-tools generic-container-no-top">
           <Link to="/admin/users" className="adminLink">
             <div className="tool">

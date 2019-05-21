@@ -7,9 +7,8 @@ export default class UserManager extends Component {
   render() {
     return (
       <div className="generic-container">
-        <h1>Admin</h1>
+        <h1 className="align-text">Users</h1>
         <div className="generic-container-no-top">
-          <h2>Users</h2>
           <Consumer>
             {value => {
               const { getUsers, deleteUser } = value;

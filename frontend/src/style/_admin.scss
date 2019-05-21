@@ -1,0 +1,116 @@
+h1 {
+  font-size: 3rem;
+}
+.admin-tools {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3rem;
+  .tool{
+      font-size: 2rem;
+      text-align: center;
+      border: grey solid 1px;
+      padding: 3rem 0;
+      width: 12rem;
+      background-color: $orange;
+      color: white;
+      float: left;
+      margin-right: 3rem;
+  }
+  .tool:hover {
+      background-color: lighten($orange, 10%);
+  }
+  .adminLink {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+  }
+  .block{
+      display: block;
+  }
+}
+.admin-table {
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  border-collapse: collapse;
+  min-width: 60%;
+  th {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+  th, td {
+    text-align: center;
+  }
+  td {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+  }
+  tr {
+    border-bottom: 1px solid grey;
+  }
+  button, a {
+      border: solid 1.5px lighten($orange, 10%);
+      background-color: $orange;
+      color: white;
+      padding: 0.2rem 1rem;
+      font-family: 'Montserrat';
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+  }
+  button:hover {
+      background-color: lighten($orange, 10%)
+  }
+  .link-as-button {
+      padding: 0.2rem 1rem; 
+      text-decoration: none;
+  }
+  td, th.fitwidth {
+      width: 1px;
+      white-space: nowrap;
+  }
+}
+.admin-link {
+  color: $orange;
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-right: 3rem;
+  display: flex;
+  justify-content: center;
+}
+h2 {
+  font-size: 2rem;
+}
+.new-product-form {
+  margin-left: 2rem;
+  width: 90%;
+  .form-group {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      width: 100%;
+      input, select {
+        font-size: 1.5rem;
+        width: 100%;
+        padding: 0.5rem;
+      }
+      label {
+        margin-right: 0.5rem;
+      }
+      input:focus {
+        outline: solid 2px $light-orange;
+        border: solid 3px $orange;
+      }
+      .submit-button{
+          border: grey solid 1.5px;
+          background-color: $orange;
+          color: white;
+          padding: 0.5rem 1rem;
+          font-family: 'Montserrat';
+          font-size: 1.5rem;
+          font-weight: bold;
+          cursor: pointer;
+      }
+      button:hover {
+          background-color: lighten($orange, 10%)
+      }
+  }
+}

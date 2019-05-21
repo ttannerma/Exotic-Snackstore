@@ -5,6 +5,7 @@
 @import 'footer';
 @import 'itempage';
 @import 'search';
+@import 'admin';
 html,
 body {
    margin:0;
@@ -27,4 +28,17 @@ a {
     color: black;
     padding: 0;
 }
-
+.generic-container {
+    margin: 0 3rem;
+}
+.content-shell {
+    margin: 3rem;
+    background-color: $light;
+    padding-bottom: 3rem;
+}
+.mb3 {
+    margin-bottom: 3rem;
+}
+.align-text {
+    text-align:center;
+}
