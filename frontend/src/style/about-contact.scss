@@ -1,0 +1,22 @@
+@import 'config';
+
+.generic-container {
+    background-color: white;
+    padding: 2rem;
+    min-height: 71vh;
+    margin: 0;
+    .contact-card {
+        border-bottom: 1px solid gray;
+        padding: 2rem;
+        @include md {
+            font-size: 24px;
+        }
+    }
+    .about {
+        padding: 2rem;
+
+        @include md {
+            font-size: 24px;
+        }
+    }
+}

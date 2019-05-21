@@ -1,0 +1,45 @@
+@import 'config';
+
+.order-details {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    word-wrap: break-word;
+    h5, h3, p {
+        text-align: center;
+    }
+    @include md {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%; 
+        font-size: 18px;
+    }
+    @include lg {
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%; 
+        font-size: 22px;
+    }
+    @include xl {
+
+    }
+}
+.button-container {
+    margin-top: 2rem;
+    button {
+        @include sm {
+            width: 200px;
+        }
+        width: 60%;
+        min-height: 3rem;
+        display: block;
+        margin: auto;
+        margin-top: 3rem;
+        color: white;
+        background: $orange;
+    }
+    button:hover {
+        background: lighten($orange, 35%);
+        color: black;
+    }
+}

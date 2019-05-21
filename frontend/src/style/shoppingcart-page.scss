@@ -1,0 +1,67 @@
+@import 'config';
+
+.item-shoppingcart:first-of-type {
+    border-top: 1px solid gray;
+}
+.headline-generic {
+    font-size: 30px;
+    text-align: center;
+}
+
+.item-shoppingcart, .cart-bottom{
+    border-bottom: 1px solid gray;
+    width: 100%;
+    .item-name {
+        font-size: 20px;
+    }
+    .cart-actions {
+        display: flex;
+        flex-direction: column;
+        width: 30px;
+    }
+    .item-add, .item-decrease, .item-remove {
+        margin-top: 0.5rem;
+        font-size: 30px;
+        width: auto;
+    }
+    .item-add {
+        color: green;
+    }
+    .item-decrease {
+        color: red;
+    }
+    .continue-purchase {
+        color: white;
+        background: $orange;
+        height: 3rem;
+        padding: 0.5rem;
+    }
+    .continue-purchase:hover {
+        background: lighten($orange, 35%);
+        color: black;
+    }
+    @include md {
+        font-size: 24px;
+        width: 40%;
+        margin-left: 30%;
+        margin-right:30%;
+        .cart-actions {
+            display: flex;
+            flex-direction: row;
+            width: 40px;
+        }
+        .item-add, .item-decrease, .item-remove {
+            font-size: 40px;
+            margin-right: 5rem;
+        }
+    }
+    @include lg {
+
+    }
+    @include xl {
+
+    }
+}
+.cart-bottom {
+    border: none;
+}

@@ -29,12 +29,10 @@ class OrderReviewPage extends Component {
 
         let orderContainer =
             <div className="generic-container">
-                <h1>Order review: </h1>
-                <p>Please check that all your information is correct.</p>
                 {this.createOrderTable()}
-                <div className="order-buttons">
-                    {this.createReturnButton()}
+                <div className="button-container">
                     {this.createConfirmationButton()}
+                    {this.createReturnButton()}
                 </div>
             </div>
             return orderContainer
@@ -43,18 +41,20 @@ class OrderReviewPage extends Component {
     createOrderTable() {
         let orderDetails =
             <div className="order-details">
-                <h5>First name: {this.state.firstname}</h5>
-                <h5>Last name: {this.state.lastname}</h5>
-                <h5>Address: {this.state.address}</h5>
-                <h5>Postal code: {this.state.postalcode}</h5>
-                <h5>City: {this.state.city}</h5>
-                <h5>Email: {this.state.email}</h5>
-                <h5>Phone number: {this.state.phonenumber}</h5>
-                <h5>Delivery : {this.state.deliveryMethod}</h5>
-                <h5>Payment: {this.state.paymentMethod}</h5>
-                <h3>Delivery fee: {this.state.deliveryFee} €</h3>
-                <h3>Products cost: {this.state.price} €</h3>
-                <h3>Total: {this.state.total} €</h3>
+                <h1 className="headline-generic">Order review: </h1>
+                <p>Please check that all your information is correct.</p>
+                <h5>First name: <br/>{this.state.firstname}</h5>
+                <h5>Last name: <br/>{this.state.lastname}</h5>
+                <h5>Address: <br/>{this.state.address}</h5>
+                <h5>Postal code: <br/>{this.state.postalcode}</h5>
+                <h5>City: <br/>{this.state.city}</h5>
+                <h5>Email: <br/>{this.state.email}</h5>
+                <h5>Phone number: <br/>{this.state.phonenumber}</h5>
+                <h5>Delivery : <br/>{this.state.deliveryMethod}</h5>
+                <h5>Payment: <br/>{this.state.paymentMethod}</h5>
+                <h3>Delivery fee: <br/>{this.state.deliveryFee} €</h3>
+                <h3>Products cost: <br/>{this.state.price} €</h3>
+                <h3>Total: <br/>{this.state.total} €</h3>
             </div>
         return orderDetails
     }

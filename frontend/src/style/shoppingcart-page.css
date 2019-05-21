@@ -1,0 +1,82 @@
+.item-shoppingcart:first-of-type {
+  border-top: 1px solid gray;
+}
+
+.headline-generic {
+  font-size: 30px;
+  text-align: center;
+}
+
+.item-shoppingcart, .cart-bottom {
+  border-bottom: 1px solid gray;
+  width: 100%;
+}
+
+.item-shoppingcart .item-name, .cart-bottom .item-name {
+  font-size: 20px;
+}
+
+.item-shoppingcart .cart-actions, .cart-bottom .cart-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 30px;
+}
+
+.item-shoppingcart .item-add, .item-shoppingcart .item-decrease, .item-shoppingcart .item-remove, .cart-bottom .item-add, .cart-bottom .item-decrease, .cart-bottom .item-remove {
+  margin-top: 0.5rem;
+  font-size: 30px;
+  width: auto;
+}
+
+.item-shoppingcart .item-add, .cart-bottom .item-add {
+  color: green;
+}
+
+.item-shoppingcart .item-decrease, .cart-bottom .item-decrease {
+  color: red;
+}
+
+.item-shoppingcart .continue-purchase, .cart-bottom .continue-purchase {
+  color: white;
+  background: #FFA66E;
+  height: 3rem;
+  padding: 0.5rem;
+}
+
+.item-shoppingcart .continue-purchase:hover, .cart-bottom .continue-purchase:hover {
+  background: white;
+  color: black;
+}
+
+@media (min-width: 768px) {
+  .item-shoppingcart, .cart-bottom {
+    font-size: 24px;
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+  .item-shoppingcart .cart-actions, .cart-bottom .cart-actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 40px;
+  }
+  .item-shoppingcart .item-add, .item-shoppingcart .item-decrease, .item-shoppingcart .item-remove, .cart-bottom .item-add, .cart-bottom .item-decrease, .cart-bottom .item-remove {
+    font-size: 40px;
+    margin-right: 5rem;
+  }
+}
+
+.cart-bottom {
+  border: none;
+}
+/*# sourceMappingURL=shoppingcart-page.css.map */

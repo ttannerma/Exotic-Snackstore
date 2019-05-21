@@ -49,7 +49,7 @@ class ShoppingCartPage extends Component {
 
                 return (
                     <React.Fragment>
-                        <h1>Shopping Cart</h1>
+                        <h1 className="headline-generic">Shopping Cart</h1>
                         {allProducts}
                         <div className="cart-bottom">
                         <h2 className="cart-total">Cart total: {cartTotalPrice} €</h2>
