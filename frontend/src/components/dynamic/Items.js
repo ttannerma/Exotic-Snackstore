@@ -44,7 +44,7 @@ class Items extends Component {
 
   displayError = () => {
     // If there are no items return message.
-        return <div className="generic-container"><h1> No products found! </h1></div>
+        return <div className="generic-container"><h1 className="search-no-result"> No products found! </h1></div>
   }
 
   // Creates item elements.
@@ -103,7 +103,8 @@ class Items extends Component {
                             }
                             }}>Add</button>
           </form>
-          <h2>{price} € <span>{ratings ? ratingsArray : 'No ratings'}</span></h2>
+          <h2>{price} €</h2>
+          <h2>{ratings ? ratingsArray : 'No ratings'}</h2>
           <h5>{stock ? 'Stock: ' + stock : 'Out of stock'}</h5>
         </div>
       )}

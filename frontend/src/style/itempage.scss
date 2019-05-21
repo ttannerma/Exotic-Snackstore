@@ -1,0 +1,44 @@
+@import 'config';
+
+.itemPageContainer {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    text-align: center;
+    i {
+        color: gold;
+    }
+    img, p, h2, h3, .item-forms {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    img {
+        max-width: 200px;
+    }
+    @include md {
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+        img, p, h2, h3, .item-forms {
+            width: 60%;
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+        img {
+            max-width: 300px;
+        }
+
+    }
+    @include lg {
+
+    }
+    @include xl {
+
+    }
+}

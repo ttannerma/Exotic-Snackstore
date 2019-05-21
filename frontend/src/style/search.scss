@@ -1,0 +1,13 @@
+@import 'config';
+
+.searchContent {
+    width: 100%;
+    h1 {
+        margin-left: 5%;
+    }
+    @include lg {
+        h1 {
+            margin-left: 10%
+        }
+    }
+}
