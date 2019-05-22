@@ -31,14 +31,17 @@
         color: red;
     }
     .continue-purchase {
+        border: grey solid 1.5px;
+        background-color: $orange;
         color: white;
-        background: $orange;
-        height: 3rem;
-        padding: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-family: 'Montserrat';
+        font-size: 1.5rem;
+        font-weight: bold;
+        cursor: pointer;
     }
     .continue-purchase:hover {
-        background: lighten($orange, 35%);
-        color: black;
+        background-color: lighten($orange, 10%)
     }
     @include md {
         font-size: 24px;

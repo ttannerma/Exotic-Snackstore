@@ -10,6 +10,19 @@
     align-items: center;
     background: white;
     text-align: center;
+    .itemAddForm {
+        button {
+            border: grey solid 1.5px;
+            background-color: $orange;
+            color: white;
+            font-family: 'Montserrat';
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: lighten($orange, 10%)
+        }
+    }
     i {
         color: gold;
     }

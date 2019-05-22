@@ -261,6 +261,19 @@
   margin-top: 2rem;
 }
 
+#main .item form button {
+  border: grey solid 1.5px;
+  background-color: #FFA66E;
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#main .item form button:hover {
+  background-color: #ffc5a1;
+}
+
 #main .item h2 {
   float: left;
 }
@@ -312,6 +325,19 @@ footer {
           align-items: center;
   background: white;
   text-align: center;
+}
+
+.itemPageContainer .itemAddForm button {
+  border: grey solid 1.5px;
+  background-color: #FFA66E;
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.itemPageContainer .itemAddForm button:hover {
+  background-color: #ffc5a1;
 }
 
 .itemPageContainer i {
@@ -541,14 +567,87 @@ h2 {
   margin: 0;
 }
 
-.generic-container .contact-card {
-  border-bottom: 1px solid gray;
-  padding: 2rem;
+.generic-container .contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.generic-container .contacts .contact-card {
+  width: 80%;
+  margin: auto;
+  border: 1.5px solid grey;
+  padding: 1rem 0.5rem;
+  text-align: center;
+  background-color: #FFA66E;
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 @media (min-width: 768px) {
-  .generic-container .contact-card {
-    font-size: 24px;
+  .generic-container .contacts .contact-card {
+    font-size: 1.5rem;
+  }
+}
+
+.generic-container .contacts .contact-card:nth-child(2) {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 1200px) {
+  .generic-container .contacts {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .generic-container .contacts .contact-card {
+    -ms-flex-line-pack: center;
+        align-content: center;
+    max-width: 30rem;
+    border: 1.5px solid grey;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    background-color: #FFA66E;
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 1.5rem;
+    font-weight: bold;
+    zoom: 100%;
+    -webkit-transition: zoom 2s;
+    transition: zoom 2s;
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  }
+  .generic-container .contacts .contact-card h3, .generic-container .contacts .contact-card span {
+    margin: 0;
+  }
+  .generic-container .contacts .contact-card span {
+    white-space: nowrap;
+  }
+  .generic-container .contacts .contact-card:nth-child(even) {
+    margin: 0 3rem;
+  }
+  .generic-container .contacts .contact-card:hover {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
   }
 }
 
@@ -606,15 +705,18 @@ h2 {
 }
 
 .item-shoppingcart .continue-purchase, .cart-bottom .continue-purchase {
+  border: grey solid 1.5px;
+  background-color: #FFA66E;
   color: white;
-  background: #FFA66E;
-  height: 3rem;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .item-shoppingcart .continue-purchase:hover, .cart-bottom .continue-purchase:hover {
-  background: white;
-  color: black;
+  background-color: #ffc5a1;
 }
 
 @media (min-width: 768px) {
@@ -691,6 +793,7 @@ h2 {
 
 .order-form form ul {
   margin: auto;
+  padding-left: 0;
 }
 
 .order-form form ul li {
@@ -735,8 +838,8 @@ h2 {
 }
 
 .order-form .button-container button:hover {
-  background: white;
-  color: black;
+  background: #ffc5a1;
+  color: white;
 }
 
 .order-details {
@@ -789,8 +892,8 @@ h2 {
 }
 
 .button-container button:hover {
-  background: white;
-  color: black;
+  background-color: #ffc5a1;
+  color: white;
 }
 
 html,
@@ -839,6 +942,11 @@ a {
   .content-shell {
     margin: 3rem;
   }
+}
+
+.container .content-shell {
+  background-color: transparent;
+  margin: auto;
 }
 
 .mb3 {

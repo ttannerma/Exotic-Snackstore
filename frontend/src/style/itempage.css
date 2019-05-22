@@ -19,6 +19,19 @@
   text-align: center;
 }
 
+.itemPageContainer .itemAddForm button {
+  border: grey solid 1.5px;
+  background-color: #FFA66E;
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.itemPageContainer .itemAddForm button:hover {
+  background-color: #ffc5a1;
+}
+
 .itemPageContainer i {
   color: gold;
 }

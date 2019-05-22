@@ -45,6 +45,7 @@
 
 .order-form form ul {
   margin: auto;
+  padding-left: 0;
 }
 
 .order-form form ul li {
@@ -89,7 +90,7 @@
 }
 
 .order-form .button-container button:hover {
-  background: white;
-  color: black;
+  background: #ffc5a1;
+  color: white;
 }
 /*# sourceMappingURL=payment-and-delivery.css.map */
