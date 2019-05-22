@@ -33,12 +33,17 @@ a {
     padding: 0;
 }
 .generic-container {
-    margin: 0 3rem;
+    
+    @include sm {
+        margin: 0 1rem;
+    }
 }
 .content-shell {
-    margin: 3rem;
     background-color: $light;
     padding-bottom: 3rem;
+    @include sm {
+        margin: 3rem;
+    }
 }
 .mb3 {
     margin-bottom: 3rem;

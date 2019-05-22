@@ -363,16 +363,23 @@ h1 {
 }
 
 .admin-tools {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  margin: 0 auto;
   padding-bottom: 3rem;
 }
 
+@media (min-width: 992px) {
+  .admin-tools {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
 .admin-tools .tool {
+  margin: 0 auto;
   font-size: 2rem;
   text-align: center;
   border: grey solid 1px;
@@ -380,8 +387,14 @@ h1 {
   width: 12rem;
   background-color: #FFA66E;
   color: white;
-  float: left;
-  margin-right: 3rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 992px) {
+  .admin-tools .tool {
+    float: left;
+    margin-right: 3rem;
+  }
 }
 
 .admin-tools .tool:hover {
@@ -396,6 +409,10 @@ h1 {
 
 .admin-tools .block {
   display: block;
+}
+
+.table-overflow {
+  overflow-x: auto;
 }
 
 .admin-table {
@@ -452,13 +469,13 @@ h1 {
   color: #FFA66E;
   font-size: 2rem;
   font-weight: bolder;
-  margin-right: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-left: -2rem;
 }
 
 h2 {
@@ -466,14 +483,24 @@ h2 {
 }
 
 .new-product-form {
-  margin-left: 2rem;
   width: 90%;
+}
+
+@media (min-width: 576px) {
+  .new-product-form {
+    margin-left: 2rem;
+  }
 }
 
 .new-product-form .form-group {
   margin-bottom: 1rem;
   font-size: 1.5rem;
   width: 100%;
+}
+
+.new-product-form .form-group input {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .new-product-form .form-group input, .new-product-form .form-group select {
@@ -500,9 +527,10 @@ h2 {
   font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
+  width: 100%;
 }
 
-.new-product-form .form-group button:hover {
+.new-product-form .form-group .submit-button:hover {
   background-color: #ffc5a1;
 }
 
@@ -796,14 +824,21 @@ a {
   padding: 0;
 }
 
-.generic-container {
-  margin: 0 3rem;
+@media (min-width: 576px) {
+  .generic-container {
+    margin: 0 1rem;
+  }
 }
 
 .content-shell {
-  margin: 3rem;
   background-color: white;
   padding-bottom: 3rem;
+}
+
+@media (min-width: 576px) {
+  .content-shell {
+    margin: 3rem;
+  }
 }
 
 .mb3 {
