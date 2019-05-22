@@ -43,7 +43,7 @@ export default class OrderTable extends Component {
   }
   renderTable = () => {
     return(
-      <table className="admin-table">
+      <table className="admin-table wh-bg">
         <tbody>
           <tr>
             <th>ID</th>

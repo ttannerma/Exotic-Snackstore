@@ -7,9 +7,8 @@ export default class OrderManager extends Component {
   render() {
     return (
       <div className="generic-container">
-        <h1>Admin</h1>
+        <h1 className="align-text">Orders</h1>
           <div className="generic-container-no-top">
-            <h2>Orders</h2>
             <Consumer>
               {value => {
                 const { getOrders, deliverOrder, getOrderByID } = value;
