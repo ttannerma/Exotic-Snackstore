@@ -16,7 +16,7 @@ class Navigation extends Component{
     };
   }
   componentWillMount () {
-    this.setState({isLoggedIn: sessionStorage.getItem("activeUserType")})
+    this.setState({isLoggedIn: sessionStorage.getItem("activeUserType")});
   }
   LoginOrLogout = () => {
     if(this.state.isLoggedIn) {
@@ -35,18 +35,20 @@ class Navigation extends Component{
   render(){
     return(
       <nav>
-        <NavButton name="Home"/>
-        <DropDownMenu name="countries" className="countriesDD" 
-        items={this.state.countries} function={this.OpenDropDown}/>
-        <DropDownMenu name="categories" className="categoriesDD" 
-        items={this.state.categories} function={this.OpenDropDown}/>
-        <NavButton name="About" />
-        <NavButton name="Contact"/>
-        <div className="search nav-item">
-        <SearchBar />
+        <div className="myLinks">
+          <NavButton name="Home"/>
+          <DropDownMenu name="countries" className="countriesDD" 
+          items={this.state.countries} function={this.OpenDropDown}/>
+          <DropDownMenu name="categories" className="categoriesDD" 
+          items={this.state.categories} function={this.OpenDropDown}/>
+          <NavButton name="About" />
+          <NavButton name="Contact"/>
+          <div className="search nav-item">
+            <SearchBar />
+          </div>
+          <this.isAdmin />
+          <this.LoginOrLogout />
         </div>
-        <this.isAdmin />
-        <this.LoginOrLogout />
       </nav>
     )
   }

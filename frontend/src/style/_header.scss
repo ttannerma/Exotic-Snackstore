@@ -9,76 +9,58 @@
 
   header{
       width: 100%;
-      text-align: center;
+      @include lg {
+        text-align: center;
+      }
     h1 {
-      font-size: 3rem;
-      padding: 1rem 0 0 0;
-      margin: 0;
+        display: inline-block;
+        font-size: 2.5rem;
+        padding: 1rem 0 0 1rem;
+        margin: 0;
+        width: 70%;
     }
     img {
-      padding-left: 1rem;
       margin-bottom: 0.5rem;
       display: inline-block;
-      width: 10rem;
+      width: 4rem;
+    }
+    .hamburger {
+        background: black;
+        display: block;
+        position: absolute;
+        color: $orange;
+        left: 0;
+        height: 2rem;
+        width: 2rem;
+        z-index: 2;
     }
 }
 nav{
-  .dropdown:hover {
-    .dropbutton {
-      background-color: white;
-      color: $orange;
+    overflow: hidden;
+    background-color: $mint;
+    position: relative;
+    .myLinks {
+        display: none;
     }
-    .dropdown-content {display: block;}
-  }
-    .nav-item{
-        position: relative;
-        display: inline-block;
+    a, button.dropbutton {
         color: white;
-        background: $orange;
-        
-        .dropdown-content{
-            text-decoration: none;
-            position: absolute;
-            z-index: 1;
-            color: $orange;
-            border: 1px solid grey;
-            :hover{
-                background-color: $orange;
-                color: white;
-            }
-            a{
-                padding: 1rem 1.5rem;
-                display: block;
-                background: white;
-                text-decoration: none;
-                color: black;
-                border-bottom: 1px solid grey;
-            }
-        }
-        button.dropbutton {
-            background: $orange;
-            color: white;
-            outline: inherit;
-            font-size: 1.5rem;
-            border: 1.5px solid grey;
-            padding: 0.5rem 1rem;
-            text-transform: capitalize;
-            
-            :hover {
-                background: lighten($orange, 35%);
-            }
-            .active{
-                background: white;
-                color: $orange;
-            }
-        }
-        .hidden{
-          display: none;
-      }
-        .active{
-            background: white;
-            color: $orange;
-        }
+        background-color: $orange;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 1rem;
+        display: block;
+        width: 100%;
+        border-bottom: 1.5px solid grey;
+    }
+    button.dropbutton {
+        border:none;
+        border-bottom: 1.5px solid grey;
+        text-align: left;
+        text-transform: capitalize;
+    }
+    .active {
+        background-color: white;
+        color: $orange;
     }
     .search{
         a.navbutton {
@@ -92,7 +74,7 @@ nav{
         .navbutton, input{
             outline: inherit;
             padding: 0.5rem 1rem;
-            font-size: 1.5rem;
+            font-size: 1rem;
             :hover {
                 background: lighten($orange, 35%);
             }
@@ -102,21 +84,108 @@ nav{
             border: 1.5px solid grey;
         }
     }
-    :hover {
-        background: lighten($orange, 35%)
+    .dropdown-content {display: none;}
+    .dropdown:hover {
+        .dropbutton {
+          background-color: white;
+          color: $orange;
+        }
+        .dropdown-content {display: block;}
     }
-    .active{
-        background: white;
-        color: $orange;
+    
+    /*@include lg {
+        .myLinks {
+            display: block;
+        }
+            .nav-item{
+                position: relative;
+                display: inline-block;
+                color: white;
+                background: $orange;
+                
+                .dropdown-content{
+                    text-decoration: none;
+                    position: absolute;
+                    z-index: 1;
+                    color: $orange;
+                    border: 1px solid grey;
+                    :hover{
+                        background-color: $orange;
+                        color: white;
+                    }
+                    a{
+                        padding: 1rem 1.5rem;
+                        display: block;
+                        background: white;
+                        text-decoration: none;
+                        color: black;
+                        border-bottom: 1px solid grey;
+                    }
+                }
+                button.dropbutton {
+                    background: $orange;
+                    color: white;
+                    outline: inherit;
+                    font-size: 1.5rem;
+                    border: 1.5px solid grey;
+                    padding: 0.5rem 1rem;
+                    text-transform: capitalize;
+                    
+                    &:hover {
+                        background: lighten($orange, 35%);
+                    }
+                    &.active{
+                        background: white;
+                        color: $orange;
+                    }
+                }
+                .hidden{
+                  display: none;
+              }
+                .active{
+                    background: white;
+                    color: $orange;
+                }
+            }
+            .search{
+                a.navbutton {
+                    float: right;
+                    color: white;
+                    background: $orange;
+                    :hover {
+                        background: lighten($orange, 35%);
+                    }
+                }
+                .navbutton, input{
+                    outline: inherit;
+                    padding: 0.5rem 1rem;
+                    font-size: 1.5rem;
+                    :hover {
+                        background: lighten($orange, 35%);
+                    }
+                }
+                input {
+                    width: max;
+                    border: 1.5px solid grey;
+                }
+            }
+            :hover {
+                background: lighten($orange, 35%)
+            }
+            .active{
+                background: white;
+                color: $orange;
+            }
+        }
+        .navbutton{
+            outline: inherit;
+            font-size: 1.5rem;
+            background: white;
+            border: 1.5px solid grey;
+            padding: 0.5rem 1rem;
+            text-transform: capitalize;
+            text-decoration: none;
+        }*/
+        
     }
-}
-.navbutton{
-    outline: inherit;
-    font-size: 1.5rem;
-    background: white;
-    border: 1.5px solid grey;
-    padding: 0.5rem 1rem;
-    text-transform: capitalize;
-    text-decoration: none;
-}
 }
