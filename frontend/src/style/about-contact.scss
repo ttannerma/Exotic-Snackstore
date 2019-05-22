@@ -5,16 +5,64 @@
     padding: 2rem;
     min-height: 71vh;
     margin: 0;
-    .contact-card {
-        border-bottom: 1px solid gray;
-        padding: 2rem;
-        @include md {
-            font-size: 24px;
+    .contacts {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .contact-card {
+            width: 80%;
+            margin: auto;
+            border: 1.5px solid grey;
+            padding: 1rem 0.5rem;
+            text-align: center;
+            background-color: $orange;
+            color: white;
+            font-family: 'Montserrat';
+            font-weight: bold;
+            font-size: 1.2rem;
+            @include md {
+                font-size: 1.5rem;
+            }
+        }
+        .contact-card:nth-child(2) {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        @include xl {
+            justify-content: center;
+            flex-direction: row;
+            .contact-card {
+                align-content: center;
+                max-width: 30rem;
+                border: 1.5px solid grey;
+                padding: 1rem 1.5rem;
+                text-align: center;
+                background-color: $orange;
+                color: white;
+                font-family: 'Montserrat';
+                font-size: 1.5rem;
+                font-weight: bold;
+                zoom: 100%;
+                    transition: zoom 2s;
+                    transition: transform 0.3s ease-in-out;
+                h3, span {
+                    margin: 0;
+                }
+                span {
+                    white-space:nowrap;
+                }
+                &:nth-child(even) {
+                    margin: 0 3rem;
+                }
+                &:hover {
+                    transform: scale(1.2);
+                    transition-duration: 0.2s;
+                }
+            }
         }
     }
     .about {
         padding: 2rem;
-
         @include md {
             font-size: 24px;
         }

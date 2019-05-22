@@ -42,15 +42,18 @@
 }
 
 .item-shoppingcart .continue-purchase, .cart-bottom .continue-purchase {
+  border: grey solid 1.5px;
+  background-color: #FFA66E;
   color: white;
-  background: #FFA66E;
-  height: 3rem;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .item-shoppingcart .continue-purchase:hover, .cart-bottom .continue-purchase:hover {
-  background: white;
-  color: black;
+  background-color: #ffc5a1;
 }
 
 @media (min-width: 768px) {

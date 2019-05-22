@@ -143,8 +143,8 @@ class DeliveryPaymentPage extends Component {
                     <input required type="text" pattern="[0-9]{5}" title="postal code containing 5 numbers" name="postalcode" minLength="5" maxLength="10" onChange={this.setContactDetails.bind(this)}/>
                 </li>
                     <div className="button-container">
-                    {this.createReturnButton()}
                     <button type="submit">Continue to order review</button>
+                    {this.createReturnButton()}
                     </div>
                 </ul>
             </form>

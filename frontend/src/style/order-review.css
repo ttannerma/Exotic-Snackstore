@@ -48,7 +48,7 @@
 }
 
 .button-container button:hover {
-  background: white;
-  color: black;
+  background-color: #ffc5a1;
+  color: white;
 }
 /*# sourceMappingURL=order-review.css.map */

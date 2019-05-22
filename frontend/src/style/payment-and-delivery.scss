@@ -33,6 +33,7 @@
         flex-direction: column;
         ul {
             margin: auto;
+            padding-left: 0;
             li {
                 list-style: none;
                 margin-top: 1rem;
@@ -70,8 +71,8 @@
             background: $orange;
         }
         button:hover {
-            background: lighten($orange, 35%);
-            color: black;
+            background: lighten($orange, 10%);
+            color: white;
         }
     }
 }

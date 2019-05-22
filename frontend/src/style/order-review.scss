@@ -39,7 +39,7 @@
         background: $orange;
     }
     button:hover {
-        background: lighten($orange, 35%);
-        color: black;
+        background-color: lighten($orange, 10%);
+        color: white;
     }
 }

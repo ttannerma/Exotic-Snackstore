@@ -81,6 +81,19 @@
   margin-top: 2rem;
 }
 
+#main .item form button {
+  border: grey solid 1.5px;
+  background-color: #FFA66E;
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#main .item form button:hover {
+  background-color: #ffc5a1;
+}
+
 #main .item h2 {
   float: left;
 }
