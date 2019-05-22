@@ -51,9 +51,9 @@ class DeliveryPaymentPage extends Component {
                 this.sum = cartTotalPrice
             return (
                 <React.Fragment>
-                    <h1>Order: </h1>
+                    <h1 className="headline-generic">Order: </h1>
                     {allProducts}
-                    <h3>Total price: {cartTotalPrice}€</h3>
+                    <h3 className="headline-generic h3">Total price: {cartTotalPrice}€</h3>
                 </React.Fragment>
             )
         }}
@@ -81,19 +81,27 @@ class DeliveryPaymentPage extends Component {
         <div className="order-form">
             <form onSubmit={this.handleSubmit.bind(this)}>
             <h4> Select delivery option: </h4>
-                <input className="input-radio"
-                type="radio"
-                name="deliveryMethod"
-                value="Nearest post office"
-                required
-                onClick={this.setDeliveryMethods.bind(this)} /> Nearest post office
-                <input className="input-radio"
-                type="radio"
-                name="deliveryMethod"
-                value="Home delivery"
-                required
-                onClick={this.setDeliveryMethods.bind(this)} /> Home delivery
-                <br/>
+            <ul className="form-ul">
+                <li>
+                    <input className="input-radio"
+                    type="radio"
+                    name="deliveryMethod"
+                    value="Nearest post office"
+                    required
+                    onClick={this.setDeliveryMethods.bind(this)} />
+                    <label className="input-radio-label">Nearest post office</label>
+                </li>
+                <li>
+                    <input className="input-radio"
+                    type="radio"
+                    name="deliveryMethod"
+                    value="Home delivery"
+                    required
+                    onClick={this.setDeliveryMethods.bind(this)} /> 
+                    <label className="input-radio-label">Home delivery</label>
+                    <br/>
+                </li>
+             </ul>
                 <h4>Select payment option: </h4>
                 <select required onChange={this.setPaymentMethod.bind(this)}>
                     <option value="PayPal">PayPal</option>
@@ -105,30 +113,40 @@ class DeliveryPaymentPage extends Component {
                 </select>
                 <br/>
                 <h4>Fill out your contact details: </h4>
+                <ul>
+                <li>
                     <label> First name: </label>
                     <input required type="text" name="firstname" minLength="2" maxLength="100" onChange={this.setContactDetails.bind(this)} />
+                </li>
+                <li>
                     <label> Last name: </label>
                     <input required type="text" name="lastname" minLength="2" maxLength="100" onChange={this.setContactDetails.bind(this)} />
-
+                </li>
+                <li>
                     <label> Phone number: </label>
                     <input required type="text" name="phonenumber" minLength="3" maxLength="40" onChange={this.setContactDetails.bind(this)}/>
-
+                </li>
+                <li>
                     <label> Email: </label>
                     <input required type="email" name="email" minLength="5" maxLength="50" onChange={this.setContactDetails.bind(this)}/>
-
+                </li>
+                <li>
                     <label> Address: </label>
                     <input required type="text" name="address" minLength="1" maxLength="100" onChange={this.setContactDetails.bind(this)}/>
-
+                </li>
+                <li>
                     <label> City: </label>
                     <input required type="text" name="city" minLength="1" maxLength="60" onChange={this.setContactDetails.bind(this)}/>
-
+                </li>
+                <li>
                     <label> Postal code: </label>
                     <input required type="text" pattern="[0-9]{5}" title="postal code containing 5 numbers" name="postalcode" minLength="5" maxLength="10" onChange={this.setContactDetails.bind(this)}/>
-
+                </li>
                     <div className="button-container">
                     {this.createReturnButton()}
                     <button type="submit">Continue to order review</button>
                     </div>
+                </ul>
             </form>
         </div>
         return contactAndDeliveryForm

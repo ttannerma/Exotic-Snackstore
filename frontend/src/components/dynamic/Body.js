@@ -3,7 +3,7 @@ import Item from './Item'
 
 const Body = (props) => {
     return (
-        <div id="main" className="generic-container mb3">
+        <div id="main">
         <Item category={props.category}/>
         </div>
     )
