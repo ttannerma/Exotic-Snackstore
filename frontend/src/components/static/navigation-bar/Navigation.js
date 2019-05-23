@@ -27,29 +27,43 @@ class Navigation extends Component{
   }
   isAdmin = () => {
     if(this.state.isLoggedIn === "admin") {
-      return <NavButton name="Admin" icon="fas fa-tools"/>
+      return <li><NavButton name="Admin" icon="fas fa-tools"/></li>
     } else {
       return null;
     }
+    /*
+    <DropDownMenu name="countries" className="countriesDD" 
+    items={this.state.countries} function={this.OpenDropDown}/>
+    <DropDownMenu name="categories" className="categoriesDD" 
+    items={this.state.categories} function={this.OpenDropDown}/>
+    <div className="search nav-item">
+      <SearchBar />
+    </div>
+    */
+  }
+  handleClick = () => {
+    const x = document.querySelector('.toggler');
+    x.checked = false; 
   }
   render(){
     return(
-      <nav>
-        <div className="myLinks">
-          <NavButton name="Home"/>
-          <DropDownMenu name="countries" className="countriesDD" 
-          items={this.state.countries} function={this.OpenDropDown}/>
-          <DropDownMenu name="categories" className="categoriesDD" 
-          items={this.state.categories} function={this.OpenDropDown}/>
-          <NavButton name="About" />
-          <NavButton name="Contact"/>
-          <div className="search nav-item">
-            <SearchBar />
+        <div className="menu-wrap">
+          <input type="checkbox" className="toggler"/>
+          <div className="hamburger"><div className="first-line"></div></div>
+          <div className="menu">
+            <div>
+              <div>
+                <ul onClick={() => {this.handleClick()}}>
+                  <li><NavButton name="Home"/></li>
+                  <li><NavButton name="About"/></li>
+                  <li><NavButton name="Contact"/></li>
+                  <this.isAdmin/>
+                  <li><this.LoginOrLogout/></li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <this.isAdmin />
-          <this.LoginOrLogout />
         </div>
-      </nav>
     )
   }
 }

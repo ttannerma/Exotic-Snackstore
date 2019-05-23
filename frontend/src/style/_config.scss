@@ -1,6 +1,8 @@
 $mint : #83E5CE;
 $orange: #FFA66E;
 $light-orange: lighten($orange, 10%); 
+$trans-orange: rgba(255, 166, 110, 0.85);
+$dark-trans-orange: darken($trans-orange, 40%);
 $yellow: #FFD350;
 $pink: 	#F2A6C4;
 $blue: #25B6CB;
@@ -11,6 +13,7 @@ $paragraph: Montserrat, 'Courier New', Courier, monospace;
 $itemInfoPadding: 10px;
 $itemImgWidth: 300px;
 $itemInfoMargin: 10px;
+$menu-speed: 0.75s;
 
 // Breakpoints >>
 // Small tablets and large smartphones (landscape view)

@@ -1,14 +1,9 @@
 .searchContent {
-  width: 100%;
-}
-
-.searchContent h1 {
-  margin-left: 5%;
-}
-
-@media (min-width: 992px) {
+  width: 100%; }
   .searchContent h1 {
-    margin-left: 10%;
-  }
-}
+    margin-left: 5%; }
+  @media (min-width: 992px) {
+    .searchContent h1 {
+      margin-left: 10%; } }
+
 /*# sourceMappingURL=search.css.map */
