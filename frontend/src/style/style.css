@@ -5,10 +5,6 @@
   background-color: #83E5CE;
 }
 
-.head * {
-  font-family: Montserrat, "Courier New", Courier, monospace;
-}
-
 .head header {
   width: 100%;
 }
@@ -228,12 +224,27 @@
   transition: color 0.4s ease;
 }
 
+.head .menu-wrap .menu > div > div > ul > li .search {
+  border-size: border-box;
+}
+
+.head .menu-wrap .menu > div > div > ul > li .search > input {
+  font-family: Montserrat, "Courier New", Courier, monospace;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
+
+.head .menu-wrap .menu > div > div > ul > li .search > .navbutton {
+  background-color: #FFA66E;
+  padding: 0.36rem 1rem 0.6rem 1rem;
+}
+
 .head .menu-wrap .menu > div > div > ul > li .dropdown {
   height: 1.5rem;
 }
 
-.head .menu-wrap .menu > div > div > ul > li .dropdown:hover > .dropdown-content {
-  visibility: visible;
+.head .menu-wrap .menu > div > div > ul > li .dropdown > .dropdown-content {
+  visibility: hidden;
 }
 
 .head .menu-wrap .menu > div > div > ul > li .dropdown button {

@@ -3,9 +3,6 @@
   max-width: 100%;
   min-height: 5rem;
   background-color: $mint;
-  * {
-    font-family: $paragraph;
-  }
   header{
     width: 100%;
     @include md {
@@ -182,12 +179,22 @@
           text-decoration: none;
           transition: color 0.4s ease;
         }
+        .search {
+          border-size: border-box;
+          > input {
+            font-family: $paragraph;
+            font-size: 1.2rem;
+            padding: 0.5rem;
+          }
+          > .navbutton {
+            background-color: $orange;
+            padding: 0.36rem 1rem 0.6rem 1rem;
+          }
+        }
         .dropdown {
           height: 1.5rem;
-          &:hover {
-            > .dropdown-content {
-              visibility: visible;
-            }
+          > .dropdown-content {
+            visibility: hidden;
           }
           button {
             border: none;
