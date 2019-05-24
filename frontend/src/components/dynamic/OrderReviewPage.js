@@ -6,7 +6,6 @@ class OrderReviewPage extends Component {
     constructor(props) {
         super(props)
         this.state = this.props.location.state
-        console.log(this.props.location.state)
     }
 
     componentDidMount() {
@@ -73,7 +72,7 @@ class OrderReviewPage extends Component {
         orderData.products = products
         axios.post('http://localhost:8080/orders/', orderData)
         .then(response => {
-            console.log(response);
+            
         })
         this.props.history.push('/order-success')
     }

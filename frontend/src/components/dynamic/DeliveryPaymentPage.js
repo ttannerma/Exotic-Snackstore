@@ -68,8 +68,6 @@ class DeliveryPaymentPage extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        console.log('submitted.')
-        console.log(this.state)
         this.props.history.push({
             pathname: '/cart/order-review'
             , state: this.state

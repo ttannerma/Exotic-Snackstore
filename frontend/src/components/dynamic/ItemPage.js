@@ -13,11 +13,6 @@ class ItemPage extends Component {
         this.setState({hasRated: false})
     }
 
-    // Contains item data which are passed to shopping cart.
-    saveItem = (productId) => {
-        console.log('product id: ' + productId,'amount to add or decrease: '+  this.state.value)
-    }
-    // Handles the event when incrementing product quantity within item container.
     handleChange = (event) => {
         this.setState({
             value: Number(event.target.value)
@@ -32,10 +27,8 @@ class ItemPage extends Component {
 
     handleRatingSubmit() {
         if (typeof this.state.newRating === "number") {
-            console.log('submitted number.', this.state.newRating)
             this.sendRating(this.state.newRating, (response) => {
-                console.log(response)
-                // this.setState({ rating: updatedRating})
+                
             })
         }
     }
