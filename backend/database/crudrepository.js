@@ -108,6 +108,7 @@ class CrudRepository {
         VALUES("${product.name}", ${product.price}, "${product.weight}", "${product.description}"
         , 0, "${product.category}", ${product.stock}, "${product.country}", "${product.allergies}", "${product.image}", 0, 0);`;
         */
+       
         const queryString = `INSERT INTO products(name, price, weight, description, 
         ratings, category, stock, country, allergies, imagepath, ratings_count, ratings_totalsum)`+
         'VALUES(' + this.connection.escape(product.name)+', ' + this.connection.escape(product.price) + ', ' + this.connection.escape(product.weight) + ', ' +  this.connection.escape(product.description) + ', '
