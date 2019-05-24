@@ -38,11 +38,15 @@ class Navigation extends Component{
     <div className="search nav-item">
       <SearchBar />
     </div>
+    <li><DropDownMenu name="countries" className="countriesDD" 
+                  items={this.state.countries} function={this.OpenDropDown(e)}/></li>
     */
   }
-  handleClick = () => {
-    const x = document.querySelector('.toggler');
-    x.checked = false; 
+  handleClick = (e) => { 
+    if(e.target.name !== 'search-input') {
+      const x = document.querySelector('.toggler');
+      x.checked = false;
+    }
   }
   render(){
     return(
@@ -52,10 +56,9 @@ class Navigation extends Component{
           <div className="menu">
             <div>
               <div>
-                <ul onClick={() => {this.handleClick()}}>
+                <ul onClick={(e) => {this.handleClick(e)}}>
+                  <li><SearchBar/></li>
                   <li><NavButton name="Home"/></li>
-                  <li><DropDownMenu name="countries" className="countriesDD" 
-                  items={this.state.countries} function={this.OpenDropDown}/></li>
                   <li><NavButton name="About"/></li>
                   <li><NavButton name="Contact"/></li>
                   <this.isAdmin/>
