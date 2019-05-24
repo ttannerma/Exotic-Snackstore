@@ -1,56 +1,96 @@
 .headline-generic h3 {
   font-size: 22px;
-  text-align: center; }
+  text-align: center;
+}
 
 .order-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 100%;
   margin-left: 0;
   margin-right: 0;
-  justify-content: center; }
-  .order-form h4 {
-    margin: auto;
-    margin-top: 2rem;
-    margin-bottom: 2rem; }
-  @media (min-width: 768px) {
-    .order-form {
-      width: 60%;
-      margin-left: 20%;
-      margin-right: 20%; } }
-  .order-form form {
-    display: flex;
-    flex-direction: column; }
-    .order-form form ul {
-      margin: auto;
-      padding-left: 0; }
-      .order-form form ul li {
-        list-style: none;
-        margin-top: 1rem;
-        margin: auto;
-        text-align: center; }
-        .order-form form ul li label {
-          display: block; }
-        .order-form form ul li input {
-          display: inline-block; }
-    .order-form form .form-ul li {
-      float: left; }
-      .order-form form .form-ul li .input-radio {
-        display: inline-block; }
-      .order-form form .form-ul li .input-radio-label {
-        display: inline-block;
-        margin-top: 2rem; }
-  .order-form .button-container {
-    margin-top: 2rem; }
-    .order-form .button-container button {
-      min-height: 3rem;
-      display: block;
-      margin: auto;
-      margin-top: 3rem;
-      color: white;
-      background: #FFA66E; }
-    .order-form .button-container button:hover {
-      background: #ffc5a1;
-      color: white; }
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 
+.order-form h4 {
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .order-form {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+
+.order-form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.order-form form ul {
+  margin: auto;
+  padding-left: 0;
+}
+
+.order-form form ul li {
+  list-style: none;
+  margin-top: 1rem;
+  margin: auto;
+  text-align: center;
+}
+
+.order-form form ul li label {
+  display: block;
+}
+
+.order-form form ul li input {
+  display: inline-block;
+}
+
+.order-form form .form-ul li {
+  float: left;
+}
+
+.order-form form .form-ul li .input-radio {
+  display: inline-block;
+}
+
+.order-form form .form-ul li .input-radio-label {
+  display: inline-block;
+  margin-top: 2rem;
+}
+
+.order-form .button-container {
+  margin-top: 2rem;
+}
+
+.order-form .button-container button {
+  min-height: 3rem;
+  display: block;
+  margin: auto;
+  margin-top: 3rem;
+  color: white;
+  background: #FFA66E;
+}
+
+.order-form .button-container button:hover {
+  background: #ffc5a1;
+  color: white;
+}
 /*# sourceMappingURL=payment-and-delivery.css.map */

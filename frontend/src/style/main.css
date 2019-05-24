@@ -1,63 +1,109 @@
 #main {
   width: 90%;
   margin-top: 2rem;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(1, auto);
-  grid-template-rows: repeat(auto, 1fr);
+  -ms-grid-columns: (auto)[1];
+      grid-template-columns: repeat(1, auto);
+  -ms-grid-rows: (1fr)[auto];
+      grid-template-rows: repeat(auto, 1fr);
   margin-left: 5%;
   margin-right: 5%;
   grid-row-gap: 0.5rem;
-  align-items: center; }
-  @media (min-width: 768px) {
-    #main {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(auto, auto);
-      grid-column-gap: 0.5rem; } }
-  @media (min-width: 992px) {
-    #main {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(auto, auto); } }
-  @media (min-width: 1200px) {
-    #main {
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(auto, auto); } }
-  #main .item {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    text-align: center;
-    min-height: 700px; }
-    #main .item a {
-      padding-top: 2rem; }
-      #main .item a img {
-        height: 200px; }
-    #main .item p {
-      margin: 0 auto 0 auto;
-      max-width: 250px;
-      height: 50px;
-      display: block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      text-align: center; }
-    #main .item form {
-      margin-top: 2rem; }
-      #main .item form button {
-        border: grey solid 1.5px;
-        background-color: #FFA66E;
-        color: white;
-        font-family: 'Montserrat';
-        font-weight: bold;
-        cursor: pointer; }
-      #main .item form button:hover {
-        background-color: #ffc5a1; }
-    #main .item h2 {
-      float: left; }
-      #main .item h2 span {
-        float: right;
-        padding-right: 1rem; }
-    #main .item i {
-      color: gold; }
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
 
+@media (min-width: 768px) {
+  #main {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: (auto)[auto];
+        grid-template-rows: repeat(auto, auto);
+    grid-column-gap: 0.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  #main {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: (auto)[auto];
+        grid-template-rows: repeat(auto, auto);
+  }
+}
+
+@media (min-width: 1200px) {
+  #main {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -ms-grid-rows: (auto)[auto];
+        grid-template-rows: repeat(auto, auto);
+  }
+}
+
+#main .item {
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+  min-height: 700px;
+}
+
+#main .item a {
+  padding-top: 2rem;
+}
+
+#main .item a img {
+  height: 200px;
+}
+
+#main .item p {
+  margin: 0 auto 0 auto;
+  max-width: 250px;
+  height: 50px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+
+#main .item form {
+  margin-top: 2rem;
+}
+
+#main .item form button {
+  border: grey solid 1.5px;
+  background-color: #FFA66E;
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#main .item form button:hover {
+  background-color: #ffc5a1;
+}
+
+#main .item h2 {
+  float: left;
+}
+
+#main .item h2 span {
+  float: right;
+  padding-right: 1rem;
+}
+
+#main .item i {
+  color: gold;
+}
 /*# sourceMappingURL=main.css.map */

@@ -2,37 +2,53 @@
   width: 100%;
   margin-left: 0;
   margin-right: 0;
-  word-wrap: break-word; }
-  .order-details h5, .order-details h3, .order-details p {
-    text-align: center; }
-  @media (min-width: 768px) {
-    .order-details {
-      width: 80%;
-      margin-left: 10%;
-      margin-right: 10%;
-      font-size: 18px; } }
-  @media (min-width: 992px) {
-    .order-details {
-      width: 60%;
-      margin-left: 20%;
-      margin-right: 20%;
-      font-size: 22px; } }
+  word-wrap: break-word;
+}
+
+.order-details h5, .order-details h3, .order-details p {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .order-details {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 992px) {
+  .order-details {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-size: 22px;
+  }
+}
 
 .button-container {
-  margin-top: 2rem; }
-  .button-container button {
-    width: 60%;
-    min-height: 3rem;
-    display: block;
-    margin: auto;
-    margin-top: 3rem;
-    color: white;
-    background: #FFA66E; }
-    @media (min-width: 576px) {
-      .button-container button {
-        width: 200px; } }
-  .button-container button:hover {
-    background-color: #ffc5a1;
-    color: white; }
+  margin-top: 2rem;
+}
 
+.button-container button {
+  width: 60%;
+  min-height: 3rem;
+  display: block;
+  margin: auto;
+  margin-top: 3rem;
+  color: white;
+  background: #FFA66E;
+}
+
+@media (min-width: 576px) {
+  .button-container button {
+    width: 200px;
+  }
+}
+
+.button-container button:hover {
+  background-color: #ffc5a1;
+  color: white;
+}
 /*# sourceMappingURL=order-review.css.map */

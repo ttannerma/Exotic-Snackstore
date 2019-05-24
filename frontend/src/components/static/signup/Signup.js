@@ -16,14 +16,10 @@ class Signup extends Component {
             )
           }}
         </Consumer>
-        <Link to="/login">Login</Link>
+        <Link to="/login" className="nav-link">Login</Link>
       </div>
     );
   }
 }
 
 export default Signup;
-/*<div>
-            <SignupForm addUser={addUser}/>
-            <Link to="/login">Login</Link>
-          </div> */

@@ -19,7 +19,7 @@ class Login extends Component {
             )
           }}
         </Consumer>
-        <Link to="/signup">Signup</Link>
+        <Link className="nav-link" to="/signup">Signup</Link>
       </div>
     );
   }

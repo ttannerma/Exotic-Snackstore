@@ -48,14 +48,14 @@ class SignupForm extends Component {
   }
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.onSubmit} className="login-form">
         <h1>Sign Up</h1>
 
         <div className="form-group">
           <label className="control-label">Username</label>
           <input onChange={this.onChange} value={this.state.username} 
           type="text" name="username" className="form-control"
-          required minLength="4"
+          required minLength="4" placeholder="Username..."
           />
         </div>
 
@@ -63,7 +63,7 @@ class SignupForm extends Component {
           <label className="control-label">Email</label>
           <input onChange={this.onChange} value={this.state.email} 
           type="email" name="email" className="form-control"
-          required
+          required placeholder="Email..."
           />
         </div>
 
@@ -71,7 +71,7 @@ class SignupForm extends Component {
           <label className="control-label">Password</label>
           <input onChange={this.onChange} value={this.state.password} 
           type="password" name="password" className="form-control"
-          required minLength="4"
+          required minLength="4" placeholder="Password..."
           />
         </div>
 

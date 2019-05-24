@@ -32,8 +32,7 @@ class Navigation extends Component{
       return null;
     }
     /*
-    <DropDownMenu name="countries" className="countriesDD" 
-    items={this.state.countries} function={this.OpenDropDown}/>
+    
     <DropDownMenu name="categories" className="categoriesDD" 
     items={this.state.categories} function={this.OpenDropDown}/>
     <div className="search nav-item">
@@ -55,6 +54,8 @@ class Navigation extends Component{
               <div>
                 <ul onClick={() => {this.handleClick()}}>
                   <li><NavButton name="Home"/></li>
+                  <li><DropDownMenu name="countries" className="countriesDD" 
+                  items={this.state.countries} function={this.OpenDropDown}/></li>
                   <li><NavButton name="About"/></li>
                   <li><NavButton name="Contact"/></li>
                   <this.isAdmin/>

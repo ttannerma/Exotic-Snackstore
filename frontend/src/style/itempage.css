@@ -1,40 +1,64 @@
 .itemPageContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 90%;
   margin-left: 5%;
   margin-right: 5%;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: white;
-  text-align: center; }
-  .itemPageContainer .itemAddForm button {
-    border: grey solid 1.5px;
-    background-color: #FFA66E;
-    color: white;
-    font-family: 'Montserrat';
-    font-weight: bold;
-    cursor: pointer; }
-  .itemPageContainer .itemAddForm button:hover {
-    background-color: #ffc5a1; }
-  .itemPageContainer i {
-    color: gold; }
-  .itemPageContainer img, .itemPageContainer p, .itemPageContainer h2, .itemPageContainer h3, .itemPageContainer .item-forms {
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%; }
-  .itemPageContainer img {
-    max-width: 200px; }
-  @media (min-width: 768px) {
-    .itemPageContainer {
-      width: 60%;
-      margin-left: 20%;
-      margin-right: 20%; }
-      .itemPageContainer img, .itemPageContainer p, .itemPageContainer h2, .itemPageContainer h3, .itemPageContainer .item-forms {
-        width: 60%;
-        margin-left: 20%;
-        margin-right: 20%; }
-      .itemPageContainer img {
-        max-width: 300px; } }
+  text-align: center;
+}
 
+.itemPageContainer .itemAddForm button {
+  border: grey solid 1.5px;
+  background-color: #FFA66E;
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.itemPageContainer .itemAddForm button:hover {
+  background-color: #ffc5a1;
+}
+
+.itemPageContainer i {
+  color: gold;
+}
+
+.itemPageContainer img, .itemPageContainer p, .itemPageContainer h2, .itemPageContainer h3, .itemPageContainer .item-forms {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.itemPageContainer img {
+  max-width: 200px;
+}
+
+@media (min-width: 768px) {
+  .itemPageContainer {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+  .itemPageContainer img, .itemPageContainer p, .itemPageContainer h2, .itemPageContainer h3, .itemPageContainer .item-forms {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+  .itemPageContainer img {
+    max-width: 300px;
+  }
+}
 /*# sourceMappingURL=itempage.css.map */
