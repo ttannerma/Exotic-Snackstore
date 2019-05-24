@@ -35,14 +35,14 @@ class LoginForm extends Component {
   }
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.onSubmit} className="login-form">
         <h1>Log In</h1>
 
         <div className="form-group">
           <label className="control-label">Username</label>
           <input onChange={this.onChange} value={this.state.username} 
             type="text" name="username" className="form-control"
-            required
+            placeholder="Username..." required
           />
         </div>
 
@@ -50,7 +50,7 @@ class LoginForm extends Component {
           <label className="control-label">Password</label>
           <input onChange={this.onChange} value={this.state.password} 
             type="password" name="password" className="form-control"
-            required
+            placeholder="Password..." required
           />
         </div>
 

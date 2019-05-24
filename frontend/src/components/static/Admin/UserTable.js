@@ -35,16 +35,18 @@ export default class UserTable extends Component {
   }
   renderTable = () => {
     return(
-      <table className="admin-table">
-        <tbody>
-          <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Action</th>
-          </tr>
-          {this.state.users}
-        </tbody>
+      <div className="table-overflow">
+        <table className="admin-table">
+          <tbody>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Action</th>
+            </tr>
+            {this.state.users}
+          </tbody>
         </table>
+      </div>
     )
   }
   render() {

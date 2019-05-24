@@ -43,18 +43,20 @@ export default class OrderTable extends Component {
   }
   renderTable = () => {
     return(
-      <table className="admin-table wh-bg">
-        <tbody>
-          <tr>
-            <th>ID</th>
-            <th>Lastname</th>
-            <th>Delivered</th>
-            <th className="fitwidth">Show Info</th>
-            <th className="fitwidth">Set to Delivered</th>         
-          </tr>
-          {this.state.orderTable}
-        </tbody>
-      </table>
+      <div className="table-overflow">
+        <table className="admin-table wh-bg">
+          <tbody>
+            <tr>
+              <th>ID</th>
+              <th>Lastname</th>
+              <th>Delivered</th>
+              <th className="fitwidth">Show Info</th>
+              <th className="fitwidth">Set to Delivered</th>         
+            </tr>
+            {this.state.orderTable}
+          </tbody>
+        </table>
+      </div>
     )
   }
   render() {

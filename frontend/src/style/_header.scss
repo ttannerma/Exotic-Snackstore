@@ -6,117 +6,197 @@
   * {
     font-family: $paragraph;
   }
-
   header{
-      width: 100%;
+    width: 100%;
+    @include md {
       text-align: center;
+    }
     h1 {
-      font-size: 3rem;
-      padding: 1rem 0 0 0;
+      display: inline-block;
+      font-size: 2.5rem;
+      padding: 1rem 0 0 1rem;
       margin: 0;
+      width: 70%;
+      font-family: Asul, "Lucida Sans", "Lucida Sans Regular", Geneva, Verdana, sans-serif;
     }
     img {
-      padding-left: 1rem;
       margin-bottom: 0.5rem;
       display: inline-block;
-      width: 10rem;
+      width: 4rem;
+      margin-bottom: -0.8rem;
     }
-}
-nav{
-  .dropdown:hover {
-    .dropbutton {
-      background-color: white;
-      color: $orange;
-    }
-    .dropdown-content {display: block;}
-  }
-    .nav-item{
-        position: relative;
-        display: inline-block;
-        color: white;
-        background: $orange;
-        
-        .dropdown-content{
-            text-decoration: none;
-            position: absolute;
-            z-index: 1;
-            color: $orange;
-            border: 1px solid grey;
-            :hover{
-                background-color: $orange;
-                color: white;
-            }
-            a{
-                padding: 1rem 1.5rem;
-                display: block;
-                background: white;
-                text-decoration: none;
-                color: black;
-                border-bottom: 1px solid grey;
-            }
-        }
-        button.dropbutton {
-            background: $orange;
-            color: white;
-            outline: inherit;
-            font-size: 1.5rem;
-            border: 1.5px solid grey;
-            padding: 0.5rem 1rem;
-            text-transform: capitalize;
-            
-            :hover {
-                background: lighten($orange, 35%);
-            }
-            .active{
-                background: white;
-                color: $orange;
-            }
-        }
-        .hidden{
-          display: none;
+    @include sm {
+      h1 {
+        font-size: 3rem;
+        width: auto;
       }
-        .active{
-            background: white;
-            color: $orange;
-        }
+      img {
+        margin: 1rem;
+        top: 3rem;
+        margin-top: 0;
+        margin-bottom: -1rem;
+      }
     }
-    .search{
-        a.navbutton {
-            float: right;
-            color: white;
-            background: $orange;
-            :hover {
-                background: lighten($orange, 35%);
-            }
+    @include lg {
+      h1 { font-size: 5rem;}
+      img {
+        width: 6rem;
+        margin-top: 0.5rem;
+        margin-bottom: -0.8rem;
+      }
+    }
+  }
+  .menu-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    .toggler {
+      position: absolute;
+      top: 13vh;
+      left: 0;
+      z-index: 2;
+      cursor: pointer;
+      width: 3rem;
+      height: 3rem;
+      opacity: 0;
+    }
+
+    .hamburger {
+      position: absolute;
+      top: 13vh;
+      left: 0;
+      z-index: 1;
+      width: 2rem;
+      height: 2rem;
+      padding: 1rem 0.5rem;
+      background-color: $orange;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      //Hamburger lines first-line = .hamburger > div
+      .first-line {
+        position: relative;
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+
+        //Top and bottom lines
+        &:before, &:after {
+          content: '';
+          position: absolute;
+          z-index: 1;
+          top: -10px;
+          width: 100%;
+          height: 2px;
+          background-color: inherit;
         }
-        .navbutton, input{
-            outline: inherit;
-            padding: 0.5rem 1rem;
+
+        //Moves one line down 
+        &:after {
+          top: 10px;
+        }
+
+      }
+    }
+
+    //Toggler animations
+    .toggler:checked + .hamburger > div {
+      transform: rotate(135deg);
+    }
+
+    //Turn lines into X
+    .toggler:checked + .hamburger > div:before,
+    .toggler:checked + .hamburger > div:after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+
+    //Rotate on hover when checked
+    .toggler:checked:hover + .hamburger > div {
+      transform: rotate(225deg);
+    }
+
+    //Show menu
+    .toggler:checked ~ .menu {
+      visibility: visible;
+
+      > div {
+        transform: scale(1);
+        transition: $menu-speed;
+
+        > div {
+          opacity: 1;
+          transition: opacity 0,4s ease;
+        }
+      }
+    }
+
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      visibility: hidden;
+      overflow: hidde;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > div {
+        background-color: $dark-trans-orange;
+        border-radius: 50%;
+        width: 200vw;
+        height: 200vw;
+        display: flex;
+        flex: none;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0);
+        transition: all 0.4s ease;
+      }
+
+      > div > div {
+        text-align: center;
+        max-width: 90vw;
+        max-height: 100vh;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      > div > div > ul > li {
+        list-style: none;
+        color: white;
+        font-size: 1.5rem;
+        padding: 1rem;
+
+        a, button {
+          color: inherit;
+          text-decoration: none;
+          transition: color 0.4s ease;
+        }
+        .dropdown {
+          height: 1.5rem;
+          &:hover {
+            > .dropdown-content {
+              visibility: visible;
+            }
+          }
+          button {
+            border: none;
+            background-color: transparent;
             font-size: 1.5rem;
-            :hover {
-                background: lighten($orange, 35%);
-            }
+            text-transform: capitalize;
+          }
         }
-        input {
-            width: max;
-            border: 1.5px solid grey;
-        }
+      }
     }
-    :hover {
-        background: lighten($orange, 35%)
-    }
-    .active{
-        background: white;
-        color: $orange;
-    }
-}
-.navbutton{
-    outline: inherit;
-    font-size: 1.5rem;
-    background: white;
-    border: 1.5px solid grey;
-    padding: 0.5rem 1rem;
-    text-transform: capitalize;
-    text-decoration: none;
-}
+  }
 }

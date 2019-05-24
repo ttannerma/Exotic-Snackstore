@@ -23,7 +23,6 @@ class CrudRepository {
             if(err) throw err;
             const queryString = `INSERT INTO Users(userType, name, email, password)
             VALUES('user', '${user.username}', '${user.email}', '${hash}');`;
-            console.log(queryString);
             this.connection.query(queryString, (error, result) => {
                 if(error) throw error;
                 callback(result);
@@ -45,7 +44,6 @@ class CrudRepository {
                 callback('404');
             } else {
                 this.comparePassword(user.password, result[0].password, (res) => {
-                    console.log(res);
                     if(!res) {
                         callback('403');
                     } else {
@@ -128,7 +126,6 @@ class CrudRepository {
         });
     }
     addOrder(userData, callback) {
-        console.log(userData);
         const queryString = `INSERT INTO orders (firstname, lastname, phonenumber, email, address,
             city, postalcode, paymentmethod, deliverymethod, products, totalprice)
             VALUES ('${userData.firstname}', '${userData.lastname}', '${userData.phonenumber}', '${userData.email}'

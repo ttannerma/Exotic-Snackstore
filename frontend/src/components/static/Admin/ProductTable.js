@@ -51,23 +51,25 @@ export default class ProductTable extends Component {
   }
   renderTable = () => {
     return (
-    <table className="admin-table">
-      <tbody>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Stock</th>
-          <th>Category</th>
-          <th>Country</th>
-          <th>Allergies</th>
-          <th>Ratings</th>
-          <th>Action</th>            
-        </tr>
-        {this.state.products}
-      </tbody>
-    </table>
+      <div className="table-overflow">
+        <table className="admin-table">
+          <tbody>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Stock</th>
+              <th>Category</th>
+              <th>Country</th>
+              <th>Allergies</th>
+              <th>Ratings</th>
+              <th>Action</th>            
+            </tr>
+            {this.state.products}
+          </tbody>
+        </table>
+    </div>
     )
   }
   render() {

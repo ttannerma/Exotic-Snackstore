@@ -2,10 +2,14 @@ h1 {
   font-size: 3rem;
 }
 .admin-tools {
-  display: flex;
-  justify-content: center;
+  margin: 0 auto;
   padding-bottom: 3rem;
+  @include lg {
+    display: flex;
+    justify-content: center;
+  }
   .tool{
+    margin: 0 auto;
       font-size: 2rem;
       text-align: center;
       border: grey solid 1px;
@@ -13,8 +17,11 @@ h1 {
       width: 12rem;
       background-color: $orange;
       color: white;
-      float: left;
-      margin-right: 3rem;
+      margin-bottom: 1rem;
+      @include lg{
+        float: left;
+        margin-right: 3rem;
+      }
   }
   .tool:hover {
       background-color: lighten($orange, 10%);
@@ -25,8 +32,11 @@ h1 {
       font-weight: bold;
   }
   .block{
-      display: block;
+    display: block;
   }
+}
+.table-overflow {
+  overflow-x: auto;
 }
 .admin-table {
   margin: 0 auto;
@@ -73,20 +83,25 @@ h1 {
   color: $orange;
   font-size: 2rem;
   font-weight: bolder;
-  margin-right: 3rem;
   display: flex;
   justify-content: center;
+  margin-left: -2rem;
 }
 h2 {
   font-size: 2rem;
 }
 .new-product-form {
-  margin-left: 2rem;
   width: 90%;
+  @include sm {
+    margin-left: 2rem;
+}
   .form-group {
       margin-bottom: 1rem;
       font-size: 1.5rem;
       width: 100%;
+      input {
+        box-sizing:border-box
+      }
       input, select {
         font-size: 1.5rem;
         width: 100%;
@@ -108,8 +123,9 @@ h2 {
           font-size: 1.5rem;
           font-weight: bold;
           cursor: pointer;
+          width: 100%;
       }
-      button:hover {
+      .submit-button:hover {
           background-color: lighten($orange, 10%)
       }
   }
